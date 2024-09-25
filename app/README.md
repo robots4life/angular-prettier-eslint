@@ -44,8 +44,36 @@ This project aims to provide sane defaults with regards to using Prettier and Es
 
 <a target="_blank" href="https://eslint.org/">https://eslint.org/</a>
 
+# 2. Node Prerequisites
 
-# 2. Install Angular CLI
+You need to have Node installed locally and available on your terminal.
+
+<a target="_blank" href="https://nodejs.org/en">https://nodejs.org/en</a>
+
+:bulb:
+
+To easily install Node and to switch between installed versions of Node **at ease** use just use **nvm**.
+
+<a target="_blank" href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a>
+
+Check your current Node version.
+
+```shell
+node --version
+```
+
+```shell
+v20.9.0
+```
+
+:bulb:
+
+Depending on the current date you might have to **update** your Node version.
+
+
+# 3. Install Angular CLI
+
+
 
 <a target="_blank" href="https://angular.dev/tools/cli/setup-local#install-the-angular-cli">https://angular.dev/tools/cli/setup-local#install-the-angular-cli</a>
 
@@ -53,7 +81,7 @@ This project aims to provide sane defaults with regards to using Prettier and Es
 npm install -g @angular/cli
 ```
 
-# 3. Create App
+# 4. Create App
 
 <a target="_blank" href="https://angular.dev/tools/cli/setup-local#create-a-workspace-and-initial-application">https://angular.dev/tools/cli/setup-local#create-a-workspace-and-initial-application</a>
 
@@ -107,7 +135,7 @@ CREATE app/public/favicon.ico (15086 bytes)
 Directory is already under version control. Skipping initialization of git.
 ```
 
-# 4. Run the App
+# 5. Run the App
 
 <a target="_blank" href="https://angular.dev/tools/cli/setup-local#run-the-application">https://angular.dev/tools/cli/setup-local#run-the-application</a>
 
