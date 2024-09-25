@@ -519,3 +519,11 @@ You should see output similar to this in the panel.
 }
 ["INFO" - 5:45:31 PM] Formatting completed in 32ms.
 ```
+
+This line is important in the output.
+
+```shell
+Detected local configuration (i.e. .prettierrc or .editorconfig), VS Code configuration will not be used
+```
+
+This means that the local `.prettierrc` file you created is being used to format the code according to the rules in that file.
