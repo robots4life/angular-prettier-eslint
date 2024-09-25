@@ -484,3 +484,38 @@ To open the `Output` panel hit `Ctrl + Shift + U`.
 From the dropdown, select `Prettier` to check for any error messages.
 
 <img src="/docs/data/003_prettier_task_output_Screenshot_20240925_172619.png">
+
+Go to file and hit `Ctrl + S` while having the Prettier task `Output` panel open.
+
+<a target="_blank" href="/app/src/app/app.component.ts">/app/src/app/app.component.ts</a>
+
+You should see output similar to this in the panel.
+
+```shell
+["INFO" - 5:45:31 PM] Formatting file:///angular-prettier-eslint/app/src/app/app.component.ts
+["INFO" - 5:45:31 PM] Using config file at /angular-prettier-eslint/app/.prettierrc
+["INFO" - 5:45:31 PM] PrettierInstance:
+{
+  "modulePath": "/angular-prettier-eslint/app/node_modules/prettier/index.cjs",
+  "messageResolvers": {},
+  "version": "3.3.3"
+}
+["INFO" - 5:45:31 PM] Using ignore file (if present) at /angular-prettier-eslint/.prettierignore
+["INFO" - 5:45:31 PM] File Info:
+{
+  "ignored": false,
+  "inferredParser": "typescript"
+}
+["INFO" - 5:45:31 PM] Detected local configuration (i.e. .prettierrc or .editorconfig), VS Code configuration will not be used
+["INFO" - 5:45:31 PM] Prettier Options:
+{
+  "filepath": "/angular-prettier-eslint/app/src/app/app.component.ts",
+  "parser": "typescript",
+  "useTabs": false,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "es5"
+}
+["INFO" - 5:45:31 PM] Formatting completed in 32ms.
+```
