@@ -99,8 +99,6 @@ Version: 18.2.0
 
 Publisher: Angular
 
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=Angular.ng-template
-
 Open the `Extensions` view by pressing `Ctrl + Shift + X`.
 
 Search for `Angular Language Service` and click `Install`.
@@ -117,8 +115,6 @@ Version: 11.0.0
 
 Publisher: Prettier
 
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
-
 Open the `Extensions` view by pressing `Ctrl + Shift + X`.
 
 Search for `Prettier - Code Formatter by Esben Petersen` and click `Install`.
@@ -134,8 +130,6 @@ Description: Spelling checker for source code
 Version: 3.0.1
 
 Publisher: Street Side Software
-
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
 
 # 4. Create App
 
