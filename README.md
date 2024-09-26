@@ -79,7 +79,9 @@ npm --version
 
 Depending on the current date you might have to **update** your Node and NPM version.
 
-# 3. Install Angular CLI, VS Code Angular Language Service and Code Spell Checker Extensions
+# 3. Install Angular CLI, VS Code Extensions Prettier, ESLint, Angular Language Service and Code Spell Checker
+
+---
 
 <a target="_blank" href="https://angular.dev/tools/cli/setup-local#install-the-angular-cli">https://angular.dev/tools/cli/setup-local#install-the-angular-cli</a>
 
@@ -87,21 +89,7 @@ Depending on the current date you might have to **update** your Node and NPM ver
 npm install -g @angular/cli
 ```
 
-<a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=Angular.ng-template">https://marketplace.visualstudio.com/items?itemName=Angular.ng-template</a>
-
-**Name: Angular Language Service**
-
-Id: Angular.ng-template
-
-Description: Editor services for Angular templates
-
-Version: 18.2.0
-
-Publisher: Angular
-
-Open the `Extensions` view by pressing `Ctrl + Shift + X`.
-
-Search for `Angular Language Service` and click `Install`.
+---
 
 <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode</a>
 
@@ -119,6 +107,40 @@ Open the `Extensions` view by pressing `Ctrl + Shift + X`.
 
 Search for `Prettier - Code Formatter by Esben Petersen` and click `Install`.
 
+---
+
+<a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint</a>
+
+**Name: ESLint**
+
+Id: dbaeumer.vscode-eslint
+
+Description: Integrates ESLint JavaScript into VS Code.
+
+Version: 3.0.10
+
+Publisher: Microsoft
+
+---
+
+<a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=Angular.ng-template">https://marketplace.visualstudio.com/items?itemName=Angular.ng-template</a>
+
+**Name: Angular Language Service**
+
+Id: Angular.ng-template
+
+Description: Editor services for Angular templates
+
+Version: 18.2.0
+
+Publisher: Angular
+
+Open the `Extensions` view by pressing `Ctrl + Shift + X`.
+
+Search for `Angular Language Service` and click `Install`.
+
+---
+
 <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker">https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker</a>
 
 **Name: Code Spell Checker**
@@ -130,6 +152,8 @@ Description: Spelling checker for source code
 Version: 3.0.1
 
 Publisher: Street Side Software
+
+---
 
 # 4. Create App
 
@@ -563,3 +587,11 @@ Detected local configuration (i.e. .prettierrc or .editorconfig), VS Code config
 ```
 
 This means that the local `.prettierrc` file you created is being used to format the code according to the rules in that file.
+
+# 7. ESLint
+
+<a target="_blank" href="https://eslint.org/">https://eslint.org/</a>
+
+ESLint is used to find and fix problems in your JavaScript code.
+
+## 7.1 Install ESLint
