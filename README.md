@@ -323,18 +323,54 @@ touch .prettierrc
 
 If you don't work on the terminal just create the file in VS Code.
 
-Add some basic formatting rules to the file.
+Add this configuration to the `.prettierrc` file.
 
 ```json
 {
-  "semi": true,
+  "printWidth": 240,
   "singleQuote": true,
+  "useTabs": false,
   "tabWidth": 2,
-  "trailingComma": "es5"
+  "semi": true,
+  "bracketSpacing": true,
+  "indent_style": "space",
+  "bracketSameLine": true,
+  "arrowParens": "always",
+  "trailingComma": "none",
+  "singleAttributePerLine": true
 }
 ```
 
-## 6.2 Run Prettier on Save
+## 6.2 Create a Basic Prettier Ignore File
+
+You may also want to create a `.prettierignore` file to specify which files or folders **should not be formatted by Prettier**.
+
+Create a new file `.prettierignore` in the project **root** directory, so the folder `app`.
+
+```shell
+cd app
+```
+
+```shell
+touch .prettierignore
+```
+
+Add this configuration to the `.prettierignore` file.
+
+```shell
+# Ignore artifacts:
+dist
+build
+coverage
+
+# Ignore all HTML files in the root
+/*.html
+
+# Ignore minified files
+*.min.js
+```
+
+## 6.3 Run Prettier on Save
 
 <a target="_blank" href="https://code.visualstudio.com/api/ux-guidelines/command-palette">https://code.visualstudio.com/api/ux-guidelines/command-palette</a>
 

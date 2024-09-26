@@ -1,0 +1,10 @@
+# Ignore artifacts:
+dist
+build
+coverage
+
+# Ignore all HTML files in the root
+/*.html
+
+# Ignore minified files
+*.min.js
