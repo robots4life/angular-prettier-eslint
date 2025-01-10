@@ -462,7 +462,7 @@ Here your `package.json` after you installed Prettier.
 
 Create a configuration file for Prettier to define the formatting rules.
 
-Create a new file `.prettierrc` in the project **root** directory, so the folder `app`.
+Create a new file `.prettierrc` in the project **root** directory of the app, so the folder `app`.
 
 ```shell
 cd app
@@ -602,25 +602,13 @@ Add this configuration to the `settings.json` file.
 }
 ```
 
-Now go to any TypeScript, JavaScript, HTML, CSS or JSON file and add a few tabs at a random place before some code.
-
-Hit `Ctrl + S`.
-
-You will see how the code is automatically formatted.
-
-If the code is not formatted then you most possibly have a global `settings.json` file in your VS Code profile.
-
-<a target="_blank" href="https://code.visualstudio.com/docs/editor/profiles">https://code.visualstudio.com/docs/editor/profiles</a>
+**Before** you can automatically format code you need to do one more thing.
 
 Hit `Ctrl + ,`.
 
-Click on the little file icon to open the `settings.json` file for the current active profile.
+Click on the little file icon to open the `settings.json` file for the current active profile, your **Angular** profile.
 
 <img src="/docs/data/002_open_profile_settings_json_Screenshot_20240925_172139.png">
-
-If you have not configured profiles then this is most likely your `Default` profile.
-
-Profiles are a great way to configure VS Code, check them out and get your own going.
 
 Also paste this configuration in there.
 
@@ -661,6 +649,8 @@ Now go to any TypeScript, JavaScript, HTML, CSS or JSON file and add a few tabs 
 Hit `Ctrl + S`.
 
 You will see how the code is automatically formatted.
+
+:tada:
 
 You can also check the `Output` for Prettier.
 
@@ -713,7 +703,7 @@ This line is important in the output.
 Detected local configuration (i.e. .prettierrc or .editorconfig), VS Code configuration will not be used
 ```
 
-This means that the local `.prettierrc` file you created is being used to format the code according to the rules in that file.
+This means that the local `.prettierrc` file you created for the project is being used to format the code according to the rules in that file.
 
 # 8. ESLint
 
