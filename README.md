@@ -66,6 +66,8 @@ node --version
 v20.17.0
 ```
 
+Check your current NPM version.
+
 ```shell
 npm --version
 ```
@@ -79,7 +81,51 @@ npm --version
 
 Depending on the current date you might have to **update** your Node and NPM version.
 
-# 3. Install Angular CLI, VS Code Extensions Prettier, ESLint, Angular Language Service and Code Spell Checker
+# 3. Create a new Angular Profile for your VS Code in your workspace
+
+Go to a path on your computer where you keep your work projects.
+
+Create a new folder called "angular" there.
+
+```shell
+mkdir angular
+```
+
+Open VS Code from this new `angular` folder.
+
+VS Code has a nifty feature called **Profiles**.
+
+<a target="_blank" href="https://code.visualstudio.com/docs/editor/profiles">https://code.visualstudio.com/docs/editor/profiles</a>
+
+<a target="_blank" href="https://code.visualstudio.com/docs/editor/profiles#_create-a-profile">https://code.visualstudio.com/docs/editor/profiles#\_create-a-profile</a>
+
+To create a new profile, open the Profiles editor and select the New Profile button.
+
+This opens the New Profile form, where you can enter a profile name, choose an icon, and configure the contents that are included in the new profile.
+
+Create a new Profile and name it **Angular**.
+
+<img src="/docs/data/004_create_angular_profile_vs_code_Screenshot_20250110_143715.png">
+
+Once you have created the new profile also select it for the current workspace.
+
+<img src="/docs/data/005_use_angular_profile_Screenshot_20250110_143908.png">
+
+A copy of the **Angular Profile** is also in this folder <a target="_blank" href="https://github.com/robots4life/angular-prettier-eslint/vscode-profile">https://github.com/robots4life/angular-prettier-eslint/vscode-profile</a>.
+
+# 3.1 Import a Profile for your VS Code workspace
+
+You can also **import** a VS Code Profile for your workspace.
+
+Open the Profiles editor and select the dropdown to import a profile.
+
+<img src="/docs/data/007_import_vscode_profile_Screenshot_20250110_150612.png">
+
+In the next step you can either select a file or import the profile from a URL.
+
+<img src="/docs/data/008_select_file_or_url_Screenshot_20250110_150704.png">
+
+# 4. Install Angular CLI, VS Code Extensions Prettier, ESLint, Angular Language Service, Code Spell Checker and Indenticator
 
 ---
 
@@ -131,7 +177,7 @@ Id: Angular.ng-template
 
 Description: Editor services for Angular templates
 
-Version: 18.2.0
+Version: 19.0.3
 
 Publisher: Angular
 
@@ -149,15 +195,47 @@ Id: streetsidesoftware.code-spell-checker
 
 Description: Spelling checker for source code
 
-Version: 3.0.1
+Version: 4.0.34
 
 Publisher: Street Side Software
 
 ---
 
-# 4. Create App
+<a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator">https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator</a>
+
+**Name: Indenticator**
+
+Id: SirTori.indenticator
+
+Description: Highlights your current indent depth
+
+Version: 0.7.0
+
+Publisher: SirTori
+
+---
+
+After you have installed all these extensions the Extensions view in your VS Code should look like this.
+
+<img src="/docs/data/006_installed_extensions_Screenshot_20250110_145826.png">
+
+# 5. Create App
 
 <a target="_blank" href="https://angular.dev/tools/cli/setup-local#create-a-workspace-and-initial-application">https://angular.dev/tools/cli/setup-local#create-a-workspace-and-initial-application</a>
+
+Create a new folder where you will install your app.
+
+```shell
+mkdir angular
+```
+
+Make sure you are inside this new `angular` folder.
+
+```shell
+cd angular
+```
+
+Then run the following command.
 
 ```shell
 ng new app
@@ -209,27 +287,66 @@ CREATE app/public/favicon.ico (15086 bytes)
 Directory is already under version control. Skipping initialization of git.
 ```
 
-# 5. Run the App
+# 6. Run the App
 
 <a target="_blank" href="https://angular.dev/tools/cli/setup-local#run-the-application">https://angular.dev/tools/cli/setup-local#run-the-application</a>
 
+Once you have installed the app in the `angular` folder you will see that there is a new folder called `app`.
+
+```shell
+drwxrwxr-x  4 user user 4.0K Jan 10 14:23 .
+drwxr-xr-x 75 user user 4.0K Jan 10 14:05 ..
+drwxrwxr-x  6 user user 4.0K Jan 10 14:24 app
+drwxrwxr-x  7 user user 4.0K Jan 10 14:13 .git
+```
+
+Make sure you are inside this new `app` folder.
+
+```shell
+cd app
+```
+
+Then run the following command.
+
 ```shell
 ng serve
+```
+
+You should have output similar to this on your terminal.
+
+```shell
+Initial chunk files | Names         |  Raw size
+polyfills.js        | polyfills     |  90.20 kB |
+main.js             | main          |  18.17 kB |
+styles.css          | styles        |  95 bytes |
+
+                    | Initial total | 108.47 kB
+
+Application bundle generation complete. [1.550 seconds]
+
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+  ➜  Local:   http://localhost:4200/
+  ➜  press h + enter to show help
 ```
 
 Open `http://localhost:4200/` in a browser of your choice.
 
 <img src="/docs/data/001_default_app_Screenshot_20240925_094448.png">
 
-# 6. Prettier
+# 7. Prettier
 
 <a target="_blank" href="https://prettier.io/">https://prettier.io/</a>
 
 Prettier is used to format the code, ideally to look prettier, it is used to enforce a style for the syntax.
 
+Prettier does not fix logical issues with your code, it is only used to format your code so that everyone in the team can get used to the code being presented in the same formatting style.
+
+Cognitive load between members of the team is greatly reduced once a good formatting for the code has been found.
+
 ## 6.1 Install Prettier
 
-Go to the project \*_root_ directory, so the folder `app`.
+Make sure you are inside the new `app` folder.
 
 ```shell
 cd app
@@ -240,6 +357,8 @@ Install Prettier as a development dependency.
 ```shell
 npm install --save-dev prettier
 ```
+
+Here your `package.json` before you installed Prettier.
 
 <a target="_blank" href="/app/package.json">/app/package.json</a>
 
@@ -285,6 +404,8 @@ npm install --save-dev prettier
   }
 }
 ```
+
+Here your `package.json` after you installed Prettier.
 
 **After**
 
@@ -367,7 +488,7 @@ Add this configuration to the `.prettierrc` file.
 
 ## 6.2 Create a Basic Prettier Ignore File
 
-You may also want to create a `.prettierignore` file to specify which files or folders **should not be formatted by Prettier**.
+You also want to create a `.prettierignore` file to specify which files or folders **should not be formatted by Prettier**.
 
 Create a new file `.prettierignore` in the project **root** directory, so the folder `app`.
 
@@ -588,10 +709,10 @@ Detected local configuration (i.e. .prettierrc or .editorconfig), VS Code config
 
 This means that the local `.prettierrc` file you created is being used to format the code according to the rules in that file.
 
-# 7. ESLint
+# 8. ESLint
 
 <a target="_blank" href="https://eslint.org/">https://eslint.org/</a>
 
 ESLint is used to find and fix problems in your JavaScript code.
 
-## 7.1 Install ESLint
+## 8.1 Install ESLint
