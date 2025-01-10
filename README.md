@@ -233,13 +233,7 @@ After you have installed all these extensions the Extensions view in your VS Cod
 
 <a target="_blank" href="https://angular.dev/tools/cli/setup-local#create-a-workspace-and-initial-application">https://angular.dev/tools/cli/setup-local#create-a-workspace-and-initial-application</a>
 
-Create a new folder where you will install your app.
-
-```shell
-mkdir angular
-```
-
-Make sure you are inside this new `angular` folder.
+Make sure you are inside the `angular` folder you previously created as the workspace for this project.
 
 ```shell
 cd angular
@@ -340,7 +334,9 @@ NOTE: Raw file sizes do not reflect development server per-request transformatio
   ➜  press h + enter to show help
 ```
 
-Open `http://localhost:4200/` in a browser of your choice.
+Open <a target="_blank" href="http://localhost:4200/">http://localhost:4200/</a> in a browser of your choice and you will be presented with the default Angular app.
+
+:tada:
 
 <img src="/docs/data/001_default_app_Screenshot_20240925_094448.png">
 
