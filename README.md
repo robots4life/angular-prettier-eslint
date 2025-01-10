@@ -111,7 +111,7 @@ Once you have created the new profile also select it for the current workspace.
 
 <img src="/docs/data/005_use_angular_profile_Screenshot_20250110_143908.png">
 
-A copy of the **Angular Profile** is also in this folder <a target="_blank" href="https://github.com/robots4life/angular-prettier-eslint/vscode-profile">https://github.com/robots4life/angular-prettier-eslint/vscode-profile</a>.
+A copy of the **Angular Profile** is also in this folder <a target="_blank" href="https://github.com/robots4life/angular-prettier-eslint/tree/main/vscode-profile">https://github.com/robots4life/angular-prettier-eslint/tree/main/vscode-profile</a>.
 
 # 3.1 Import a Profile for your VS Code workspace
 
