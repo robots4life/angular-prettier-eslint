@@ -125,6 +125,16 @@ In the next step you can either select a file or import the profile from a URL.
 
 <img src="/docs/data/008_select_file_or_url_Screenshot_20250110_150704.png">
 
+If you want to import the profile with a URL from this repository you need to use the raw link of where the profile is stored.
+
+<a target="_blank" href="https://raw.githubusercontent.com/robots4life/angular-prettier-eslint/refs/heads/main/vscode-profile/Angular.code-profile">https://raw.githubusercontent.com/robots4life/angular-prettier-eslint/refs/heads/main/vscode-profile/Angular.code-profile</a>
+
+`https://raw.githubusercontent.com/robots4life/angular-prettier-eslint/refs/heads/main/vscode-profile/Angular.code-profile`
+
+Simply paste this link in the dialog and hit enter.
+
+The newly imported profile will be listed in the view with all the profiles.
+
 # 4. Install Angular CLI, VS Code Extensions Prettier, ESLint, Angular Language Service, Code Spell Checker and Indenticator
 
 ---
