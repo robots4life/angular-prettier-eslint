@@ -987,7 +987,7 @@ the default in ESLint **v8**, **deprecated** in ESLint v9 **but still valid for 
 
 The <a target="_blank" href="/app/eslint.config.js">/app/eslint.config.js</a> file current has this content.
 
-```json
+```javascript
 // @ts-check
 const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
