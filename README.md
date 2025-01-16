@@ -711,4 +711,342 @@ This means that the local `.prettierrc` file you created for the project is bein
 
 ESLint is used to find and fix problems in your JavaScript code.
 
+ESLint is one of the most popular and powerful linters for JavaScript and TypeScript!
+
 ## 8.1 Install ESLint
+
+```shell
+ng lint
+```
+
+```shell
+Cannot find "lint" target for the specified project.
+You can add a package that implements these capabilities.
+
+For example:
+  ESLint: ng add @angular-eslint/schematics
+
+ Would you like to add ESLint now? yes
+✔ Determining Package Manager
+  › Using package manager: npm
+✔ Searching for compatible package version
+  › Found compatible package version: @angular-eslint/schematics@19.0.2.
+✔ Loading package information from registry
+✔ Confirming installation
+✔ Installing package
+
+    All angular-eslint dependencies have been successfully installed 🎉
+
+    Please see https://github.com/angular-eslint/angular-eslint for how to add ESLint configuration to your project.
+
+    We detected that you have a single project in your workspace and no existing linter wired up, so we are configuring ESLint for you automatically.
+
+    Please see https://github.com/angular-eslint/angular-eslint for more information.
+
+CREATE eslint.config.js (969 bytes)
+UPDATE package.json (1175 bytes)
+UPDATE angular.json (2877 bytes)
+✔ Packages installed successfully.
+```
+
+This installed <a target="_blank" href="https://github.com/angular-eslint/angular-eslint">https://github.com/angular-eslint/angular-eslint</a> for the app.
+
+Check your <a target="_blank" href="/app/package.json">/app/package.json</a> file to see what has been installed.
+
+**Before**
+
+```json
+{
+  "name": "app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.10"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.5",
+    "@angular/cli": "^18.2.5",
+    "@angular/compiler-cli": "^18.2.0",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.2.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "^3.3.3",
+    "typescript": "~5.5.2",
+    "typescript-eslint": "8.18.0"
+  }
+}
+```
+
+Here your `package.json` after you installed ESLint, that is <a target="_blank" href="https://github.com/angular-eslint/angular-eslint">https://github.com/angular-eslint/angular-eslint</a>.
+
+**After**
+
+```json
+{
+  "name": "app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.10"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.5",
+    "@angular/cli": "^18.2.5",
+    "@angular/compiler-cli": "^18.2.0",
+    "@types/jasmine": "~5.1.0",
+    "angular-eslint": "19.0.2", <=== ESLint is now installed as development dependency
+    "eslint": "^9.16.0", <=== ESLint is now installed as development dependency
+    "jasmine-core": "~5.2.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "^3.3.3",
+    "typescript": "~5.5.2",
+    "typescript-eslint": "8.18.0"
+  }
+}
+```
+
+Now lint the app again.
+
+```shell
+ng lint
+```
+
+```shell
+Linting "app"...
+
+All files pass linting
+```
+
+## 8.2 Confirm ESLint errors show in VS Code
+
+Open this file.
+
+<a target="_blank" href="/app/src/app/app.component.ts">/app/src/app/app.component.ts</a>
+
+```ts
+import { Component } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
+
+@Component({
+  selector: "app-root",
+  standalone: true,
+  imports: [RouterOutlet],
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.css",
+})
+export class AppComponent {
+  title = "app";
+}
+```
+
+Change
+
+```ts
+selector: "app-root",
+```
+
+to this.
+
+```ts
+selector: "root",
+```
+
+You should **immediately** see the error being **highlighted** in VS Code.
+
+<img src="/docs/data/009_eslint_error_in_vs_code_Screenshot_20250116_232320.png">
+
+**Confirm** ESLint works correct for you, then **reverse** the **changes**.
+
+Change
+
+```ts
+selector: "root",
+```
+
+back to
+
+```ts
+selector: "app-root",
+```
+
+again and make sure that the ESLint error is **gone**.
+
+You successfully added <a target="_blank" href="https://github.com/angular-eslint/angular-eslint">https://github.com/angular-eslint/angular-eslint</a> to the app and are now using ESLint to lint you app.
+
+What does the word `lint` mean at all and where does it come from ?
+
+Perhaps this article from WikiPedia gives you a better idea.
+
+<a target="_blank" href="https://en.wikipedia.org/wiki/Lint_(material)">https://en.wikipedia.org/wiki/Lint\_(material)</a>
+
+<img src="/docs/data/010_what_is_lint_Screenshot_20250116_234008.png">
+
+The fun in this is, the word `lint` is a **NOUN** but used as a verb in software development all the time when i.e. a fellow dev asks you `oh my gosh, have you at all linted your code` or `go lint you code`. :smile:
+
+## 8.3 angular-eslint packages
+
+Please follow the links below for the packages you care about.
+
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/angular-eslint/README.md">angular-eslint</a>
+
+- This is the core package that exposes most of the other packages below for the common use case of using angular-eslint with Angular CLI workspaces. It exposes all the tooling you need to work with ESLint v9 and typescript-eslint v8 with flat config in v18 of angular-eslint onwards. For versions of angular-eslint older than v18, or workspaces still using ESLint v8 and typescript-eslint v7 or the legacy eslintrc config format, you will use a combination of the packages below directly.
+
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/builder/README.md">@angular-eslint/builder</a>
+
+- An Angular CLI Builder which is used to execute ESLint on your Angular projects using standard commands such as ng lint
+
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin/README.md">@angular-eslint/eslint-plugin</a>
+
+- An ESLint-specific plugin that contains rules which are specific to Angular projects. It can be combined with any other ESLint plugins in the normal way.
+
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin-template/README.md">@angular-eslint/eslint-plugin-template</a>
+
+- An ESLint-specific plugin which, when used in conjunction with @angular-eslint/template-parser, allows for Angular template-specific linting rules to run.
+
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/schematics/README.md">@angular-eslint/schematics</a>
+
+- Schematics which are used to add and update configuration files which are relevant for running ESLint on an Angular workspace.
+
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/template-parser/README.md">@angular-eslint/template-parser/a>
+
+- An ESLint-specific parser which leverages the @angular/compiler to allow for custom ESLint rules to be written which assert things about your Angular templates.
+
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/test-utils/README.md">@angular-eslint/test-utils</a>
+
+- Utilities which are helpful when testing custom ESLint rules for Angular workspaces.
+
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/utils/README.md">@angular-eslint/utils</a>
+
+- Utilities which are helpful when writing custom ESLint rules for Angular workspaces.
+
+## 8.3 Configuring ESLint
+
+<a target="_blank" href="https://eslint.org/blog/2024/04/eslint-v9.0.0-released/">https://eslint.org/blog/2024/04/eslint-v9.0.0-released/</a>
+
+In version 9 of ESLint, the default configuration format has been changed to the so called "flat config" style using exclusively an `eslint.config.js` file as the only way of configuring a project.
+
+The legacy `eslintrc` style is now **deprecated**, but still fully supported.
+
+When it comes to configuring ESLint for your Angular projects you have two options and associated guides.
+
+**FLAT** configs
+
+the default in ESLint **v9**, **strongly recommended for new projects**
+
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md">https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md</a>
+
+**eslintrc** style configs
+
+the default in ESLint **v8**, **deprecated** in ESLint v9 **but still valid for existing projects**
+
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_ESLINTRC.md">https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_ESLINTRC.md</a>
+
+The <a target="_blank" href="/app/eslint.config.js">/app/eslint.config.js</a> file current has this content.
+
+```json
+// @ts-check
+const eslint = require("@eslint/js");
+const tseslint = require("typescript-eslint");
+const angular = require("angular-eslint");
+
+module.exports = tseslint.config(
+  {
+    files: ["**/*.ts"],
+    extends: [
+      eslint.configs.recommended,
+      ...tseslint.configs.recommended,
+      ...tseslint.configs.stylistic,
+      ...angular.configs.tsRecommended,
+    ],
+    processor: angular.processInlineTemplates,
+    rules: {
+      "@angular-eslint/directive-selector": [
+        "error",
+        {
+          type: "attribute",
+          prefix: "app",
+          style: "camelCase",
+        },
+      ],
+      "@angular-eslint/component-selector": [
+        "error",
+        {
+          type: "element",
+          prefix: "app",
+          style: "kebab-case",
+        },
+      ],
+    },
+  },
+  {
+    files: ["**/*.html"],
+    extends: [
+      ...angular.configs.templateRecommended,
+      ...angular.configs.templateAccessibility,
+    ],
+    rules: {},
+  }
+);
+```
+
+Instead of meticulously spending days, weeks and maybe months to find a good ESLint configuration this work can be left to industry professionals.
+
+There are two contenders in this space.
+
+**AirBnB**
+
+<a target="_blank" href="https://github.com/airbnb/javascript">https://github.com/airbnb/javascript</a>
+
+**Code PushUp**
+
+<a target="_blank" href="https://github.com/code-pushup/eslint-config">https://github.com/code-pushup/eslint-config</a>
+
+While the AirBnB config is more geared towards JavaScript and React the Copde PushUp config is geared particularly for Angular.
+
+Of course your team and you can also configure your own linting rules over the course of a project.
+
+For the sake of this guide the **Code PushUp** configuration will be used.
