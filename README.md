@@ -1279,7 +1279,7 @@ The rules are based on a number of best practice recommendations and resources i
 
 If you feel the provided ESLint configuration up to this point are **not enough** for your project you can continue to add even more configurations for ESLint with regards to Angular.
 
-Instead of meticulously spending days, weeks and maybe months to find a good ESLint configuration this work can be left to industry professionals.
+Instead of meticulously spending days, weeks and maybe months to find a good ESLint configuration this work can be left to experienced industry professionals.
 
 There are two contenders in this space.
 
@@ -1291,8 +1291,8 @@ There are two contenders in this space.
 
 <a target="_blank" href="https://github.com/code-pushup/eslint-config">https://github.com/code-pushup/eslint-config</a>
 
-While the AirBnB config is more geared towards JavaScript and React the Copde PushUp config is geared particularly for Angular.
+While the AirBnB config is more geared towards **JavaScript and React** the **Code PushUp config is geared particularly for Angular**.
 
 Of course your team and you can also configure your own linting rules over the course of a project.
 
-For the sake of this guide the **Code PushUp** configuration will be used.
+For the sake of this guide the **Code PushUp configuration will be used**.
