@@ -350,7 +350,7 @@ Prettier does not fix logical issues with your code, it is only used to format y
 
 Cognitive load between members of the team is greatly reduced once a good formatting for the code has been found.
 
-## 6.1 Install Prettier
+## 7.1 Install Prettier
 
 Make sure you are inside the new `app` folder.
 
@@ -458,7 +458,7 @@ Here your `package.json` after you installed Prettier.
 
 ```
 
-## 6.1 Create a Basic Prettier Configuration File
+## 7.2 Create a Basic Prettier Configuration File
 
 Create a configuration file for Prettier to define the formatting rules.
 
@@ -492,7 +492,7 @@ Add this configuration to the `.prettierrc` file.
 }
 ```
 
-## 6.2 Create a Basic Prettier Ignore File
+## 7.3 Create a Basic Prettier Ignore File
 
 You also want to create a `.prettierignore` file to specify which files or folders **should not be formatted by Prettier**.
 
@@ -521,7 +521,7 @@ coverage
 *.min.js
 ```
 
-## 6.3 Run Prettier on Save
+## 7.4 Run Prettier on Save
 
 <a target="_blank" href="https://code.visualstudio.com/api/ux-guidelines/command-palette">https://code.visualstudio.com/api/ux-guidelines/command-palette</a>
 
