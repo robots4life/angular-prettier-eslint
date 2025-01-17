@@ -963,7 +963,7 @@ Please follow the links below for the packages you care about.
 
 - Utilities which are helpful when writing custom ESLint rules for Angular workspaces.
 
-## 8.3 Configuring ESLint
+## 8.4 Configuring ESLint
 
 <a target="_blank" href="https://eslint.org/blog/2024/04/eslint-v9.0.0-released/">https://eslint.org/blog/2024/04/eslint-v9.0.0-released/</a>
 
@@ -1037,7 +1037,7 @@ This is the so called **FLAT** ESLint config.
 
 <a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md">https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md</a>
 
-### 8.3.1 Notes on ESLint Configuration
+### 8.4.1 Notes on ESLint Configuration
 
 These days with the flat config, ESLint has first class support for different types of files being configured differently (different rules and parsers)
 
@@ -1181,7 +1181,7 @@ module.exports = tseslint.config(
 );
 ```
 
-### 8.3.2 Premade flat configs
+### 8.4.2 Premade flat configs
 
 <a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/angular-eslint/src/configs/README.md">https://github.com/angular-eslint/angular-eslint/blob/main/packages/angular-eslint/src/configs/README.md</a>
 
@@ -1220,7 +1220,7 @@ It has been built based off of two main things:
 
 It is strongly encouraged to combine the **recommended** Angular rules with the _recommended_ configs from `typescript-eslint` (https://typescript-eslint.io/linting/configs/#recommended-configurations), and this is what our schematics will generate for you automatically.
 
-### 8.3.3 Altering the recommended set to suit your project
+### 8.4.3 Altering the recommended set to suit your project
 
 If you disagree with a rule (or it disagrees with your codebase), consider using your local config to change the rule config so it works for your project.
 
@@ -1263,7 +1263,7 @@ module.exports = tseslint.config(
 );
 ```
 
-### 8.3.4 `angular-eslint/template-accessibility`
+### 8.4.4 `angular-eslint/template-accessibility`
 
 These are all the rules within `@angular-eslint/eslint-plugin-template` which deal with things impacting the accessibility of your Angular apps.
 
@@ -1275,7 +1275,7 @@ The rules are based on a number of best practice recommendations and resources i
 
 - [Google Chrome - Audit Rules](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules)
 
-## 8.4 Additional ESLint Configurations
+## 8.5 Additional ESLint Configurations
 
 If you feel the provided ESLint configuration up to this point are **not enough** for your project you can continue to add even more configurations for ESLint with regards to Angular.
 
