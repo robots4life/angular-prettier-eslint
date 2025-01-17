@@ -985,7 +985,7 @@ the default in ESLint **v8**, **deprecated** in ESLint v9 **but still valid for 
 
 <a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_ESLINTRC.md">https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_ESLINTRC.md</a>
 
-The <a target="_blank" href="/app/eslint.config.js">/app/eslint.config.js</a> file current has this content.
+The <a target="_blank" href="/app/eslint.config.js">/app/eslint.config.js</a> file currently has this content.
 
 ```javascript
 // @ts-check
@@ -1032,6 +1032,252 @@ module.exports = tseslint.config(
   }
 );
 ```
+
+This is the so called **FLAT** ESLint config.
+
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md">https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md</a>
+
+### 8.3.1 Notes on ESLint Configuration
+
+These days with the flat config, ESLint has first class support for different types of files being configured differently (different rules and parsers)
+
+We can leverage this for Angular projects, because they:
+
+- use **TypeScript files** for source code
+- use a **custom/extended form of HTML** for templates (be they inline or external HTML files)
+
+The thing is: **ESLint understands neither of these things out of the box.**
+
+Fortunately, however, ESLint has clearly defined points of extensibility that we can leverage to make this all work.
+
+> For detailed information about ESLint plugins, parsers etc please review the official ESLint eslintrc config documentation: https://eslint.org/docs/latest/use/configure/
+
+**The key principle of our configuration required for Angular projects is that we need to run different blocks of configuration for different file types/extensions**.
+
+In other words, we don't want the same rules to apply on TypeScript files that we do on HTML/inline-templates.
+
+Therefore, our flat config will contain two entries, one for TS, one for HTML.
+
+We could provide these two entries directly in an exported array, but `typescript-eslint` provides an awesome typed utility function which makes writing our flat configs a lot nicer.
+
+So we will instead require the function and pass in multiple objects for our configuration.
+
+<a target="_blank" href="/app/eslint.config.js">/app/eslint.config.js</a>
+
+Copy all the comments into the **FLAT** ESLint config.
+
+**Before**
+
+```javascript
+// @ts-check
+const eslint = require("@eslint/js");
+const tseslint = require("typescript-eslint");
+const angular = require("angular-eslint");
+
+module.exports = tseslint.config(
+  {
+    files: ["**/*.ts"],
+    extends: [
+      eslint.configs.recommended,
+      ...tseslint.configs.recommended,
+      ...tseslint.configs.stylistic,
+      ...angular.configs.tsRecommended,
+    ],
+    processor: angular.processInlineTemplates,
+    rules: {
+      "@angular-eslint/directive-selector": [
+        "error",
+        {
+          type: "attribute",
+          prefix: "app",
+          style: "camelCase",
+        },
+      ],
+      "@angular-eslint/component-selector": [
+        "error",
+        {
+          type: "element",
+          prefix: "app",
+          style: "kebab-case",
+        },
+      ],
+    },
+  },
+  {
+    files: ["**/*.html"],
+    extends: [
+      ...angular.configs.templateRecommended,
+      ...angular.configs.templateAccessibility,
+    ],
+    rules: {},
+  }
+);
+```
+
+**After**
+
+```javascript
+// @ts-check
+
+// Allows us to bring in the recommended core rules from eslint itself
+const eslint = require("@eslint/js");
+
+// Allows us to use the typed utility for our config, and to bring in the recommended rules for TypeScript projects from typescript-eslint
+const tseslint = require("typescript-eslint");
+
+// Allows us to bring in the recommended rules for Angular projects from angular-eslint
+const angular = require("angular-eslint");
+
+// Export our config array, which is composed together thanks to the typed utility function from typescript-eslint
+module.exports = tseslint.config(
+  {
+    // Everything in this config object targets our TypeScript files (Components, Directives, Pipes etc)
+    files: ["**/*.ts"],
+    extends: [
+      // Apply the recommended core rules
+      eslint.configs.recommended,
+      // Apply the recommended TypeScript rules
+      ...tseslint.configs.recommended,
+      // Optionally apply stylistic rules from typescript-eslint that improve code consistency
+      ...tseslint.configs.stylistic,
+      // Apply the recommended Angular rules
+      ...angular.configs.tsRecommended,
+    ],
+    // Set the custom processor which will allow us to have our inline Component templates extracted
+    // and treated as if they are HTML files (and therefore have the .html config below applied to them)
+    processor: angular.processInlineTemplates,
+    // Override specific rules for TypeScript files (these will take priority over the extended configs above)
+    rules: {
+      "@angular-eslint/directive-selector": [
+        "error",
+        {
+          type: "attribute",
+          prefix: "app",
+          style: "camelCase",
+        },
+      ],
+      "@angular-eslint/component-selector": [
+        "error",
+        {
+          type: "element",
+          prefix: "app",
+          style: "kebab-case",
+        },
+      ],
+    },
+  },
+  {
+    // Everything in this config object targets our HTML files (external templates,
+    // and inline templates as long as we have the `processor` set on our TypeScript config above)
+    files: ["**/*.html"],
+    extends: [
+      // Apply the recommended Angular template rules
+      ...angular.configs.templateRecommended,
+      // Apply the Angular template rules which focus on accessibility of our apps
+      ...angular.configs.templateAccessibility,
+    ],
+    rules: {},
+  }
+);
+```
+
+### 8.3.2 Premade flat configs
+
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/angular-eslint/src/configs/README.md">https://github.com/angular-eslint/angular-eslint/blob/main/packages/angular-eslint/src/configs/README.md</a>
+
+These flat ESLint configs exist for your convenience.
+
+They contain configuration intended to save you time and effort when configuring your project by disabling rules known to conflict with this repository, or cause issues in Angular codebases.
+
+> NOTE: These configs are only compatible with `eslint.config.js` files, not eslintrc.
+
+> You should access the configs exported from the [`@angular-eslint/eslint-plugin`](https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin/src/configs) package for use in eslintrc files.
+
+#### `angular-eslint/ts-all` and `angular-eslint/template-all`
+
+Quite simply, these enable all the possible rules from `@angular-eslint/eslint-plugin` and `@angular-eslint/eslint-plugin-template` respectively.
+
+It is **unlikely** they will be applicable in real-world projects, but some folks find them useful to have as a reference.
+
+#### `angular-eslint/ts-recommended` and `angular-eslint/template-recommended`
+
+The recommended sets from `@angular-eslint/eslint-plugin` and `@angular-eslint/eslint-plugin-template` are **_opinionated_** sets of Angular-specific rules that we think you should use because:
+
+1. They help you adhere to Angular best practices.
+2. They help catch probable issue vectors in your code.
+
+That being said, it is not the only way to use `@angular-eslint/eslint-plugin` or `@angular-eslint/eslint-plugin-template`, nor is it the way that will necessarily work 100% for your project/company.
+
+It has been built based off of two main things:
+
+1. Angular best practices collected and collated from places like:
+
+   - [Angular repo](https://github.com/angular/angular).
+   - [Angular documentation](https://angular.dev).
+   - Advice from the **Angular Team at Google**.
+
+2. The combined state of community contributed rulesets at the time of creation.
+
+It is strongly encouraged to combine the **recommended** Angular rules with the _recommended_ configs from `typescript-eslint` (https://typescript-eslint.io/linting/configs/#recommended-configurations), and this is what our schematics will generate for you automatically.
+
+### 8.3.3 Altering the recommended set to suit your project
+
+If you disagree with a rule (or it disagrees with your codebase), consider using your local config to change the rule config so it works for your project.
+
+For example, if you want to turn off the `@angular-eslint/no-input-rename` TS rule, and turn off the '@angular-eslint/template/no-negated-async' template rule, you can add them to the applicable sections of the config and set them to "off" like this:
+
+**eslint.config.js**
+
+```js
+// @ts-check
+const eslint = require("@eslint/js");
+const tseslint = require("typescript-eslint");
+const angular = require("angular-eslint");
+
+module.exports = tseslint.config(
+  {
+    files: ["**/*.ts"],
+    extends: [
+      eslint.configs.recommended,
+      ...tseslint.configs.recommended,
+      ...tseslint.configs.stylistic,
+      ...angular.configs.tsRecommended,
+    ],
+    processor: angular.processInlineTemplates,
+    rules: {
+      // our project thinks using renaming inputs is ok
+      "@angular-eslint/no-input-rename": "off",
+    },
+  },
+  {
+    files: ["**/*.html"],
+    extends: [
+      ...angular.configs.templateRecommended,
+      ...angular.configs.templateAccessibility,
+    ],
+    rules: {
+      // our project thinks using negated async pipes is ok
+      "@angular-eslint/template/no-negated-async": "off",
+    },
+  }
+);
+```
+
+### 8.3.4 `angular-eslint/template-accessibility`
+
+These are all the rules within `@angular-eslint/eslint-plugin-template` which deal with things impacting the accessibility of your Angular apps.
+
+The rules are based on a number of best practice recommendations and resources including:
+
+- [W3C - Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/)
+
+- [Mozilla Developer Network - Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
+
+- [Google Chrome - Audit Rules](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules)
+
+## 8.4 Additional ESLint Configurations
+
+If you feel the provided ESLint configuration up to this point are **not enough** for your project you can continue to add even more configurations for ESLint with regards to Angular.
 
 Instead of meticulously spending days, weeks and maybe months to find a good ESLint configuration this work can be left to industry professionals.
 
