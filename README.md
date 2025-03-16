@@ -113,7 +113,7 @@ Once you have created the new profile also select it for the current workspace.
 
 A copy of the **Angular Profile** is also in this folder <a target="_blank" href="https://github.com/robots4life/angular-prettier-eslint/tree/main/vscode-profile">https://github.com/robots4life/angular-prettier-eslint/tree/main/vscode-profile</a>.
 
-# 3.1 Import a Profile for your VS Code workspace
+## 3.1 Import a Profile for your VS Code workspace
 
 You can also **import** a VS Code Profile for your workspace.
 
@@ -1500,4 +1500,14 @@ While the AirBnB config is more geared towards **JavaScript and React** the **Co
 
 Of course your team and you can also configure your own linting rules over the course of a project.
 
-For the sake of this guide the **Code PushUp configuration will be used**.
+# 9. Husky & lint-staged
+
+<a href="https://typicode.github.io/husky/">https://typicode.github.io/husky/</a>
+
+Husky enhances your commits and more 🐶 woof!
+
+Automatically lint your commit messages, code, and run tests upon committing or pushing.
+
+<a target="_blank" href="https://github.com/lint-staged/lint-staged">https://github.com/lint-staged/lint-staged</a>
+
+🚫💩 — Run tasks like formatters and linters against staged git files
