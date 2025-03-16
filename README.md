@@ -1508,10 +1508,6 @@ Husky enhances your commits and more 🐶 woof!
 
 Automatically lint your commit messages, code, and run tests upon committing or pushing.
 
-<a target="_blank" href="https://github.com/lint-staged/lint-staged">https://github.com/lint-staged/lint-staged</a>
-
-🚫💩 — Run tasks like formatters and linters against staged git files
-
 ## 9.1 Install and Configure Husky
 
 ```shell
@@ -1660,3 +1656,5 @@ By adding `exit 1` to the end of the `pre-commit` hook the Git commit is aborted
 # 10. Install and Configure lint-staged
 
 <a target="_blank" href="https://github.com/lint-staged/lint-staged">https://github.com/lint-staged/lint-staged</a>
+
+🚫💩 — Run tasks like formatters and linters against staged git files
