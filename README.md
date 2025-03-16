@@ -139,7 +139,7 @@ The newly imported profile will be listed in the view with all the profiles.
 
 ---
 
-**Angular CI**
+**Angular CLI**
 
 <a target="_blank" href="https://angular.dev/tools/cli/setup-local#install-the-angular-cli">https://angular.dev/tools/cli/setup-local#install-the-angular-cli</a>
 
@@ -1533,18 +1533,92 @@ npm install --save-dev husky
 ```
 
 ```shell
+npm run prepare
+```
+
+```shell
 npx husky init
 ```
 
 The init command simplifies setting up husky in a project.
 
-It creates a pre-commit script in `.husky/` and updates the prepare script in <a target="_blank" href="/app/package.json">/app/package.json</a>.
+It creates a pre-commit script in `.husky` and updates the prepare script in <a target="_blank" href="/app/package.json">/app/package.json</a>.
 
 Modifications can be made later to suit your workflow.
 
+**Add a Husky Hook**
+
+<a target="_blank" href="https://typicode.github.io/husky/how-to.html#adding-a-new-hook">https://typicode.github.io/husky/how-to.html#adding-a-new-hook</a>
+
+You can add a new hook by adding a corresponding file in the `.husky` folder of your repository.
+
+There are 17 Git Hooks.
+
+For each of these you can create a Husky Hook file, i.e. `post-commit` and hook into the exact Git operation that you need.
+
+1. **applypatch-msg** – Check patch message. _(e.g., verify format before applying patch)_
+2. **pre-applypatch** – Run before applying patch. _(e.g., run tests)_
+3. **post-applypatch** – After patch applied. _(e.g., notify team)_
+4. **pre-commit** – Before commit. _(e.g., lint code)_
+5. **prepare-commit-msg** – Edit commit message before editor opens. _(e.g., add ticket ID)_
+6. **commit-msg** – Check message after written. _(e.g., enforce message rules)_
+7. **post-commit** – After commit. _(e.g., show summary)_
+8. **pre-rebase** – Before rebase starts. _(e.g., check branch)_
+9. **post-checkout** – After checkout. _(e.g., setup env)_
+10. **post-merge** – After merge. _(e.g., re-install deps)_
+11. **pre-push** – Before push. _(e.g., run tests)_
+12. **pre-receive** – On remote before accepting push. _(e.g., validate code)_
+13. **update** – On remote for each branch. _(e.g., check access)_
+14. **post-receive** – After push on remote. _(e.g., deploy)_
+15. **post-update** – After update on remote. _(e.g., notify services)_
+16. **push-to-checkout** – During `git push` with `--checkout`. _(e.g., custom behavior)_
+17. **pre-auto-gc** – Before auto garbage collection. _(e.g., log cleanup)_
+
+**Managing Multiple Git Hooks with Husky**
+
+When you have multiple Git hooks, you don't need to manually select which hook to use before committing - Git will automatically run all configured pre-commit hooks in sequence. Here's how it works and how to manage multiple hooks:
+
+**Understanding Git Hooks Execution**
+
+Git hooks are executed automatically at specific points in your Git workflow. For the pre-commit stage:
+
+1. When you run `git commit`, Git automatically checks for and executes all pre-commit hooks
+2. All hooks must succeed (exit with code 0) for the commit to proceed
+3. If any hook fails, the commit is aborted
+
+**Setting Up Multiple Pre-commit Hooks with Husky**
+
+The simplest approach is to add multiple commands to your pre-commit hook file:
+
+```shell
+# .husky/pre-commit
+
+# Run lint-staged
+npx lint-staged
+
+# Run additional checks
+npm run test:quick
+
+# Run additional checks
+npm run type-check
+```
+
+This way, all commands run sequentially when you commit.
+
+**Skip Git Hooks**
+
+The `-n` or `--no-verify` flag skips Git hooks like `pre-commit` and `commit-msg`.
+
+```shell
+# Skips Git hooks
+git commit -m "..." -n
+```
+
+**Project is Not in the Root Directory**
+
 <a target="_blank" href="https://typicode.github.io/husky/how-to.html#project-not-in-git-root-directory">https://typicode.github.io/husky/how-to.html#project-not-in-git-root-directory</a>
 
-In the case of this repository the `/app` folder is where Husky is installed as that is the location where the `package.json` file is.
+In the case of this repository the `/app` folder is where Husky is installed as that is the location where the `package.json` file is, so this is the project folder.
 
 However Git is in the root folder.
 
@@ -1560,7 +1634,7 @@ In this case prepare Husky so that Git is run from the root folder..
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "prepare": "cd .. && husky app/.husky"
+    "prepare": "cd .. && husky app/.husky" <=== move to root directory and tell husky where the .husky folder is
   }
 ```
 
@@ -1577,16 +1651,12 @@ npm test
 exit 1
 ```
 
+This is just needed in this demo repository where an Angular app is in `app/`.
+
 <a target="_blank" href="https://typicode.github.io/husky/how-to.html#testing-hooks-without-committing">https://typicode.github.io/husky/how-to.html#testing-hooks-without-committing</a>
 
 By adding `exit 1` to the end of the `pre-commit` hook the Git commit is aborted, so you can test your hooks like this.
 
-Now that Husky is installed and the test hook is working I still like to commit the changes.
+## 9.2 Install and Configure lint-staged
 
-<a target="_blank" href="https://typicode.github.io/husky/how-to.html#skipping-git-hooks">https://typicode.github.io/husky/how-to.html#skipping-git-hooks</a>
-
-To skip git hooks simply add the `-n` flag at the end of the git command.
-
-```shell
-git commit -m "..." -n # Skips Git hooks
-```
+<a target="_blank" href="https://github.com/lint-staged/lint-staged">https://github.com/lint-staged/lint-staged</a>
