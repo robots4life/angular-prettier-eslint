@@ -1500,7 +1500,7 @@ While the AirBnB config is more geared towards **JavaScript and React** the **Co
 
 Of course your team and you can also configure your own linting rules over the course of a project.
 
-# 9. Husky & lint-staged
+# 9. Husky
 
 <a href="https://typicode.github.io/husky/">https://typicode.github.io/husky/</a>
 
@@ -1546,13 +1546,13 @@ It creates a pre-commit script in `.husky` and updates the prepare script in <a 
 
 Modifications can be made later to suit your workflow.
 
-**Add a Husky Hook**
+## 9.2 Add a Husky Hook
 
 <a target="_blank" href="https://typicode.github.io/husky/how-to.html#adding-a-new-hook">https://typicode.github.io/husky/how-to.html#adding-a-new-hook</a>
 
 You can add a new hook by adding a corresponding file in the `.husky` folder of your repository.
 
-There are 17 Git Hooks.
+## 9.3 There are 17 Git Hooks
 
 For each of these you can create a Husky Hook file, i.e. `post-commit` and hook into the exact Git operation that you need.
 
@@ -1586,7 +1586,7 @@ Git hooks are executed automatically at specific points in your Git workflow. Fo
 2. All hooks must succeed (exit with code 0) for the commit to proceed
 3. If any hook fails, the commit is aborted
 
-**Setting Up Multiple Pre-commit Hooks with Husky**
+## 9.4 Setting Up Multiple Pre-commit Hooks with Husky
 
 The simplest approach is to add multiple commands to your pre-commit hook file:
 
@@ -1614,7 +1614,7 @@ The `-n` or `--no-verify` flag skips Git hooks like `pre-commit` and `commit-msg
 git commit -m "..." -n
 ```
 
-**Project is Not in the Root Directory**
+## 9.5 Project is Not in the Root Directory
 
 <a target="_blank" href="https://typicode.github.io/husky/how-to.html#project-not-in-git-root-directory">https://typicode.github.io/husky/how-to.html#project-not-in-git-root-directory</a>
 
@@ -1657,6 +1657,6 @@ This is just needed in this demo repository where an Angular app is in `app/`.
 
 By adding `exit 1` to the end of the `pre-commit` hook the Git commit is aborted, so you can test your hooks like this.
 
-## 9.2 Install and Configure lint-staged
+# 10. Install and Configure lint-staged
 
 <a target="_blank" href="https://github.com/lint-staged/lint-staged">https://github.com/lint-staged/lint-staged</a>
