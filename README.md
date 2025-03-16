@@ -63,7 +63,7 @@ node --version
 ```
 
 ```shell
-v20.17.0
+v22.14.0
 ```
 
 Check your current NPM version.
@@ -73,7 +73,7 @@ npm --version
 ```
 
 ```shell
-10.8.2
+10.9.2
 
 ```
 
@@ -139,6 +139,8 @@ The newly imported profile will be listed in the view with all the profiles.
 
 ---
 
+**Angular CI**
+
 <a target="_blank" href="https://angular.dev/tools/cli/setup-local#install-the-angular-cli">https://angular.dev/tools/cli/setup-local#install-the-angular-cli</a>
 
 ```shell
@@ -163,6 +165,16 @@ Open the `Extensions` view by pressing `Ctrl + Shift + X`.
 
 Search for `Prettier - Code Formatter by Esben Petersen` and click `Install`.
 
+In VS Code you can also install the extension via these two commands.
+
+```shell
+Ctrl + Shift + P
+```
+
+```shell
+ext install esbenp.prettier-vscode
+```
+
 ---
 
 <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint</a>
@@ -176,6 +188,16 @@ Description: Integrates ESLint JavaScript into VS Code.
 Version: 3.0.10
 
 Publisher: Microsoft
+
+In VS Code you can also install the extension via these two commands.
+
+```shell
+Ctrl + Shift + P
+```
+
+```shell
+ext install dbaeumer.vscode-eslint
+```
 
 ---
 
@@ -195,6 +217,16 @@ Open the `Extensions` view by pressing `Ctrl + Shift + X`.
 
 Search for `Angular Language Service` and click `Install`.
 
+In VS Code you can also install the extension via these two commands.
+
+```shell
+Ctrl + Shift + P
+```
+
+```shell
+ext install Angular.ng-template
+```
+
 ---
 
 <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker">https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker</a>
@@ -209,6 +241,169 @@ Version: 4.0.34
 
 Publisher: Street Side Software
 
+In VS Code you can also install the extension via these two commands.
+
+```shell
+Ctrl + Shift + P
+```
+
+```shell
+ext install streetsidesoftware.code-spell-checker
+```
+
+**Code Spell Checker has Dictionaries for Languages**
+
+<a target="_blank" href="https://github.com/streetsidesoftware/cspell-dicts">https://github.com/streetsidesoftware/cspell-dicts</a>
+
+First of all let's have a look at your globally installed packages.
+
+Open a terminal and type the following command.
+
+```shell
+npm list -g --depth=0
+```
+
+<a target="_blank" href="https://cspell.org/docs/installation">https://cspell.org/docs/installation</a>
+
+```shell
+npm install -g cspell@latest
+```
+
+This will list you all the packages that are currently installed globally for the current version of Node that you are running.
+
+If you switch your Node version do not forget to install the packages you like or need to have installed globally for that Node version.
+
+Here is an example output on a Linux system that uses **Node Version Manager**.
+
+**Node Version Manager** is a **very handy tool** that very easily lets you manage the current version of Node for your development environment.
+
+If you are not using **Node Version Manager** you are wasting your own time.
+
+<a target="_blank" href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a>
+
+From the output we can see that Node version 22.14.0 is used and `@angular/cli@19.2.1` as well as `npm@10.9.2` are **globally** installed packages.
+
+```shell
+/home/user/.nvm/versions/node/v22.14.0/lib
+├── @angular/cli@19.2.1
+└── npm@10.9.2
+```
+
+For **Code Spell Checker** to be able to correct spelling in different languages you need to install the corresponding dictionaries as global packages.
+
+Let's install the following dictionaries.
+
+<a target="_blank" href="https://github.com/streetsidesoftware/cspell-dicts/tree/main/dictionaries/de_CH">https://github.com/streetsidesoftware/cspell-dicts/tree/main/dictionaries/de_CH</a>
+
+```shell
+npm install -g @cspell/dict-de-ch
+```
+
+```shell
+cspell link add @cspell/dict-de-ch
+```
+
+```shell
+npm list -g --depth=0
+```
+
+```shell
+Adding:
+filename                                                                                   | errors
+/home/user/.nvm/versions/node/v22.14.0/lib/node_modules/@cspell/dict-de-ch/cspell-ext.json |
+```
+
+```shell
+npm install -g @cspell/dict-en-gb
+```
+
+```shell
+cspell link add @cspell/dict-en-gb
+```
+
+```shell
+npm list -g --depth=0
+```
+
+You terminal will more or less look like this.
+
+```shell
+user@userbox  ~  npm install -g cspell@latest
+
+added 121 packages in 1s
+
+14 packages are looking for funding
+  run `npm fund` for details
+
+user@userbox  ~  npm list -g --depth=0
+/home/user/.nvm/versions/node/v22.14.0/lib
+├── @angular/cli@19.2.1
+├── cspell@8.17.5
+└── npm@10.9.2
+
+
+user@userbox  ~  npm install -g @cspell/dict-de-ch
+
+added 1 package in 242ms
+
+user@userbox  ~  npm list -g --depth=0
+/home/user/.nvm/versions/node/v22.14.0/lib
+├── @angular/cli@19.2.1
+├── @cspell/dict-de-ch@1.2.3
+├── cspell@8.17.5
+└── npm@10.9.2
+
+
+user@userbox  ~  cspell link add @cspell/dict-de-ch
+Adding:
+filename                                                                                   | errors
+/home/user/.nvm/versions/node/v22.14.0/lib/node_modules/@cspell/dict-de-ch/cspell-ext.json |
+
+user@userbox  ~  npm install -g @cspell/dict-en-gb
+
+added 1 package in 1s
+
+user@userbox  ~  cspell link add @cspell/dict-en-gb
+Adding:
+filename                                                                                                       | errors
+/home/user/.nvm/versions/node/v22.14.0/lib/node_modules/cspell/node_modules/@cspell/dict-en-gb/cspell-ext.json |
+
+user@userbox  ~  npm list -g --depth=0
+/home/user/.nvm/versions/node/v22.14.0/lib
+├── @angular/cli@19.2.1
+├── @cspell/dict-de-ch@1.2.3
+├── @cspell/dict-en-gb@4.1.58
+├── cspell@8.17.5
+└── npm@10.9.2
+```
+
+You have now installed the **Swiss German** and **British English** dictionaries for **Code Spell Checker**.
+
+If you like to remove packages from your global installation you can use these commands. Do not specify a version number when removing global packages as that will fail with their removal.
+
+```shell
+npm uninstall -g @cspell/dict-de-ch
+
+npm uninstall -g @cspell/dict-en-gb
+
+npm uninstall -g cspell
+
+npm uninstall -g @angular/cli
+```
+
+On Linux you can check the `~/.config/cspell/cspell.json` file for a list of imported dictionaries.
+
+```json
+{
+  "import": [
+    "/home/user/.nvm/versions/node/v22.14.0/lib/node_modules/@cspell/dict-de-ch/cspell-ext.json",
+    "/home/user/.nvm/versions/node/v22.14.0/lib/node_modules/cspell/node_modules/@cspell/dict-en-gb/cspell-ext.json"
+  ]
+}
+```
+
+Update this file if you remove globally installed dictionaries as you will otherwise try to import a dictionary that is not installed and that will lead to an error.
+
 ---
 
 <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator">https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator</a>
@@ -222,6 +417,16 @@ Description: Highlights your current indent depth
 Version: 0.7.0
 
 Publisher: SirTori
+
+In VS Code you can also install the extension via these two commands.
+
+```shell
+Ctrl + Shift + P
+```
+
+```shell
+ext install SirTori.indenticator
+```
 
 ---
 
