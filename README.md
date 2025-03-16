@@ -1528,7 +1528,7 @@ npm install --save-dev husky
   "watch": "ng build --watch --configuration development",
   "test": "ng test",
   "lint": "ng lint",
-  "prepare": "husky install" <== add husky install as prepare script
+  "prepare": "husky" <== add husky install as prepare script
 }
 ```
 
@@ -1541,3 +1541,52 @@ The init command simplifies setting up husky in a project.
 It creates a pre-commit script in `.husky/` and updates the prepare script in <a target="_blank" href="/app/package.json">/app/package.json</a>.
 
 Modifications can be made later to suit your workflow.
+
+<a target="_blank" href="https://typicode.github.io/husky/how-to.html#project-not-in-git-root-directory">https://typicode.github.io/husky/how-to.html#project-not-in-git-root-directory</a>
+
+In the case of this repository the `/app` folder is where Husky is installed as that is the location where the `package.json` file is.
+
+However Git is in the root folder.
+
+In this case prepare Husky so that Git is run from the root folder..
+
+<a target="_blank" href="/app/package.json">/app/package.json</a>
+
+```json
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint",
+    "prepare": "cd .. && husky app/.husky"
+  }
+```
+
+.. and in the `pre-commit` hook change the folder back to where the app is.
+
+<a target="_blank" href="/app/.husky/pre-commit">/app/.husky/pre-commit</a>
+
+```shell
+# app/.husky/pre-commit
+cd app
+
+npm test
+
+exit 1
+```
+
+<a target="_blank" href="https://typicode.github.io/husky/how-to.html#testing-hooks-without-committing">https://typicode.github.io/husky/how-to.html#testing-hooks-without-committing</a>
+
+By adding `exit 1` to the end of the `pre-commit` hook the Git commit is aborted, so you can test your hooks like this.
+
+Now that Husky is installed and the test hook is working I still like to commit the changes.
+
+<a target="_blank" href="https://typicode.github.io/husky/how-to.html#skipping-git-hooks">https://typicode.github.io/husky/how-to.html#skipping-git-hooks</a>
+
+To skip git hooks simply add the `-n` flag at the end of the git command.
+
+```shell
+git commit -m "..." -n # Skips Git hooks
+```
