@@ -1,0 +1,6 @@
+# app/.husky/pre-commit
+cd app
+
+npm test
+
+exit 1
