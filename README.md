@@ -1500,7 +1500,7 @@ While the AirBnB config is more geared towards **JavaScript and React** the **Co
 
 Of course your team and you can also configure your own linting rules over the course of a project.
 
-# 9. Husky & lint-staged
+# 9. Husky
 
 <a href="https://typicode.github.io/husky/">https://typicode.github.io/husky/</a>
 
@@ -1657,6 +1657,6 @@ This is just needed in this demo repository where an Angular app is in `app/`.
 
 By adding `exit 1` to the end of the `pre-commit` hook the Git commit is aborted, so you can test your hooks like this.
 
-## 9.2 Install and Configure lint-staged
+# 10. Install and Configure lint-staged
 
 <a target="_blank" href="https://github.com/lint-staged/lint-staged">https://github.com/lint-staged/lint-staged</a>
