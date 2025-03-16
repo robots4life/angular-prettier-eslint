@@ -1511,3 +1511,33 @@ Automatically lint your commit messages, code, and run tests upon committing or 
 <a target="_blank" href="https://github.com/lint-staged/lint-staged">https://github.com/lint-staged/lint-staged</a>
 
 🚫💩 — Run tasks like formatters and linters against staged git files
+
+## 9.1 Install and Configure Husky
+
+```shell
+npm install --save-dev husky
+```
+
+<a target="_blank" href="/app/package.json">/app/package.json</a>
+
+```json
+"scripts": {
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "lint": "ng lint",
+  "prepare": "husky install" <== add husky install as prepare script
+}
+```
+
+```shell
+npx husky init
+```
+
+The init command simplifies setting up husky in a project.
+
+It creates a pre-commit script in `.husky/` and updates the prepare script in <a target="_blank" href="/app/package.json">/app/package.json</a>.
+
+Modifications can be made later to suit your workflow.
