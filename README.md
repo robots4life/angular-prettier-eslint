@@ -295,6 +295,8 @@ Let's install the following dictionaries.
 
 <a target="_blank" href="https://github.com/streetsidesoftware/cspell-dicts/tree/main/dictionaries/de_CH">https://github.com/streetsidesoftware/cspell-dicts/tree/main/dictionaries/de_CH</a>
 
+**de-ch**
+
 ```shell
 npm install -g @cspell/dict-de-ch
 ```
@@ -304,13 +306,15 @@ cspell link add @cspell/dict-de-ch
 ```
 
 ```shell
-npm list -g --depth=0
-```
-
-```shell
 Adding:
 filename                                                                                   | errors
 /home/user/.nvm/versions/node/v22.14.0/lib/node_modules/@cspell/dict-de-ch/cspell-ext.json |
+```
+
+**en-gb**
+
+```shell
+npm list -g --depth=0
 ```
 
 ```shell
@@ -319,6 +323,12 @@ npm install -g @cspell/dict-en-gb
 
 ```shell
 cspell link add @cspell/dict-en-gb
+```
+
+```shell
+Adding:
+filename                                                                                                       | errors
+/home/user/.nvm/versions/node/v22.14.0/lib/node_modules/cspell/node_modules/@cspell/dict-en-gb/cspell-ext.json |
 ```
 
 ```shell
