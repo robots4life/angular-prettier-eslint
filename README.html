@@ -1,0 +1,1172 @@
+<!DOCTYPE html><html><head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/user/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<details>
+<summary>Default Readme</summary>
+<hr>
+<h5 id="app">App </h5>
+<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 18.2.5.</p>
+<h5 id="development-server">Development server </h5>
+<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The application will automatically reload if you change any of the source files.</p>
+<h5 id="code-scaffolding">Code scaffolding </h5>
+<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
+<h5 id="build">Build </h5>
+<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory.</p>
+<h5 id="running-unit-tests">Running unit tests </h5>
+<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
+<h5 id="running-end-to-end-tests">Running end-to-end tests </h5>
+<p>Run <code>ng e2e</code> to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.</p>
+<h5 id="further-help">Further help </h5>
+<p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://angular.dev/tools/cli">Angular CLI Overview and Command Reference</a> page.</p>
+<hr>
+</details>
+<h1 id="1-angular-prettier-eslint">1. Angular Prettier Eslint </h1>
+<p>This project aims to provide sane defaults with regards to using Prettier and Eslint when working with Angular in a team.</p>
+<p><a target="_blank" href="https://prettier.io/">https://prettier.io/</a></p>
+<p><a target="_blank" href="https://eslint.org/">https://eslint.org/</a></p>
+<h1 id="2-node-prerequisites">2. Node Prerequisites </h1>
+<p>You need to have Node installed locally and available on your terminal.</p>
+<p><a target="_blank" href="https://nodejs.org/en">https://nodejs.org/en</a></p>
+<p>💡</p>
+<p>To easily install Node and to switch between installed versions of Node <strong>at ease</strong> use just use <strong>nvm</strong>.</p>
+<p><a target="_blank" href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
+<p>Check your current Node version.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">node</span> <span class="token parameter variable">--version</span>
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>v22.14.0
+</code></pre><p>Check your current NPM version.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token parameter variable">--version</span>
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token number">10.9</span>.2
+
+</code></pre><p>💡</p>
+<p>Depending on the current date you might have to <strong>update</strong> your Node and NPM version.</p>
+<h1 id="3-create-a-new-angular-profile-for-your-vs-code-in-your-workspace">3. Create a new Angular Profile for your VS Code in your workspace </h1>
+<p>Go to a path on your computer where you keep your work projects.</p>
+<p>Create a new folder called "angular" there.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">mkdir</span> angular
+</code></pre><p>Open VS Code from this new <code>angular</code> folder.</p>
+<p>VS Code has a nifty feature called <strong>Profiles</strong>.</p>
+<p><a target="_blank" href="https://code.visualstudio.com/docs/editor/profiles">https://code.visualstudio.com/docs/editor/profiles</a></p>
+<p><a target="_blank" href="https://code.visualstudio.com/docs/editor/profiles#_create-a-profile">https://code.visualstudio.com/docs/editor/profiles#_create-a-profile</a></p>
+<p>To create a new profile, open the Profiles editor and select the New Profile button.</p>
+<p>This opens the New Profile form, where you can enter a profile name, choose an icon, and configure the contents that are included in the new profile.</p>
+<p>Create a new Profile and name it <strong>Angular</strong>.</p>
+<img src="docs/data/004_create_angular_profile_vs_code_Screenshot_20250110_143715.png">
+<p>Once you have created the new profile also select it for the current workspace.</p>
+<img src="docs/data/005_use_angular_profile_Screenshot_20250110_143908.png">
+<p>A copy of the <strong>Angular Profile</strong> is also in this folder <a target="_blank" href="https://github.com/robots4life/angular-prettier-eslint/tree/main/vscode-profile">https://github.com/robots4life/angular-prettier-eslint/tree/main/vscode-profile</a>.</p>
+<h2 id="31-import-a-profile-for-your-vs-code-workspace">3.1 Import a Profile for your VS Code workspace </h2>
+<p>You can also <strong>import</strong> a VS Code Profile for your workspace.</p>
+<p>Open the Profiles editor and select the dropdown to import a profile.</p>
+<img src="docs/data/007_import_vscode_profile_Screenshot_20250110_150612.png">
+<p>In the next step you can either select a file or import the profile from a URL.</p>
+<img src="docs/data/008_select_file_or_url_Screenshot_20250110_150704.png">
+<p>If you want to import the profile with a URL from this repository you need to use the raw link of where the profile is stored.</p>
+<p><a target="_blank" href="https://raw.githubusercontent.com/robots4life/angular-prettier-eslint/refs/heads/main/vscode-profile/Angular.code-profile">https://raw.githubusercontent.com/robots4life/angular-prettier-eslint/refs/heads/main/vscode-profile/Angular.code-profile</a></p>
+<p><code>https://raw.githubusercontent.com/robots4life/angular-prettier-eslint/refs/heads/main/vscode-profile/Angular.code-profile</code></p>
+<p>Simply paste this link in the dialog and hit enter.</p>
+<p>The newly imported profile will be listed in the view with all the profiles.</p>
+<h1 id="4-install-angular-cli-vs-code-extensions-prettier-eslint-angular-language-service-code-spell-checker-and-indenticator">4. Install Angular CLI, VS Code Extensions Prettier, ESLint, Angular Language Service, Code Spell Checker and Indenticator </h1>
+<hr>
+<p><strong>Angular CLI</strong></p>
+<p><a target="_blank" href="https://angular.dev/tools/cli/setup-local#install-the-angular-cli">https://angular.dev/tools/cli/setup-local#install-the-angular-cli</a></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @angular/cli
+</code></pre><hr>
+<p><a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode</a></p>
+<p><strong>Name: Prettier - Code formatter</strong></p>
+<p>Id: esbenp.prettier-vscode</p>
+<p>Description: Code formatter using prettier</p>
+<p>Version: 11.0.0</p>
+<p>Publisher: Prettier</p>
+<p>Open the <code>Extensions</code> view by pressing <code>Ctrl + Shift + X</code>.</p>
+<p>Search for <code>Prettier - Code Formatter by Esben Petersen</code> and click <code>Install</code>.</p>
+<p>In VS Code you can also install the extension via these two commands.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Ctrl + Shift + P
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>ext <span class="token function">install</span> esbenp.prettier-vscode
+</code></pre><hr>
+<p><a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint</a></p>
+<p><strong>Name: ESLint</strong></p>
+<p>Id: dbaeumer.vscode-eslint</p>
+<p>Description: Integrates ESLint JavaScript into VS Code.</p>
+<p>Version: 3.0.10</p>
+<p>Publisher: Microsoft</p>
+<p>In VS Code you can also install the extension via these two commands.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Ctrl + Shift + P
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>ext <span class="token function">install</span> dbaeumer.vscode-eslint
+</code></pre><hr>
+<p><a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=Angular.ng-template">https://marketplace.visualstudio.com/items?itemName=Angular.ng-template</a></p>
+<p><strong>Name: Angular Language Service</strong></p>
+<p>Id: Angular.ng-template</p>
+<p>Description: Editor services for Angular templates</p>
+<p>Version: 19.0.3</p>
+<p>Publisher: Angular</p>
+<p>Open the <code>Extensions</code> view by pressing <code>Ctrl + Shift + X</code>.</p>
+<p>Search for <code>Angular Language Service</code> and click <code>Install</code>.</p>
+<p>In VS Code you can also install the extension via these two commands.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Ctrl + Shift + P
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>ext <span class="token function">install</span> Angular.ng-template
+</code></pre><hr>
+<p><a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker">https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker</a></p>
+<p><strong>Name: Code Spell Checker</strong></p>
+<p>Id: streetsidesoftware.code-spell-checker</p>
+<p>Description: Spelling checker for source code</p>
+<p>Version: 4.0.34</p>
+<p>Publisher: Street Side Software</p>
+<p>In VS Code you can also install the extension via these two commands.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Ctrl + Shift + P
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>ext <span class="token function">install</span> streetsidesoftware.code-spell-checker
+</code></pre><p><strong>Code Spell Checker has Dictionaries for Languages</strong></p>
+<p><a target="_blank" href="https://github.com/streetsidesoftware/cspell-dicts">https://github.com/streetsidesoftware/cspell-dicts</a></p>
+<p>First of all let's have a look at your globally installed packages.</p>
+<p>Open a terminal and type the following command.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> list <span class="token parameter variable">-g</span> <span class="token parameter variable">--depth</span><span class="token operator">=</span><span class="token number">0</span>
+</code></pre><p><a target="_blank" href="https://cspell.org/docs/installation">https://cspell.org/docs/installation</a></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> cspell@latest
+</code></pre><p>This will list you all the packages that are currently installed globally for the current version of Node that you are running.</p>
+<p>If you switch your Node version do not forget to install the packages you like or need to have installed globally for that Node version.</p>
+<p>Here is an example output on a Linux system that uses <strong>Node Version Manager</strong>.</p>
+<p><strong>Node Version Manager</strong> is a <strong>very handy tool</strong> that very easily lets you manage the current version of Node for your development environment.</p>
+<p>If you are not using <strong>Node Version Manager</strong> you are wasting your own time.</p>
+<p><a target="_blank" href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
+<p>From the output we can see that Node version 22.14.0 is used and <code>@angular/cli@19.2.1</code> as well as <code>npm@10.9.2</code> are <strong>globally</strong> installed packages.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>/home/user/.nvm/versions/node/v22.14.0/lib
+├── @angular/cli@19.2.1
+└── npm@10.9.2
+</code></pre><p>For <strong>Code Spell Checker</strong> to be able to correct spelling in different languages you need to install the corresponding dictionaries as global packages.</p>
+<p>Let's install the following dictionaries.</p>
+<p><a target="_blank" href="https://github.com/streetsidesoftware/cspell-dicts/tree/main/dictionaries/de_CH">https://github.com/streetsidesoftware/cspell-dicts/tree/main/dictionaries/de_CH</a></p>
+<p><strong>de-ch</strong></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @cspell/dict-de-ch
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>cspell <span class="token function">link</span> <span class="token function">add</span> @cspell/dict-de-ch
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Adding:
+filename                                                                                   <span class="token operator">|</span> errors
+/home/user/.nvm/versions/node/v22.14.0/lib/node_modules/@cspell/dict-de-ch/cspell-ext.json <span class="token operator">|</span>
+</code></pre><p><strong>en-gb</strong></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> list <span class="token parameter variable">-g</span> <span class="token parameter variable">--depth</span><span class="token operator">=</span><span class="token number">0</span>
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @cspell/dict-en-gb
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>cspell <span class="token function">link</span> <span class="token function">add</span> @cspell/dict-en-gb
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Adding:
+filename                                                                                                       <span class="token operator">|</span> errors
+/home/user/.nvm/versions/node/v22.14.0/lib/node_modules/cspell/node_modules/@cspell/dict-en-gb/cspell-ext.json <span class="token operator">|</span>
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> list <span class="token parameter variable">-g</span> <span class="token parameter variable">--depth</span><span class="token operator">=</span><span class="token number">0</span>
+</code></pre><p>You terminal will more or less look like this.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>user@userbox  ~  <span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> cspell@latest
+
+added <span class="token number">121</span> packages <span class="token keyword keyword-in">in</span> 1s
+
+<span class="token number">14</span> packages are looking <span class="token keyword keyword-for">for</span> funding
+  run <span class="token variable"><span class="token variable">`</span><span class="token function">npm</span> fund<span class="token variable">`</span></span> <span class="token keyword keyword-for">for</span> details
+
+user@userbox  ~  <span class="token function">npm</span> list <span class="token parameter variable">-g</span> <span class="token parameter variable">--depth</span><span class="token operator">=</span><span class="token number">0</span>
+/home/user/.nvm/versions/node/v22.14.0/lib
+├── @angular/cli@19.2.1
+├── cspell@8.17.5
+└── npm@10.9.2
+
+
+user@userbox  ~  <span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @cspell/dict-de-ch
+
+added <span class="token number">1</span> package <span class="token keyword keyword-in">in</span> 242ms
+
+user@userbox  ~  <span class="token function">npm</span> list <span class="token parameter variable">-g</span> <span class="token parameter variable">--depth</span><span class="token operator">=</span><span class="token number">0</span>
+/home/user/.nvm/versions/node/v22.14.0/lib
+├── @angular/cli@19.2.1
+├── @cspell/dict-de-ch@1.2.3
+├── cspell@8.17.5
+└── npm@10.9.2
+
+
+user@userbox  ~  cspell <span class="token function">link</span> <span class="token function">add</span> @cspell/dict-de-ch
+Adding:
+filename                                                                                   <span class="token operator">|</span> errors
+/home/user/.nvm/versions/node/v22.14.0/lib/node_modules/@cspell/dict-de-ch/cspell-ext.json <span class="token operator">|</span>
+
+user@userbox  ~  <span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @cspell/dict-en-gb
+
+added <span class="token number">1</span> package <span class="token keyword keyword-in">in</span> 1s
+
+user@userbox  ~  cspell <span class="token function">link</span> <span class="token function">add</span> @cspell/dict-en-gb
+Adding:
+filename                                                                                                       <span class="token operator">|</span> errors
+/home/user/.nvm/versions/node/v22.14.0/lib/node_modules/cspell/node_modules/@cspell/dict-en-gb/cspell-ext.json <span class="token operator">|</span>
+
+user@userbox  ~  <span class="token function">npm</span> list <span class="token parameter variable">-g</span> <span class="token parameter variable">--depth</span><span class="token operator">=</span><span class="token number">0</span>
+/home/user/.nvm/versions/node/v22.14.0/lib
+├── @angular/cli@19.2.1
+├── @cspell/dict-de-ch@1.2.3
+├── @cspell/dict-en-gb@4.1.58
+├── cspell@8.17.5
+└── npm@10.9.2
+</code></pre><p>You have now installed the <strong>Swiss German</strong> and <strong>British English</strong> dictionaries for <strong>Code Spell Checker</strong>.</p>
+<p>If you like to remove packages from your global installation you can use these commands. Do not specify a version number when removing global packages as that will fail with their removal.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> uninstall <span class="token parameter variable">-g</span> @cspell/dict-de-ch
+
+<span class="token function">npm</span> uninstall <span class="token parameter variable">-g</span> @cspell/dict-en-gb
+
+<span class="token function">npm</span> uninstall <span class="token parameter variable">-g</span> cspell
+
+<span class="token function">npm</span> uninstall <span class="token parameter variable">-g</span> @angular/cli
+</code></pre><p>On Linux you can check the <code>~/.config/cspell/cspell.json</code> file for a list of imported dictionaries.</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"import"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"/home/user/.nvm/versions/node/v22.14.0/lib/node_modules/@cspell/dict-de-ch/cspell-ext.json"</span><span class="token punctuation">,</span>
+    <span class="token string">"/home/user/.nvm/versions/node/v22.14.0/lib/node_modules/cspell/node_modules/@cspell/dict-en-gb/cspell-ext.json"</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Update this file if you remove globally installed dictionaries as you will otherwise try to import a dictionary that is not installed and that will lead to an error.</p>
+<hr>
+<p><a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator">https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator</a></p>
+<p><strong>Name: Indenticator</strong></p>
+<p>Id: SirTori.indenticator</p>
+<p>Description: Highlights your current indent depth</p>
+<p>Version: 0.7.0</p>
+<p>Publisher: SirTori</p>
+<p>In VS Code you can also install the extension via these two commands.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Ctrl + Shift + P
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>ext <span class="token function">install</span> SirTori.indenticator
+</code></pre><hr>
+<p>After you have installed all these extensions the Extensions view in your VS Code should look like this.</p>
+<img src="docs/data/006_installed_extensions_Screenshot_20250110_145826.png">
+<h1 id="5-create-app">5. Create App </h1>
+<p><a target="_blank" href="https://angular.dev/tools/cli/setup-local#create-a-workspace-and-initial-application">https://angular.dev/tools/cli/setup-local#create-a-workspace-and-initial-application</a></p>
+<p>Make sure you are inside the <code>angular</code> folder you previously created as the workspace for this project.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token builtin class-name">cd</span> angular
+</code></pre><p>Then run the following command.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>ng new app
+</code></pre><p>Options</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Would you like to share pseudonymous usage data about this project with the Angular Team
+at Google under Google's Privacy Policy at https://policies.google.com/privacy. For <span class="token function">more</span>
+details and how to change this setting, see https://angular.dev/cli/analytics.
+
+no
+
+Global setting: disabled
+
+Local setting: No <span class="token builtin class-name">local</span> workspace configuration file.
+
+Effective status: disabled
+
+? Which stylesheet <span class="token function">format</span> would you like to use? CSS             <span class="token punctuation">[</span> https://developer.mozilla.org/docs/Web/CSS                     <span class="token punctuation">]</span>
+
+? Do you want to <span class="token builtin class-name">enable</span> Server-Side Rendering <span class="token punctuation">(</span>SSR<span class="token punctuation">)</span> and Static Site Generation <span class="token punctuation">(</span>SSG/Prerendering<span class="token punctuation">)</span>? no
+
+CREATE app/README.md <span class="token punctuation">(</span><span class="token number">1064</span> bytes<span class="token punctuation">)</span>
+CREATE app/.editorconfig <span class="token punctuation">(</span><span class="token number">274</span> bytes<span class="token punctuation">)</span>
+CREATE app/.gitignore <span class="token punctuation">(</span><span class="token number">587</span> bytes<span class="token punctuation">)</span>
+CREATE app/angular.json <span class="token punctuation">(</span><span class="token number">2578</span> bytes<span class="token punctuation">)</span>
+CREATE app/package.json <span class="token punctuation">(</span><span class="token number">1035</span> bytes<span class="token punctuation">)</span>
+CREATE app/tsconfig.json <span class="token punctuation">(</span><span class="token number">1012</span> bytes<span class="token punctuation">)</span>
+CREATE app/tsconfig.app.json <span class="token punctuation">(</span><span class="token number">424</span> bytes<span class="token punctuation">)</span>
+CREATE app/tsconfig.spec.json <span class="token punctuation">(</span><span class="token number">434</span> bytes<span class="token punctuation">)</span>
+CREATE app/.vscode/extensions.json <span class="token punctuation">(</span><span class="token number">130</span> bytes<span class="token punctuation">)</span>
+CREATE app/.vscode/launch.json <span class="token punctuation">(</span><span class="token number">470</span> bytes<span class="token punctuation">)</span>
+CREATE app/.vscode/tasks.json <span class="token punctuation">(</span><span class="token number">938</span> bytes<span class="token punctuation">)</span>
+CREATE app/src/main.ts <span class="token punctuation">(</span><span class="token number">250</span> bytes<span class="token punctuation">)</span>
+CREATE app/src/index.html <span class="token punctuation">(</span><span class="token number">289</span> bytes<span class="token punctuation">)</span>
+CREATE app/src/styles.css <span class="token punctuation">(</span><span class="token number">80</span> bytes<span class="token punctuation">)</span>
+CREATE app/src/app/app.component.css <span class="token punctuation">(</span><span class="token number">0</span> bytes<span class="token punctuation">)</span>
+CREATE app/src/app/app.component.html <span class="token punctuation">(</span><span class="token number">19903</span> bytes<span class="token punctuation">)</span>
+CREATE app/src/app/app.component.spec.ts <span class="token punctuation">(</span><span class="token number">907</span> bytes<span class="token punctuation">)</span>
+CREATE app/src/app/app.component.ts <span class="token punctuation">(</span><span class="token number">299</span> bytes<span class="token punctuation">)</span>
+CREATE app/src/app/app.config.ts <span class="token punctuation">(</span><span class="token number">310</span> bytes<span class="token punctuation">)</span>
+CREATE app/src/app/app.routes.ts <span class="token punctuation">(</span><span class="token number">77</span> bytes<span class="token punctuation">)</span>
+CREATE app/public/favicon.ico <span class="token punctuation">(</span><span class="token number">15086</span> bytes<span class="token punctuation">)</span>
+
+✔ Packages installed successfully.
+
+Directory is already under version control. Skipping initialization of git.
+</code></pre><h1 id="6-run-the-app">6. Run the App </h1>
+<p><a target="_blank" href="https://angular.dev/tools/cli/setup-local#run-the-application">https://angular.dev/tools/cli/setup-local#run-the-application</a></p>
+<p>Once you have installed the app in the <code>angular</code> folder you will see that there is a new folder called <code>app</code>.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>drwxrwxr-x  <span class="token number">4</span> user user <span class="token number">4</span>.0K Jan <span class="token number">10</span> <span class="token number">14</span>:23 <span class="token builtin class-name">.</span>
+drwxr-xr-x <span class="token number">75</span> user user <span class="token number">4</span>.0K Jan <span class="token number">10</span> <span class="token number">14</span>:05 <span class="token punctuation">..</span>
+drwxrwxr-x  <span class="token number">6</span> user user <span class="token number">4</span>.0K Jan <span class="token number">10</span> <span class="token number">14</span>:24 app
+drwxrwxr-x  <span class="token number">7</span> user user <span class="token number">4</span>.0K Jan <span class="token number">10</span> <span class="token number">14</span>:13 .git
+</code></pre><p>Make sure you are inside this new <code>app</code> folder.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token builtin class-name">cd</span> app
+</code></pre><p>Then run the following command.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>ng serve
+</code></pre><p>You should have output similar to this on your terminal.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Initial chunk files <span class="token operator">|</span> Names         <span class="token operator">|</span>  Raw size
+polyfills.js        <span class="token operator">|</span> polyfills     <span class="token operator">|</span>  <span class="token number">90.20</span> kB <span class="token operator">|</span>
+main.js             <span class="token operator">|</span> main          <span class="token operator">|</span>  <span class="token number">18.17</span> kB <span class="token operator">|</span>
+styles.css          <span class="token operator">|</span> styles        <span class="token operator">|</span>  <span class="token number">95</span> bytes <span class="token operator">|</span>
+
+                    <span class="token operator">|</span> Initial total <span class="token operator">|</span> <span class="token number">108.47</span> kB
+
+Application bundle generation complete. <span class="token punctuation">[</span><span class="token number">1.550</span> seconds<span class="token punctuation">]</span>
+
+Watch mode enabled. Watching <span class="token keyword keyword-for">for</span> <span class="token function">file</span> changes<span class="token punctuation">..</span>.
+NOTE: Raw <span class="token function">file</span> sizes <span class="token keyword keyword-do">do</span> not reflect development server per-request transformations.
+  ➜  Local:   http://localhost:4200/
+  ➜  press h + enter to show <span class="token builtin class-name">help</span>
+</code></pre><p>Open <a target="_blank" href="http://localhost:4200/">http://localhost:4200/</a> in a browser of your choice and you will be presented with the default Angular app.</p>
+<p>🎉</p>
+<img src="docs/data/001_default_app_Screenshot_20240925_094448.png">
+<h1 id="7-prettier">7. Prettier </h1>
+<p><a target="_blank" href="https://prettier.io/">https://prettier.io/</a></p>
+<p>Prettier is used to format the code, ideally to look prettier, it is used to enforce a style for the syntax.</p>
+<p>Prettier does not fix logical issues with your code, it is only used to format your code so that everyone in the team can get used to the code being presented in the same formatting style.</p>
+<p>Cognitive load between members of the team is greatly reduced once a good formatting for the code has been found.</p>
+<h2 id="71-install-prettier">7.1 Install Prettier </h2>
+<p>Make sure you are inside the new <code>app</code> folder.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token builtin class-name">cd</span> app
+</code></pre><p>Install Prettier as a development dependency.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> --save-dev prettier
+</code></pre><p>Here your <code>package.json</code> before you installed Prettier.</p>
+<p><a target="_blank" href="app/package.json">/app/package.json</a></p>
+<p><strong>Before</strong></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.0.0"</span><span class="token punctuation">,</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"ng"</span><span class="token operator">:</span> <span class="token string">"ng"</span><span class="token punctuation">,</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"ng serve"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"ng build"</span><span class="token punctuation">,</span>
+    <span class="token property">"watch"</span><span class="token operator">:</span> <span class="token string">"ng build --watch --configuration development"</span><span class="token punctuation">,</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"ng test"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@angular/animations"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/common"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/compiler"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/core"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/forms"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/platform-browser"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/platform-browser-dynamic"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/router"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"rxjs"</span><span class="token operator">:</span> <span class="token string">"~7.8.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"tslib"</span><span class="token operator">:</span> <span class="token string">"^2.3.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"zone.js"</span><span class="token operator">:</span> <span class="token string">"~0.14.10"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@angular-devkit/build-angular"</span><span class="token operator">:</span> <span class="token string">"^18.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/cli"</span><span class="token operator">:</span> <span class="token string">"^18.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/compiler-cli"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@types/jasmine"</span><span class="token operator">:</span> <span class="token string">"~5.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"jasmine-core"</span><span class="token operator">:</span> <span class="token string">"~5.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma"</span><span class="token operator">:</span> <span class="token string">"~6.4.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-chrome-launcher"</span><span class="token operator">:</span> <span class="token string">"~3.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-coverage"</span><span class="token operator">:</span> <span class="token string">"~2.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-jasmine"</span><span class="token operator">:</span> <span class="token string">"~5.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-jasmine-html-reporter"</span><span class="token operator">:</span> <span class="token string">"~2.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"typescript"</span><span class="token operator">:</span> <span class="token string">"~5.5.2"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Here your <code>package.json</code> after you installed Prettier.</p>
+<p><strong>After</strong></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.0.0"</span><span class="token punctuation">,</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"ng"</span><span class="token operator">:</span> <span class="token string">"ng"</span><span class="token punctuation">,</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"ng serve"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"ng build"</span><span class="token punctuation">,</span>
+    <span class="token property">"watch"</span><span class="token operator">:</span> <span class="token string">"ng build --watch --configuration development"</span><span class="token punctuation">,</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"ng test"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@angular/animations"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/common"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/compiler"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/core"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/forms"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/platform-browser"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/platform-browser-dynamic"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/router"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"rxjs"</span><span class="token operator">:</span> <span class="token string">"~7.8.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"tslib"</span><span class="token operator">:</span> <span class="token string">"^2.3.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"zone.js"</span><span class="token operator">:</span> <span class="token string">"~0.14.10"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@angular-devkit/build-angular"</span><span class="token operator">:</span> <span class="token string">"^18.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/cli"</span><span class="token operator">:</span> <span class="token string">"^18.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/compiler-cli"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@types/jasmine"</span><span class="token operator">:</span> <span class="token string">"~5.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"jasmine-core"</span><span class="token operator">:</span> <span class="token string">"~5.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma"</span><span class="token operator">:</span> <span class="token string">"~6.4.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-chrome-launcher"</span><span class="token operator">:</span> <span class="token string">"~3.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-coverage"</span><span class="token operator">:</span> <span class="token string">"~2.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-jasmine"</span><span class="token operator">:</span> <span class="token string">"~5.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-jasmine-html-reporter"</span><span class="token operator">:</span> <span class="token string">"~2.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"prettier"</span><span class="token operator">:</span> <span class="token string">"^3.3.3"</span><span class="token punctuation">,</span> &lt;=== Prettier is now installed as development dependency
+    <span class="token property">"typescript"</span><span class="token operator">:</span> <span class="token string">"~5.5.2"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre><h2 id="72-create-a-basic-prettier-configuration-file">7.2 Create a Basic Prettier Configuration File </h2>
+<p>Create a configuration file for Prettier to define the formatting rules.</p>
+<p>Create a new file <code>.prettierrc</code> in the project <strong>root</strong> directory of the app, so the folder <code>app</code>.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token builtin class-name">cd</span> app
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">touch</span> .prettierrc
+</code></pre><p>If you don't work on the terminal just create the file in VS Code.</p>
+<p>Add this configuration to the <code>.prettierrc</code> file.</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"printWidth"</span><span class="token operator">:</span> <span class="token number">240</span><span class="token punctuation">,</span>
+  <span class="token property">"singleQuote"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"useTabs"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"tabWidth"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  <span class="token property">"semi"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"bracketSpacing"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"indent_style"</span><span class="token operator">:</span> <span class="token string">"space"</span><span class="token punctuation">,</span>
+  <span class="token property">"bracketSameLine"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"arrowParens"</span><span class="token operator">:</span> <span class="token string">"always"</span><span class="token punctuation">,</span>
+  <span class="token property">"trailingComma"</span><span class="token operator">:</span> <span class="token string">"none"</span><span class="token punctuation">,</span>
+  <span class="token property">"singleAttributePerLine"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="73-create-a-basic-prettier-ignore-file">7.3 Create a Basic Prettier Ignore File </h2>
+<p>You also want to create a <code>.prettierignore</code> file to specify which files or folders <strong>should not be formatted by Prettier</strong>.</p>
+<p>Create a new file <code>.prettierignore</code> in the project <strong>root</strong> directory, so the folder <code>app</code>.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token builtin class-name">cd</span> app
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">touch</span> .prettierignore
+</code></pre><p>Add this configuration to the <code>.prettierignore</code> file.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token comment"># Ignore artifacts:</span>
+dist
+build
+coverage
+
+<span class="token comment"># Ignore all HTML files in the root</span>
+/*.html
+
+<span class="token comment"># Ignore minified files</span>
+*.min.js
+</code></pre><h2 id="74-run-prettier-on-save">7.4 Run Prettier on Save </h2>
+<p><a target="_blank" href="https://code.visualstudio.com/api/ux-guidelines/command-palette">https://code.visualstudio.com/api/ux-guidelines/command-palette</a></p>
+<p>Open the VS Code Command Palette</p>
+<p><code>Ctrl + Shift + P</code></p>
+<p>Type <code>Format Document With...</code>.</p>
+<p>Then select <code>Configure Default Formatter</code> and choose <code>Prettier - Code Formatter</code>.</p>
+<p>The project you are working on should have a <code>.vscode</code> <strong>folder</strong> under the project <strong>root</strong>.</p>
+<p>So in the folder <code>app</code> there should already be a <code>.vscode</code> folder.</p>
+<p>This folder has configuration files that tell VS Code how to deal with the current repository you are working on.</p>
+<p>Currently this folder has 3 files in it.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>.vscode
+├── extensions.json
+├── launch.json
+└── tasks.json
+</code></pre><p>Add a new file <code>settings.json</code> in this <code>.vscode</code> folder.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token builtin class-name">cd</span> app
+
+<span class="token builtin class-name">cd</span> .vscode
+
+<span class="token function">touch</span> settings.json
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>.vscode
+├── extensions.json
+├── launch.json
+├── settings.json <span class="token operator">&lt;=</span><span class="token operator">==</span> new <span class="token function">file</span>
+└── tasks.json
+</code></pre><p><a target="_blank" href="app/.vscode/settings.json">/app/.vscode/settings.json</a></p>
+<p>Add this configuration to the <code>settings.json</code> file.</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"[typescript]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[javascript]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[html]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[css]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[json]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[jsonc]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"editor.formatOnPaste"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"editor.cursorBlinking"</span><span class="token operator">:</span> <span class="token string">"smooth"</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Before</strong> you can automatically format code you need to do one more thing.</p>
+<p>Hit <code>Ctrl + ,</code>.</p>
+<p>Click on the little file icon to open the <code>settings.json</code> file for the current active profile, your <strong>Angular</strong> profile.</p>
+<img src="docs/data/002_open_profile_settings_json_Screenshot_20240925_172139.png">
+<p>Also paste this configuration in there.</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"[typescript]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[javascript]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[html]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[css]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[json]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[jsonc]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"editor.formatOnPaste"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"editor.cursorBlinking"</span><span class="token operator">:</span> <span class="token string">"smooth"</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Now go to any TypeScript, JavaScript, HTML, CSS or JSON file and add a few tabs at a random place before some code.</p>
+<p>Hit <code>Ctrl + S</code>.</p>
+<p>You will see how the code is automatically formatted.</p>
+<p>🎉</p>
+<p>You can also check the <code>Output</code> for Prettier.</p>
+<p>You can view Prettier's output to see if any errors are logged.</p>
+<p>To open the <code>Output</code> panel hit <code>Ctrl + Shift + U</code>.</p>
+<p>From the dropdown, select <code>Prettier</code> to check for any error messages.</p>
+<img src="docs/data/003_prettier_task_output_Screenshot_20240925_172619.png">
+<p>Go to file and hit <code>Ctrl + S</code> while having the Prettier task <code>Output</code> panel open.</p>
+<p><a target="_blank" href="app/src/app/app.component.ts">/app/src/app/app.component.ts</a></p>
+<p>You should see output similar to this in the panel.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token punctuation">[</span><span class="token string">"INFO"</span> - <span class="token number">5</span>:45:31 PM<span class="token punctuation">]</span> Formatting file:///angular-prettier-eslint/app/src/app/app.component.ts
+<span class="token punctuation">[</span><span class="token string">"INFO"</span> - <span class="token number">5</span>:45:31 PM<span class="token punctuation">]</span> Using config <span class="token function">file</span> at /angular-prettier-eslint/app/.prettierrc
+<span class="token punctuation">[</span><span class="token string">"INFO"</span> - <span class="token number">5</span>:45:31 PM<span class="token punctuation">]</span> PrettierInstance:
+<span class="token punctuation">{</span>
+  <span class="token string">"modulePath"</span><span class="token builtin class-name">:</span> <span class="token string">"/angular-prettier-eslint/app/node_modules/prettier/index.cjs"</span>,
+  <span class="token string">"messageResolvers"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>,
+  <span class="token string">"version"</span><span class="token builtin class-name">:</span> <span class="token string">"3.3.3"</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">[</span><span class="token string">"INFO"</span> - <span class="token number">5</span>:45:31 PM<span class="token punctuation">]</span> Using ignore <span class="token function">file</span> <span class="token punctuation">(</span>if present<span class="token punctuation">)</span> at /angular-prettier-eslint/.prettierignore
+<span class="token punctuation">[</span><span class="token string">"INFO"</span> - <span class="token number">5</span>:45:31 PM<span class="token punctuation">]</span> File Info:
+<span class="token punctuation">{</span>
+  <span class="token string">"ignored"</span><span class="token builtin class-name">:</span> false,
+  <span class="token string">"inferredParser"</span><span class="token builtin class-name">:</span> <span class="token string">"typescript"</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">[</span><span class="token string">"INFO"</span> - <span class="token number">5</span>:45:31 PM<span class="token punctuation">]</span> Detected <span class="token builtin class-name">local</span> configuration <span class="token punctuation">(</span>i.e. .prettierrc or .editorconfig<span class="token punctuation">)</span>, VS Code configuration will not be used
+<span class="token punctuation">[</span><span class="token string">"INFO"</span> - <span class="token number">5</span>:45:31 PM<span class="token punctuation">]</span> Prettier Options:
+<span class="token punctuation">{</span>
+  <span class="token string">"filepath"</span><span class="token builtin class-name">:</span> <span class="token string">"/angular-prettier-eslint/app/src/app/app.component.ts"</span>,
+  <span class="token string">"parser"</span><span class="token builtin class-name">:</span> <span class="token string">"typescript"</span>,
+  <span class="token string">"useTabs"</span><span class="token builtin class-name">:</span> false,
+  <span class="token string">"tabWidth"</span><span class="token builtin class-name">:</span> <span class="token number">2</span>,
+  <span class="token string">"singleQuote"</span><span class="token builtin class-name">:</span> true,
+  <span class="token string">"semi"</span><span class="token builtin class-name">:</span> true,
+  <span class="token string">"trailingComma"</span><span class="token builtin class-name">:</span> <span class="token string">"es5"</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">[</span><span class="token string">"INFO"</span> - <span class="token number">5</span>:45:31 PM<span class="token punctuation">]</span> Formatting completed <span class="token keyword keyword-in">in</span> 32ms.
+</code></pre><p>This line is important in the output.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Detected <span class="token builtin class-name">local</span> configuration <span class="token punctuation">(</span>i.e. .prettierrc or .editorconfig<span class="token punctuation">)</span>, VS Code configuration will not be used
+</code></pre><p>This means that the local <code>.prettierrc</code> file you created for the project is being used to format the code according to the rules in that file.</p>
+<h1 id="8-eslint">8. ESLint </h1>
+<p><a target="_blank" href="https://eslint.org/">https://eslint.org/</a></p>
+<p>ESLint is used to find and fix problems in your JavaScript code.</p>
+<p>ESLint is one of the most popular and powerful linters for JavaScript and TypeScript!</p>
+<h2 id="81-install-eslint">8.1 Install ESLint </h2>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>ng lint
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Cannot <span class="token function">find</span> <span class="token string">"lint"</span> target <span class="token keyword keyword-for">for</span> the specified project.
+You can <span class="token function">add</span> a package that implements these capabilities.
+
+For example:
+  ESLint: ng <span class="token function">add</span> @angular-eslint/schematics
+
+ Would you like to <span class="token function">add</span> ESLint now? <span class="token function">yes</span>
+✔ Determining Package Manager
+  › Using package manager: <span class="token function">npm</span>
+✔ Searching <span class="token keyword keyword-for">for</span> compatible package version
+  › Found compatible package version: @angular-eslint/schematics@19.0.2.
+✔ Loading package information from registry
+✔ Confirming installation
+✔ Installing package
+
+    All angular-eslint dependencies have been successfully installed 🎉
+
+    Please see https://github.com/angular-eslint/angular-eslint <span class="token keyword keyword-for">for</span> how to <span class="token function">add</span> ESLint configuration to your project.
+
+    We detected that you have a single project <span class="token keyword keyword-in">in</span> your workspace and no existing linter wired up, so we are configuring ESLint <span class="token keyword keyword-for">for</span> you automatically.
+
+    Please see https://github.com/angular-eslint/angular-eslint <span class="token keyword keyword-for">for</span> <span class="token function">more</span> information.
+
+CREATE eslint.config.js <span class="token punctuation">(</span><span class="token number">969</span> bytes<span class="token punctuation">)</span>
+UPDATE package.json <span class="token punctuation">(</span><span class="token number">1175</span> bytes<span class="token punctuation">)</span>
+UPDATE angular.json <span class="token punctuation">(</span><span class="token number">2877</span> bytes<span class="token punctuation">)</span>
+✔ Packages installed successfully.
+</code></pre><p>This installed <a target="_blank" href="https://github.com/angular-eslint/angular-eslint">https://github.com/angular-eslint/angular-eslint</a> for the app.</p>
+<p>Check your <a target="_blank" href="app/package.json">/app/package.json</a> file to see what has been installed.</p>
+<p><strong>Before</strong></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.0.0"</span><span class="token punctuation">,</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"ng"</span><span class="token operator">:</span> <span class="token string">"ng"</span><span class="token punctuation">,</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"ng serve"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"ng build"</span><span class="token punctuation">,</span>
+    <span class="token property">"watch"</span><span class="token operator">:</span> <span class="token string">"ng build --watch --configuration development"</span><span class="token punctuation">,</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"ng test"</span><span class="token punctuation">,</span>
+    <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"ng lint"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@angular/animations"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/common"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/compiler"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/core"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/forms"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/platform-browser"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/platform-browser-dynamic"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/router"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"rxjs"</span><span class="token operator">:</span> <span class="token string">"~7.8.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"tslib"</span><span class="token operator">:</span> <span class="token string">"^2.3.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"zone.js"</span><span class="token operator">:</span> <span class="token string">"~0.14.10"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@angular-devkit/build-angular"</span><span class="token operator">:</span> <span class="token string">"^18.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/cli"</span><span class="token operator">:</span> <span class="token string">"^18.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/compiler-cli"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@types/jasmine"</span><span class="token operator">:</span> <span class="token string">"~5.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"jasmine-core"</span><span class="token operator">:</span> <span class="token string">"~5.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma"</span><span class="token operator">:</span> <span class="token string">"~6.4.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-chrome-launcher"</span><span class="token operator">:</span> <span class="token string">"~3.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-coverage"</span><span class="token operator">:</span> <span class="token string">"~2.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-jasmine"</span><span class="token operator">:</span> <span class="token string">"~5.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-jasmine-html-reporter"</span><span class="token operator">:</span> <span class="token string">"~2.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"prettier"</span><span class="token operator">:</span> <span class="token string">"^3.3.3"</span><span class="token punctuation">,</span>
+    <span class="token property">"typescript"</span><span class="token operator">:</span> <span class="token string">"~5.5.2"</span><span class="token punctuation">,</span>
+    <span class="token property">"typescript-eslint"</span><span class="token operator">:</span> <span class="token string">"8.18.0"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Here your <code>package.json</code> after you installed ESLint, that is <a target="_blank" href="https://github.com/angular-eslint/angular-eslint">https://github.com/angular-eslint/angular-eslint</a>.</p>
+<p><strong>After</strong></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.0.0"</span><span class="token punctuation">,</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"ng"</span><span class="token operator">:</span> <span class="token string">"ng"</span><span class="token punctuation">,</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"ng serve"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"ng build"</span><span class="token punctuation">,</span>
+    <span class="token property">"watch"</span><span class="token operator">:</span> <span class="token string">"ng build --watch --configuration development"</span><span class="token punctuation">,</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"ng test"</span><span class="token punctuation">,</span>
+    <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"ng lint"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@angular/animations"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/common"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/compiler"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/core"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/forms"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/platform-browser"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/platform-browser-dynamic"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/router"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"rxjs"</span><span class="token operator">:</span> <span class="token string">"~7.8.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"tslib"</span><span class="token operator">:</span> <span class="token string">"^2.3.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"zone.js"</span><span class="token operator">:</span> <span class="token string">"~0.14.10"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@angular-devkit/build-angular"</span><span class="token operator">:</span> <span class="token string">"^18.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/cli"</span><span class="token operator">:</span> <span class="token string">"^18.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/compiler-cli"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@types/jasmine"</span><span class="token operator">:</span> <span class="token string">"~5.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"angular-eslint"</span><span class="token operator">:</span> <span class="token string">"19.0.2"</span><span class="token punctuation">,</span> &lt;=== ESLint is now installed as development dependency
+    <span class="token property">"eslint"</span><span class="token operator">:</span> <span class="token string">"^9.16.0"</span><span class="token punctuation">,</span> &lt;=== ESLint is now installed as development dependency
+    <span class="token property">"jasmine-core"</span><span class="token operator">:</span> <span class="token string">"~5.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma"</span><span class="token operator">:</span> <span class="token string">"~6.4.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-chrome-launcher"</span><span class="token operator">:</span> <span class="token string">"~3.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-coverage"</span><span class="token operator">:</span> <span class="token string">"~2.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-jasmine"</span><span class="token operator">:</span> <span class="token string">"~5.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-jasmine-html-reporter"</span><span class="token operator">:</span> <span class="token string">"~2.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"prettier"</span><span class="token operator">:</span> <span class="token string">"^3.3.3"</span><span class="token punctuation">,</span>
+    <span class="token property">"typescript"</span><span class="token operator">:</span> <span class="token string">"~5.5.2"</span><span class="token punctuation">,</span>
+    <span class="token property">"typescript-eslint"</span><span class="token operator">:</span> <span class="token string">"8.18.0"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Now lint the app again.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>ng lint
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Linting <span class="token string">"app"</span><span class="token punctuation">..</span>.
+
+All files pass linting
+</code></pre><h2 id="82-confirm-eslint-errors-show-in-vs-code">8.2 Confirm ESLint errors show in VS Code </h2>
+<p>Open this file.</p>
+<p><a target="_blank" href="app/src/app/app.component.ts">/app/src/app/app.component.ts</a></p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-import">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword keyword-from">from</span> <span class="token string">"@angular/core"</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-import">import</span> <span class="token punctuation">{</span> RouterOutlet <span class="token punctuation">}</span> <span class="token keyword keyword-from">from</span> <span class="token string">"@angular/router"</span><span class="token punctuation">;</span>
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Component</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token operator">:</span> <span class="token string">"app-root"</span><span class="token punctuation">,</span>
+  standalone<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  imports<span class="token operator">:</span> <span class="token punctuation">[</span>RouterOutlet<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  templateUrl<span class="token operator">:</span> <span class="token string">"./app.component.html"</span><span class="token punctuation">,</span>
+  styleUrl<span class="token operator">:</span> <span class="token string">"./app.component.css"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-export">export</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">AppComponent</span> <span class="token punctuation">{</span>
+  title <span class="token operator">=</span> <span class="token string">"app"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Change</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>selector<span class="token operator">:</span> <span class="token string">"app-root"</span><span class="token punctuation">,</span>
+</code></pre><p>to this.</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>selector<span class="token operator">:</span> <span class="token string">"root"</span><span class="token punctuation">,</span>
+</code></pre><p>You should <strong>immediately</strong> see the error being <strong>highlighted</strong> in VS Code.</p>
+<img src="docs/data/009_eslint_error_in_vs_code_Screenshot_20250116_232320.png">
+<p><strong>Confirm</strong> ESLint works correct for you, then <strong>reverse</strong> the <strong>changes</strong>.</p>
+<p>Change</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>selector<span class="token operator">:</span> <span class="token string">"root"</span><span class="token punctuation">,</span>
+</code></pre><p>back to</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>selector<span class="token operator">:</span> <span class="token string">"app-root"</span><span class="token punctuation">,</span>
+</code></pre><p>again and make sure that the ESLint error is <strong>gone</strong>.</p>
+<p>You successfully added <a target="_blank" href="https://github.com/angular-eslint/angular-eslint">https://github.com/angular-eslint/angular-eslint</a> to the app and are now using ESLint to lint you app.</p>
+<p>What does the word <code>lint</code> mean at all and where does it come from ?</p>
+<p>Perhaps this article from WikiPedia gives you a better idea.</p>
+<p><a target="_blank" href="https://en.wikipedia.org/wiki/Lint_(material)">https://en.wikipedia.org/wiki/Lint_(material)</a></p>
+<img src="docs/data/010_what_is_lint_Screenshot_20250116_234008.png">
+<p>The fun in this is, the word <code>lint</code> is a <strong>NOUN</strong> but used as a verb in software development all the time when i.e. a fellow dev asks you <code>oh my gosh, have you at all linted your code</code> or <code>go lint you code</code>. 😄</p>
+<h2 id="83-angular-eslint-packages">8.3 angular-eslint packages </h2>
+<p>Please follow the links below for the packages you care about.</p>
+<p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/angular-eslint/README.md">angular-eslint</a></p>
+<ul>
+<li>This is the core package that exposes most of the other packages below for the common use case of using angular-eslint with Angular CLI workspaces. It exposes all the tooling you need to work with ESLint v9 and typescript-eslint v8 with flat config in v18 of angular-eslint onwards. For versions of angular-eslint older than v18, or workspaces still using ESLint v8 and typescript-eslint v7 or the legacy eslintrc config format, you will use a combination of the packages below directly.</li>
+</ul>
+<p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/builder/README.md">@angular-eslint/builder</a></p>
+<ul>
+<li>An Angular CLI Builder which is used to execute ESLint on your Angular projects using standard commands such as ng lint</li>
+</ul>
+<p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin/README.md">@angular-eslint/eslint-plugin</a></p>
+<ul>
+<li>An ESLint-specific plugin that contains rules which are specific to Angular projects. It can be combined with any other ESLint plugins in the normal way.</li>
+</ul>
+<p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin-template/README.md">@angular-eslint/eslint-plugin-template</a></p>
+<ul>
+<li>An ESLint-specific plugin which, when used in conjunction with @angular-eslint/template-parser, allows for Angular template-specific linting rules to run.</li>
+</ul>
+<p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/schematics/README.md">@angular-eslint/schematics</a></p>
+<ul>
+<li>Schematics which are used to add and update configuration files which are relevant for running ESLint on an Angular workspace.</li>
+</ul>
+<p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/template-parser/README.md">@angular-eslint/template-parser/a&gt;</a></p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/template-parser/README.md">
+<ul>
+<li>An ESLint-specific parser which leverages the @angular/compiler to allow for custom ESLint rules to be written which assert things about your Angular templates.</li>
+</ul>
+</a><p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/template-parser/README.md"></a><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/test-utils/README.md">@angular-eslint/test-utils</a></p>
+<ul>
+<li>Utilities which are helpful when testing custom ESLint rules for Angular workspaces.</li>
+</ul>
+<p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/utils/README.md">@angular-eslint/utils</a></p>
+<ul>
+<li>Utilities which are helpful when writing custom ESLint rules for Angular workspaces.</li>
+</ul>
+<h2 id="84-configuring-eslint">8.4 Configuring ESLint </h2>
+<p><a target="_blank" href="https://eslint.org/blog/2024/04/eslint-v9.0.0-released/">https://eslint.org/blog/2024/04/eslint-v9.0.0-released/</a></p>
+<p>In version 9 of ESLint, the default configuration format has been changed to the so called "flat config" style using exclusively an <code>eslint.config.js</code> file as the only way of configuring a project.</p>
+<p>The legacy <code>eslintrc</code> style is now <strong>deprecated</strong>, but still fully supported.</p>
+<p>When it comes to configuring ESLint for your Angular projects you have two options and associated guides.</p>
+<p><strong>FLAT</strong> configs</p>
+<p>the default in ESLint <strong>v9</strong>, <strong>strongly recommended for new projects</strong></p>
+<p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md">https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md</a></p>
+<p><strong>eslintrc</strong> style configs</p>
+<p>the default in ESLint <strong>v8</strong>, <strong>deprecated</strong> in ESLint v9 <strong>but still valid for existing projects</strong></p>
+<p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_ESLINTRC.md">https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_ESLINTRC.md</a></p>
+<p>The <a target="_blank" href="app/eslint.config.js">/app/eslint.config.js</a> file currently has this content.</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token comment">// @ts-check</span>
+<span class="token keyword keyword-const">const</span> eslint <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@eslint/js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> tseslint <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"typescript-eslint"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> angular <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"angular-eslint"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> tseslint<span class="token punctuation">.</span><span class="token method function property-access">config</span><span class="token punctuation">(</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.ts"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      eslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">stylistic</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">tsRecommended</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">processor</span><span class="token operator">:</span> angular<span class="token punctuation">.</span><span class="token property-access">processInlineTemplates</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">"@angular-eslint/directive-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"attribute"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"camelCase"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"@angular-eslint/component-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"element"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"kebab-case"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.html"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateRecommended</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateAccessibility</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>This is the so called <strong>FLAT</strong> ESLint config.</p>
+<p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md">https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md</a></p>
+<h3 id="841-notes-on-eslint-configuration">8.4.1 Notes on ESLint Configuration </h3>
+<p>These days with the flat config, ESLint has first class support for different types of files being configured differently (different rules and parsers)</p>
+<p>We can leverage this for Angular projects, because they:</p>
+<ul>
+<li>use <strong>TypeScript files</strong> for source code</li>
+<li>use a <strong>custom/extended form of HTML</strong> for templates (be they inline or external HTML files)</li>
+</ul>
+<p>The thing is: <strong>ESLint understands neither of these things out of the box.</strong></p>
+<p>Fortunately, however, ESLint has clearly defined points of extensibility that we can leverage to make this all work.</p>
+<blockquote>
+<p>For detailed information about ESLint plugins, parsers etc please review the official ESLint eslintrc config documentation: <a href="https://eslint.org/docs/latest/use/configure/">https://eslint.org/docs/latest/use/configure/</a></p>
+</blockquote>
+<p><strong>The key principle of our configuration required for Angular projects is that we need to run different blocks of configuration for different file types/extensions</strong>.</p>
+<p>In other words, we don't want the same rules to apply on TypeScript files that we do on HTML/inline-templates.</p>
+<p>Therefore, our flat config will contain two entries, one for TS, one for HTML.</p>
+<p>We could provide these two entries directly in an exported array, but <code>typescript-eslint</code> provides an awesome typed utility function which makes writing our flat configs a lot nicer.</p>
+<p>So we will instead require the function and pass in multiple objects for our configuration.</p>
+<p><a target="_blank" href="app/eslint.config.js">/app/eslint.config.js</a></p>
+<p>Copy all the comments into the <strong>FLAT</strong> ESLint config.</p>
+<p><strong>Before</strong></p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token comment">// @ts-check</span>
+<span class="token keyword keyword-const">const</span> eslint <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@eslint/js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> tseslint <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"typescript-eslint"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> angular <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"angular-eslint"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> tseslint<span class="token punctuation">.</span><span class="token method function property-access">config</span><span class="token punctuation">(</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.ts"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      eslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">stylistic</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">tsRecommended</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">processor</span><span class="token operator">:</span> angular<span class="token punctuation">.</span><span class="token property-access">processInlineTemplates</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">"@angular-eslint/directive-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"attribute"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"camelCase"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"@angular-eslint/component-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"element"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"kebab-case"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.html"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateRecommended</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateAccessibility</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p><strong>After</strong></p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token comment">// @ts-check</span>
+
+<span class="token comment">// Allows us to bring in the recommended core rules from eslint itself</span>
+<span class="token keyword keyword-const">const</span> eslint <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@eslint/js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Allows us to use the typed utility for our config, and to bring in the recommended rules for TypeScript projects from typescript-eslint</span>
+<span class="token keyword keyword-const">const</span> tseslint <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"typescript-eslint"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Allows us to bring in the recommended rules for Angular projects from angular-eslint</span>
+<span class="token keyword keyword-const">const</span> angular <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"angular-eslint"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Export our config array, which is composed together thanks to the typed utility function from typescript-eslint</span>
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> tseslint<span class="token punctuation">.</span><span class="token method function property-access">config</span><span class="token punctuation">(</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// Everything in this config object targets our TypeScript files (Components, Directives, Pipes etc)</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.ts"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// Apply the recommended core rules</span>
+      eslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token comment">// Apply the recommended TypeScript rules</span>
+      <span class="token spread operator">...</span>tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token comment">// Optionally apply stylistic rules from typescript-eslint that improve code consistency</span>
+      <span class="token spread operator">...</span>tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">stylistic</span><span class="token punctuation">,</span>
+      <span class="token comment">// Apply the recommended Angular rules</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">tsRecommended</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// Set the custom processor which will allow us to have our inline Component templates extracted</span>
+    <span class="token comment">// and treated as if they are HTML files (and therefore have the .html config below applied to them)</span>
+    <span class="token literal-property property">processor</span><span class="token operator">:</span> angular<span class="token punctuation">.</span><span class="token property-access">processInlineTemplates</span><span class="token punctuation">,</span>
+    <span class="token comment">// Override specific rules for TypeScript files (these will take priority over the extended configs above)</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">"@angular-eslint/directive-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"attribute"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"camelCase"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"@angular-eslint/component-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"element"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"kebab-case"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// Everything in this config object targets our HTML files (external templates,</span>
+    <span class="token comment">// and inline templates as long as we have the `processor` set on our TypeScript config above)</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.html"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// Apply the recommended Angular template rules</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateRecommended</span><span class="token punctuation">,</span>
+      <span class="token comment">// Apply the Angular template rules which focus on accessibility of our apps</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateAccessibility</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="842-premade-flat-configs">8.4.2 Premade flat configs </h3>
+<p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/angular-eslint/src/configs/README.md">https://github.com/angular-eslint/angular-eslint/blob/main/packages/angular-eslint/src/configs/README.md</a></p>
+<p>These flat ESLint configs exist for your convenience.</p>
+<p>They contain configuration intended to save you time and effort when configuring your project by disabling rules known to conflict with this repository, or cause issues in Angular codebases.</p>
+<blockquote>
+<p>NOTE: These configs are only compatible with <code>eslint.config.js</code> files, not eslintrc.</p>
+</blockquote>
+<blockquote>
+<p>You should access the configs exported from the <a href="https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin/src/configs"><code>@angular-eslint/eslint-plugin</code></a> package for use in eslintrc files.</p>
+</blockquote>
+<h4 id="angular-eslintts-all-and-angular-eslinttemplate-all"><code>angular-eslint/ts-all</code> and <code>angular-eslint/template-all</code> </h4>
+<p>Quite simply, these enable all the possible rules from <code>@angular-eslint/eslint-plugin</code> and <code>@angular-eslint/eslint-plugin-template</code> respectively.</p>
+<p>It is <strong>unlikely</strong> they will be applicable in real-world projects, but some folks find them useful to have as a reference.</p>
+<h4 id="angular-eslintts-recommended-and-angular-eslinttemplate-recommended"><code>angular-eslint/ts-recommended</code> and <code>angular-eslint/template-recommended</code> </h4>
+<p>The recommended sets from <code>@angular-eslint/eslint-plugin</code> and <code>@angular-eslint/eslint-plugin-template</code> are <strong><em>opinionated</em></strong> sets of Angular-specific rules that we think you should use because:</p>
+<ol>
+<li>They help you adhere to Angular best practices.</li>
+<li>They help catch probable issue vectors in your code.</li>
+</ol>
+<p>That being said, it is not the only way to use <code>@angular-eslint/eslint-plugin</code> or <code>@angular-eslint/eslint-plugin-template</code>, nor is it the way that will necessarily work 100% for your project/company.</p>
+<p>It has been built based off of two main things:</p>
+<ol>
+<li>
+<p>Angular best practices collected and collated from places like:</p>
+<ul>
+<li><a href="https://github.com/angular/angular">Angular repo</a>.</li>
+<li><a href="https://angular.dev">Angular documentation</a>.</li>
+<li>Advice from the <strong>Angular Team at Google</strong>.</li>
+</ul>
+</li>
+<li>
+<p>The combined state of community contributed rulesets at the time of creation.</p>
+</li>
+</ol>
+<p>It is strongly encouraged to combine the <strong>recommended</strong> Angular rules with the <em>recommended</em> configs from <code>typescript-eslint</code> (<a href="https://typescript-eslint.io/linting/configs/#recommended-configurations">https://typescript-eslint.io/linting/configs/#recommended-configurations</a>), and this is what our schematics will generate for you automatically.</p>
+<h3 id="843-altering-the-recommended-set-to-suit-your-project">8.4.3 Altering the recommended set to suit your project </h3>
+<p>If you disagree with a rule (or it disagrees with your codebase), consider using your local config to change the rule config so it works for your project.</p>
+<p>For example, if you want to turn off the <code>@angular-eslint/no-input-rename</code> TS rule, and turn off the '@angular-eslint/template/no-negated-async' template rule, you can add them to the applicable sections of the config and set them to "off" like this:</p>
+<p><strong>eslint.config.js</strong></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token comment">// @ts-check</span>
+<span class="token keyword keyword-const">const</span> eslint <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@eslint/js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> tseslint <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"typescript-eslint"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> angular <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"angular-eslint"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> tseslint<span class="token punctuation">.</span><span class="token method function property-access">config</span><span class="token punctuation">(</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.ts"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      eslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">stylistic</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">tsRecommended</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">processor</span><span class="token operator">:</span> angular<span class="token punctuation">.</span><span class="token property-access">processInlineTemplates</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// our project thinks using renaming inputs is ok</span>
+      <span class="token string-property property">"@angular-eslint/no-input-rename"</span><span class="token operator">:</span> <span class="token string">"off"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.html"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateRecommended</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateAccessibility</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// our project thinks using negated async pipes is ok</span>
+      <span class="token string-property property">"@angular-eslint/template/no-negated-async"</span><span class="token operator">:</span> <span class="token string">"off"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="844-angular-eslinttemplate-accessibility">8.4.4 <code>angular-eslint/template-accessibility</code> </h3>
+<p>These are all the rules within <code>@angular-eslint/eslint-plugin-template</code> which deal with things impacting the accessibility of your Angular apps.</p>
+<p>The rules are based on a number of best practice recommendations and resources including:</p>
+<ul>
+<li>
+<p><a href="https://www.w3.org/WAI/">W3C - Web Accessibility Initiative (WAI)</a></p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility">Mozilla Developer Network - Accessibility</a></p>
+</li>
+<li>
+<p><a href="https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules">Google Chrome - Audit Rules</a></p>
+</li>
+</ul>
+<h2 id="85-additional-eslint-configurations">8.5 Additional ESLint Configurations </h2>
+<p>If you feel the provided ESLint configuration up to this point are <strong>not enough</strong> for your project you can continue to add even more configurations for ESLint with regards to Angular.</p>
+<p>Instead of meticulously spending days, weeks and maybe months to find a good ESLint configuration this work can be left to experienced industry professionals.</p>
+<p>There are two contenders in this space.</p>
+<p><strong>AirBnB</strong></p>
+<p><a target="_blank" href="https://github.com/airbnb/javascript">https://github.com/airbnb/javascript</a></p>
+<p><strong>Code PushUp</strong></p>
+<p><a target="_blank" href="https://github.com/code-pushup/eslint-config">https://github.com/code-pushup/eslint-config</a></p>
+<p>While the AirBnB config is more geared towards <strong>JavaScript and React</strong> the <strong>Code PushUp config is geared particularly for Angular</strong>.</p>
+<p>Of course your team and you can also configure your own linting rules over the course of a project.</p>
+<h1 id="9-husky">9. Husky </h1>
+<p><a href="https://typicode.github.io/husky/">https://typicode.github.io/husky/</a></p>
+<p>Husky enhances your commits and more 🐶 woof!</p>
+<p>Automatically lint your commit messages, code, and run tests upon committing or pushing.</p>
+<h2 id="91-install-and-configure-husky">9.1 Install and Configure Husky </h2>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> --save-dev husky
+</code></pre><p><a target="_blank" href="app/package.json">/app/package.json</a></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"ng"</span><span class="token operator">:</span> <span class="token string">"ng"</span><span class="token punctuation">,</span>
+  <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"ng serve"</span><span class="token punctuation">,</span>
+  <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"ng build"</span><span class="token punctuation">,</span>
+  <span class="token property">"watch"</span><span class="token operator">:</span> <span class="token string">"ng build --watch --configuration development"</span><span class="token punctuation">,</span>
+  <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"ng test"</span><span class="token punctuation">,</span>
+  <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"ng lint"</span><span class="token punctuation">,</span>
+  <span class="token property">"prepare"</span><span class="token operator">:</span> <span class="token string">"husky"</span> &lt;== add husky install as prepare script
+<span class="token punctuation">}</span>
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> run prepare
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>npx husky init
+</code></pre><p>The init command simplifies setting up husky in a project.</p>
+<p>It creates a pre-commit script in <code>.husky</code> and updates the prepare script in <a target="_blank" href="app/package.json">/app/package.json</a>.</p>
+<p>Modifications can be made later to suit your workflow.</p>
+<h2 id="92-add-a-husky-hook">9.2 Add a Husky Hook </h2>
+<p><a target="_blank" href="https://typicode.github.io/husky/how-to.html#adding-a-new-hook">https://typicode.github.io/husky/how-to.html#adding-a-new-hook</a></p>
+<p>You can add a new hook by adding a corresponding file in the <code>.husky</code> folder of your repository.</p>
+<h2 id="93-there-are-17-git-hooks">9.3 There are 17 Git Hooks </h2>
+<p>For each of these you can create a Husky Hook file, i.e. <code>post-commit</code> and hook into the exact Git operation that you need.</p>
+<ol>
+<li><strong>applypatch-msg</strong> – Check patch message. <em>(e.g., verify format before applying patch)</em></li>
+<li><strong>pre-applypatch</strong> – Run before applying patch. <em>(e.g., run tests)</em></li>
+<li><strong>post-applypatch</strong> – After patch applied. <em>(e.g., notify team)</em></li>
+<li><strong>pre-commit</strong> – Before commit. <em>(e.g., lint code)</em></li>
+<li><strong>prepare-commit-msg</strong> – Edit commit message before editor opens. <em>(e.g., add ticket ID)</em></li>
+<li><strong>commit-msg</strong> – Check message after written. <em>(e.g., enforce message rules)</em></li>
+<li><strong>post-commit</strong> – After commit. <em>(e.g., show summary)</em></li>
+<li><strong>pre-rebase</strong> – Before rebase starts. <em>(e.g., check branch)</em></li>
+<li><strong>post-checkout</strong> – After checkout. <em>(e.g., setup env)</em></li>
+<li><strong>post-merge</strong> – After merge. <em>(e.g., re-install deps)</em></li>
+<li><strong>pre-push</strong> – Before push. <em>(e.g., run tests)</em></li>
+<li><strong>pre-receive</strong> – On remote before accepting push. <em>(e.g., validate code)</em></li>
+<li><strong>update</strong> – On remote for each branch. <em>(e.g., check access)</em></li>
+<li><strong>post-receive</strong> – After push on remote. <em>(e.g., deploy)</em></li>
+<li><strong>post-update</strong> – After update on remote. <em>(e.g., notify services)</em></li>
+<li><strong>push-to-checkout</strong> – During <code>git push</code> with <code>--checkout</code>. <em>(e.g., custom behavior)</em></li>
+<li><strong>pre-auto-gc</strong> – Before auto garbage collection. <em>(e.g., log cleanup)</em></li>
+</ol>
+<p><strong>Managing Multiple Git Hooks with Husky</strong></p>
+<p>When you have multiple Git hooks, you don't need to manually select which hook to use before committing - Git will automatically run all configured pre-commit hooks in sequence. Here's how it works and how to manage multiple hooks:</p>
+<p><strong>Understanding Git Hooks Execution</strong></p>
+<p>Git hooks are executed automatically at specific points in your Git workflow. For the pre-commit stage:</p>
+<ol>
+<li>When you run <code>git commit</code>, Git automatically checks for and executes all pre-commit hooks</li>
+<li>All hooks must succeed (exit with code 0) for the commit to proceed</li>
+<li>If any hook fails, the commit is aborted</li>
+</ol>
+<h2 id="94-setting-up-multiple-pre-commit-hooks-with-husky">9.4 Setting Up Multiple Pre-commit Hooks with Husky </h2>
+<p>The simplest approach is to add multiple commands to your pre-commit hook file:</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token comment"># .husky/pre-commit</span>
+
+<span class="token comment"># Run lint-staged</span>
+npx lint-staged
+
+<span class="token comment"># Run additional checks</span>
+<span class="token function">npm</span> run test:quick
+
+<span class="token comment"># Run additional checks</span>
+<span class="token function">npm</span> run type-check
+</code></pre><p>This way, all commands run sequentially when you commit.</p>
+<p><strong>Skip Git Hooks</strong></p>
+<p>The <code>-n</code> or <code>--no-verify</code> flag skips Git hooks like <code>pre-commit</code> and <code>commit-msg</code>.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token comment"># Skips Git hooks</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"..."</span> <span class="token parameter variable">-n</span>
+</code></pre><h2 id="95-project-is-not-in-the-root-directory">9.5 Project is Not in the Root Directory </h2>
+<p><a target="_blank" href="https://typicode.github.io/husky/how-to.html#project-not-in-git-root-directory">https://typicode.github.io/husky/how-to.html#project-not-in-git-root-directory</a></p>
+<p>In the case of this repository the <code>/app</code> folder is where Husky is installed as that is the location where the <code>package.json</code> file is, so this is the project folder.</p>
+<p>However Git is in the root folder.</p>
+<p>In this case prepare Husky so that Git is run from the root folder..</p>
+<p><a target="_blank" href="app/package.json">/app/package.json</a></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code>  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"ng"</span><span class="token operator">:</span> <span class="token string">"ng"</span><span class="token punctuation">,</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"ng serve"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"ng build"</span><span class="token punctuation">,</span>
+    <span class="token property">"watch"</span><span class="token operator">:</span> <span class="token string">"ng build --watch --configuration development"</span><span class="token punctuation">,</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"ng test"</span><span class="token punctuation">,</span>
+    <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"ng lint"</span><span class="token punctuation">,</span>
+    <span class="token property">"prepare"</span><span class="token operator">:</span> <span class="token string">"cd .. &amp;&amp; husky app/.husky"</span> &lt;=== move to root directory and tell husky where the .husky folder is
+  <span class="token punctuation">}</span>
+</code></pre><p>.. and in the <code>pre-commit</code> hook change the folder back to where the app is.</p>
+<p><a target="_blank" href="app/.husky/pre-commit">/app/.husky/pre-commit</a></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token comment"># app/.husky/pre-commit</span>
+<span class="token builtin class-name">cd</span> app
+
+<span class="token function">npm</span> <span class="token builtin class-name">test</span>
+
+<span class="token builtin class-name">exit</span> <span class="token number">1</span>
+</code></pre><p>This is just needed in this demo repository where an Angular app is in <code>app/</code>.</p>
+<p><a target="_blank" href="https://typicode.github.io/husky/how-to.html#testing-hooks-without-committing">https://typicode.github.io/husky/how-to.html#testing-hooks-without-committing</a></p>
+<p>By adding <code>exit 1</code> to the end of the <code>pre-commit</code> hook the Git commit is aborted, so you can test your hooks like this.</p>
+<h1 id="10-install-and-configure-lint-staged">10. Install and Configure lint-staged </h1>
+<p><a target="_blank" href="https://github.com/lint-staged/lint-staged">https://github.com/lint-staged/lint-staged</a></p>
+<p>🚫💩 — Run tasks like formatters and linters against staged git files</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
