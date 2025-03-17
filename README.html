@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:////home/user/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
+      <link rel="stylesheet" href="file:////home/user/.cursor/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -1155,10 +1155,289 @@ npx lint-staged
 </code></pre><p>This is just needed in this demo repository where an Angular app is in <code>app/</code>.</p>
 <p><a target="_blank" href="https://typicode.github.io/husky/how-to.html#testing-hooks-without-committing">https://typicode.github.io/husky/how-to.html#testing-hooks-without-committing</a></p>
 <p>By adding <code>exit 1</code> to the end of the <code>pre-commit</code> hook the Git commit is aborted, so you can test your hooks like this.</p>
-<h1 id="10-install-and-configure-lint-staged">10. Install and Configure lint-staged </h1>
+<h1 id="10-lint-staged">10. lint-staged </h1>
 <p><a target="_blank" href="https://github.com/lint-staged/lint-staged">https://github.com/lint-staged/lint-staged</a></p>
 <p>🚫💩 — Run tasks like formatters and linters against staged git files</p>
+<h2 id="101-install-and-configure-lint-staged">10.1 Install and Configure lint-staged </h2>
+<p><strong>requires further setup after npm install</strong></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> --save-dev lint-staged
+</code></pre><p>Create the lint-staged Configuration</p>
+<p>Create a <code>lint-staged.config.js</code> file in the root of the application project.</p>
+<p><a target="_blank" href="https://github.com/lint-staged/lint-staged/blob/main/lint-staged.config.js">https://github.com/lint-staged/lint-staged/blob/main/lint-staged.config.js</a></p>
+<p><a target="_blank" href="app/lint-staged.config.js">/app/lint-staged.config.js</a></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token doc-comment comment">/** <span class="token keyword keyword-@type">@type</span> <span class="token class-name"><span class="token punctuation">{</span><span class="token keyword keyword-import">import</span><span class="token punctuation">(</span><span class="token string">'./lib/types'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Configuration<span class="token punctuation">}</span></span> */</span>
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Run ESLint with auto-fix on all JavaScript files</span>
+  <span class="token comment">// This checks for and fixes code quality issues according to ESLint rules</span>
+  <span class="token string-property property">"*.js"</span><span class="token operator">:</span> <span class="token string">"eslint --fix"</span><span class="token punctuation">,</span>
 
+  <span class="token comment">// Run Prettier formatter on JavaScript, CSS, and Markdown files</span>
+  <span class="token comment">// This ensures consistent code formatting across these file types</span>
+  <span class="token string-property property">"*.{js,css,md}"</span><span class="token operator">:</span> <span class="token string">"prettier --write"</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// For TypeScript files, run two commands in sequence:</span>
+  <span class="token comment">// 1. ESLint to check and fix linting issues</span>
+  <span class="token comment">// 2. TypeScript compiler in strict mode to verify types without generating output files</span>
+  <span class="token string-property property">"*.ts"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"eslint --fix"</span><span class="token punctuation">,</span> <span class="token string">"tsc --noEmit --strict"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>Create the lint-staged Commands</p>
+<p><a target="_blank" href="app/.husky/pre-commit">/app/.husky/pre-commit</a></p>
+<p>Adjust the <code>pre-commit</code> hook so that <code>npx lint-staged</code> runs as part of it.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token comment"># app/.husky/pre-commit</span>
+<span class="token comment"># always cd into app in this repository because Git is not at the root of the repository</span>
+<span class="token builtin class-name">cd</span> app
+
+<span class="token comment"># Run lint-staged to check and format staged files</span>
+npx lint-staged
+
+<span class="token comment"># Uncomment to run tests before commit</span>
+<span class="token comment"># npm test</span>
+
+<span class="token comment"># https://github.com/lint-staged/lint-staged/blob/main/.husky/pre-commit</span>
+<span class="token comment"># node bin/lint-staged.js</span>
+
+<span class="token comment"># Comment below line to commit the commit if all commands have exited with 0</span>
+<span class="token builtin class-name">exit</span> <span class="token number">1</span>
+</code></pre><p><strong>Important</strong></p>
+<p><a target="_blank" href="app/eslint.config.js">/app/eslint.config.js</a></p>
+<p>For <code>ng lint</code> or <code>npx lint-staged</code> to be able to run either rename <code>eslint.config.js</code> to <code>eslint.config.cjs</code> or convert the <code>require</code> syntax to <code>import</code> syntax.</p>
+<p><strong>Before</strong></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token comment">// @ts-check</span>
+
+<span class="token comment">// Allows us to bring in the recommended core rules from eslint itself</span>
+<span class="token keyword keyword-const">const</span> eslint <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@eslint/js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Allows us to use the typed utility for our config, and to bring in the recommended rules for TypeScript projects from typescript-eslint</span>
+<span class="token keyword keyword-const">const</span> tseslint <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"typescript-eslint"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Allows us to bring in the recommended rules for Angular projects from angular-eslint</span>
+<span class="token keyword keyword-const">const</span> angular <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"angular-eslint"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Export our config array, which is composed together thanks to the typed utility function from typescript-eslint</span>
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> tseslint<span class="token punctuation">.</span><span class="token method function property-access">config</span><span class="token punctuation">(</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// Everything in this config object targets our TypeScript files (Components, Directives, Pipes etc)</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.ts"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// Apply the recommended core rules</span>
+      eslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token comment">// Apply the recommended TypeScript rules</span>
+      <span class="token spread operator">...</span>tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token comment">// Optionally apply stylistic rules from typescript-eslint that improve code consistency</span>
+      <span class="token spread operator">...</span>tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">stylistic</span><span class="token punctuation">,</span>
+      <span class="token comment">// Apply the recommended Angular rules</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">tsRecommended</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// Set the custom processor which will allow us to have our inline Component templates extracted</span>
+    <span class="token comment">// and treated as if they are HTML files (and therefore have the .html config below applied to them)</span>
+    <span class="token literal-property property">processor</span><span class="token operator">:</span> angular<span class="token punctuation">.</span><span class="token property-access">processInlineTemplates</span><span class="token punctuation">,</span>
+    <span class="token comment">// Override specific rules for TypeScript files (these will take priority over the extended configs above)</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">"@angular-eslint/directive-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"attribute"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"camelCase"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"@angular-eslint/component-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"element"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"kebab-case"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// Everything in this config object targets our HTML files (external templates,</span>
+    <span class="token comment">// and inline templates as long as we have the `processor` set on our TypeScript config above)</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.html"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// Apply the recommended Angular template rules</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateRecommended</span><span class="token punctuation">,</span>
+      <span class="token comment">// Apply the Angular template rules which focus on accessibility of our apps</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateAccessibility</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p><strong>After</strong></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token comment">// @ts-check</span>
+
+<span class="token comment">// Allows us to bring in the recommended core rules from eslint itself</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports">eslint</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"@eslint/js"</span><span class="token punctuation">;</span> <span class="token comment">// &lt;=== use import</span>
+
+<span class="token comment">// Allows us to use the typed utility for our config, and to bring in the recommended rules for TypeScript projects from typescript-eslint</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token operator">*</span> <span class="token keyword module keyword-as">as</span> tseslint</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"typescript-eslint"</span><span class="token punctuation">;</span> <span class="token comment">// &lt;=== use import</span>
+
+<span class="token comment">// Allows us to bring in the recommended rules for Angular projects from angular-eslint</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token operator">*</span> <span class="token keyword module keyword-as">as</span> angular</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"angular-eslint"</span><span class="token punctuation">;</span> <span class="token comment">// &lt;=== use import</span>
+
+<span class="token comment">// Export our config array, which is composed together thanks to the typed utility function from typescript-eslint</span>
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> tseslint<span class="token punctuation">.</span><span class="token method function property-access">config</span><span class="token punctuation">(</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// Everything in this config object targets our TypeScript files (Components, Directives, Pipes etc)</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.ts"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// Apply the recommended core rules</span>
+      eslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token comment">// Apply the recommended TypeScript rules</span>
+      <span class="token spread operator">...</span>tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token comment">// Optionally apply stylistic rules from typescript-eslint that improve code consistency</span>
+      <span class="token spread operator">...</span>tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">stylistic</span><span class="token punctuation">,</span>
+      <span class="token comment">// Apply the recommended Angular rules</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">tsRecommended</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// Set the custom processor which will allow us to have our inline Component templates extracted</span>
+    <span class="token comment">// and treated as if they are HTML files (and therefore have the .html config below applied to them)</span>
+    <span class="token literal-property property">processor</span><span class="token operator">:</span> angular<span class="token punctuation">.</span><span class="token property-access">processInlineTemplates</span><span class="token punctuation">,</span>
+    <span class="token comment">// Override specific rules for TypeScript files (these will take priority over the extended configs above)</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">"@angular-eslint/directive-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"attribute"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"camelCase"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"@angular-eslint/component-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"element"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"kebab-case"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// Everything in this config object targets our HTML files (external templates,</span>
+    <span class="token comment">// and inline templates as long as we have the `processor` set on our TypeScript config above)</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.html"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// Apply the recommended Angular template rules</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateRecommended</span><span class="token punctuation">,</span>
+      <span class="token comment">// Apply the Angular template rules which focus on accessibility of our apps</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateAccessibility</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>You are now ready to try out Husky and lint-staged.</p>
+<h2 id="102-run-husky-and-lint-staged-commit-work-see-the-pre-commit-hook-in-action">10.2 Run Husky and lint-staged, commit work, see the pre-commit hook in action </h2>
+<p>Now run</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token parameter variable">-A</span>
+</code></pre><p>to stage your changed files and then run</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"pre-commit hook test, husky, lint-staged"</span>
+</code></pre><p>Instead of saving your work in the commit this is shown on the terminal.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>✔ Backed up original state <span class="token keyword keyword-in">in</span> <span class="token function">git</span> stash <span class="token punctuation">(</span>31f52fe<span class="token punctuation">)</span>
+✔ Hiding unstaged changes to partially staged files<span class="token punctuation">..</span>.
+✔ Running tasks <span class="token keyword keyword-for">for</span> staged files<span class="token punctuation">..</span>.
+✔ Applying modifications from tasks<span class="token punctuation">..</span>.
+✔ Restoring unstaged changes to partially staged files<span class="token punctuation">..</span>.
+✔ Cleaning up temporary files<span class="token punctuation">..</span>.
+</code></pre><p>🎉 Congratulations, your husky - lint-staged pre-commit hook runs fine. ❤️</p>
+<p>Now go to your <code>pre-commit</code> file and comment out the last line.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token comment"># app/.husky/pre-commit</span>
+<span class="token comment"># always cd into app in this repository because Git is not at the root of the repository</span>
+<span class="token builtin class-name">cd</span> app
+
+<span class="token comment"># Run lint-staged to check and format staged files</span>
+npx lint-staged
+
+<span class="token comment"># Uncomment to run tests before commit</span>
+<span class="token comment"># npm test</span>
+
+<span class="token comment"># https://github.com/lint-staged/lint-staged/blob/main/.husky/pre-commit</span>
+<span class="token comment"># node bin/lint-staged.js</span>
+
+<span class="token comment"># Comment below line to commit the commit if all commands have exited with 0</span>
+<span class="token comment"># exit 1 # &lt;=== comment out this line, if all processes exit with 0 then the commit is saved</span>
+</code></pre><p>Now, if all processes that are configured to run by <code>npx lint-staged</code> in the <a target="_blank" href="app/lint-staged.config.js">/app/lint-staged.config.js</a> file exit with code <code>0</code>, then the latest work is saved in the commit and Prettier and ESLint checked and repaired all the staged files.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"pre-commit hook, husky, lint-staged, prettier, eslint"</span>
+</code></pre><p>First the pre-commit hook processes run..</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>✔ Backed up original state <span class="token keyword keyword-in">in</span> <span class="token function">git</span> stash <span class="token punctuation">(</span>6961bf4<span class="token punctuation">)</span>
+✔ Running tasks <span class="token keyword keyword-for">for</span> staged files<span class="token punctuation">..</span>.
+✔ Applying modifications from tasks<span class="token punctuation">..</span>.
+✔ Cleaning up temporary files<span class="token punctuation">..</span>.
+</code></pre><p>..then the normal git hook pre-commit is finished running and the staged files are saved in a new commit.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token punctuation">[</span>husky-lint-staged 8a9ad02<span class="token punctuation">]</span> pre-commit hook, husky, lint-staged, prettier, eslint
+ <span class="token number">10</span> files changed, <span class="token number">713</span> insertions<span class="token punctuation">(</span>+<span class="token punctuation">)</span>, <span class="token number">91</span> deletions<span class="token punctuation">(</span>-<span class="token punctuation">)</span>
+ create mode <span class="token number">100644</span> app/lint-staged.config.js
+</code></pre><h2 id="103-tweak-configuration">10.3 Tweak Configuration </h2>
+<p>Change the on-demand npm script so that they have a more detailed scope for the project.</p>
+<p><a target="_blank" href="app/package.json">/app/package.json</a></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code>  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
+    <span class="token property">"format:check"</span><span class="token operator">:</span> <span class="token string">"prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
+    <span class="token property">"lint:all"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\" --fix"</span><span class="token punctuation">,</span>
+    <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format &amp;&amp; npm run lint:all"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre><p>I'll explain each of these script commands in detail:</p>
+<ol>
+<li><code>"format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",</code></li>
+</ol>
+<p>This command runs Prettier, a code formatter, to automatically format code files in your Angular project:</p>
+<ul>
+<li><code>prettier --write</code>: Runs Prettier and writes the formatting changes directly to the files</li>
+<li><code>\"{,src/**/}*.{ts,js,html,css,json,md}\"</code>: This is a glob pattern that defines which files to format:
+<ul>
+<li><code>{,src/**/}</code> means "the root directory and all directories/subdirectories inside src/"</li>
+<li><code>*.{ts,js,html,css,json,md}</code> means "any files with these extensions" (TypeScript, JavaScript, HTML, CSS, JSON, and Markdown)</li>
+</ul>
+</li>
+<li>When executed, this command will reformat all matching files according to Prettier's rules</li>
+</ul>
+<ol start="2">
+<li><code>"format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",</code></li>
+</ol>
+<p>Similar to the first command, but instead of modifying files, it only checks if they are properly formatted:</p>
+<ul>
+<li><code>prettier --check</code>: Runs Prettier but only checks if files are formatted correctly without making changes</li>
+<li>The glob pattern is identical to the one in the <code>format</code> command</li>
+<li>This is useful in CI/CD pipelines or to verify formatting without changing files</li>
+<li>It will exit with an error code if any files aren't properly formatted</li>
+</ul>
+<ol start="3">
+<li><code>"lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",</code></li>
+</ol>
+<p>This command runs ESLint to check for code quality issues and potential bugs:</p>
+<ul>
+<li><code>npx eslint</code>: Runs ESLint from your node_modules</li>
+<li><code>\"{,src/**/}*.{ts,html,js}\"</code>: Similar glob pattern to the Prettier commands, but only targeting TypeScript, HTML, and JavaScript files</li>
+<li><code>--fix</code>: Tells ESLint to automatically fix problems where possible</li>
+<li>ESLint focuses on code quality and potential issues beyond just formatting (bugs, potential errors, coding standards)</li>
+</ul>
+<p>These scripts are complementary and serve different purposes:</p>
+<ul>
+<li><code>format</code> ensures your code looks consistent (spacing, quotes, etc.)</li>
+<li><code>format:check</code> verifies formatting without making changes</li>
+<li><code>lint:all</code> checks for code quality issues and can fix many of them automatically</li>
+</ul>
+<p>These commands are typically part of a development workflow for maintaining code quality in an Angular project, and you might run them before committing code or as part of your CI/CD pipeline.</p>
+<p><a target="_blank" href="app/lint-staged.config.js">/app/lint-staged.config.js</a></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token doc-comment comment">/** <span class="token keyword keyword-@type">@type</span> <span class="token class-name"><span class="token punctuation">{</span><span class="token keyword keyword-import">import</span><span class="token punctuation">(</span><span class="token string">'./lib/types'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Configuration<span class="token punctuation">}</span></span> */</span>
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Run ESLint with auto-fix on all TypeScript, HTML, and JavaScript files</span>
+  <span class="token comment">// This checks for and fixes code quality issues according to ESLint rules</span>
+  <span class="token comment">// Matches the 'lint:all' script from package.json</span>
+  <span class="token string-property property">'*.{ts,html,js}'</span><span class="token operator">:</span> <span class="token string">'eslint --fix'</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Run Prettier formatter on TypeScript, JavaScript, HTML, CSS, JSON, and Markdown files</span>
+  <span class="token comment">// This ensures consistent code formatting across all source files</span>
+  <span class="token comment">// Matches the 'format' script from package.json</span>
+  <span class="token string-property property">'*.{ts,js,html,css,json,md}'</span><span class="token operator">:</span> <span class="token string">'prettier --write'</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// For TypeScript files, run additional type checking:</span>
+  <span class="token comment">// TypeScript compiler in strict mode to verify types without generating output files</span>
+  <span class="token comment">// This provides an extra layer of type safety for staged TypeScript files</span>
+  <span class="token string-property property">'*.ts'</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'tsc --noEmit --strict'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
       </div>
       
       
