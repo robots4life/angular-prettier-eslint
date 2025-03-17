@@ -1911,3 +1911,26 @@ npx lint-staged
 # Comment below line to commit the commit if all commands have exited with 0
 # exit 1 # <=== comment out this line, if all processes exit with 0 then the commit is saved
 ```
+
+Now, if all processes that are configured to run by `npx lint-staged` in the <a target="_blank" href="/app/lint-staged.config.js">/app/lint-staged.config.js</a> file exit with code `0`, then the latest work is saved in the commit and Prettier and ESLint checked and repaired all the staged files.
+
+```shell
+git commit -m "pre-commit hook, husky, lint-staged, prettier, eslint"
+```
+
+First the pre-commit hook processes run..
+
+```shell
+✔ Backed up original state in git stash (6961bf4)
+✔ Running tasks for staged files...
+✔ Applying modifications from tasks...
+✔ Cleaning up temporary files...
+```
+
+..then the normal git hook pre-commit is finished running and the staged files are saved in a new commit.
+
+```shell
+[husky-lint-staged 8a9ad02] pre-commit hook, husky, lint-staged, prettier, eslint
+ 10 files changed, 713 insertions(+), 91 deletions(-)
+ create mode 100644 app/lint-staged.config.js
+```
