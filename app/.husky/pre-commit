@@ -1,6 +1,15 @@
 # app/.husky/pre-commit
+# always cd into app in this repository because Git is not at the root of the repository
 cd app
 
-npm test
+# Run lint-staged to check and format staged files
+npx lint-staged
 
-exit 1
+# Uncomment to run tests before commit
+# npm test
+
+# https://github.com/lint-staged/lint-staged/blob/main/.husky/pre-commit
+# node bin/lint-staged.js
+
+# Comment below line to commit the commit if all commands have exited with 0
+# exit 1 # <=== comment out this line, if all processes exit with 0 then the commit is saved

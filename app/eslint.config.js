@@ -1,16 +1,16 @@
 // @ts-check
 
 // Allows us to bring in the recommended core rules from eslint itself
-const eslint = require('@eslint/js');
+import eslint from '@eslint/js'; // <=== use import
 
 // Allows us to use the typed utility for our config, and to bring in the recommended rules for TypeScript projects from typescript-eslint
-const tseslint = require('typescript-eslint');
+import * as tseslint from 'typescript-eslint'; // <=== use import
 
 // Allows us to bring in the recommended rules for Angular projects from angular-eslint
-const angular = require('angular-eslint');
+import * as angular from 'angular-eslint'; // <=== use import
 
 // Export our config array, which is composed together thanks to the typed utility function from typescript-eslint
-module.exports = tseslint.config(
+export default tseslint.config(
   {
     // Everything in this config object targets our TypeScript files (Components, Directives, Pipes etc)
     files: ['**/*.ts'],
