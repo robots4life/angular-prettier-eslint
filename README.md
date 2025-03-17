@@ -1663,8 +1663,274 @@ This is just needed in this demo repository where an Angular app is in `app/`.
 
 By adding `exit 1` to the end of the `pre-commit` hook the Git commit is aborted, so you can test your hooks like this.
 
-# 10. Install and Configure lint-staged
+# 10. lint-staged
 
 <a target="_blank" href="https://github.com/lint-staged/lint-staged">https://github.com/lint-staged/lint-staged</a>
 
 🚫💩 — Run tasks like formatters and linters against staged git files
+
+## 10.1 Install and Configure lint-staged
+
+**requires further setup after npm install**
+
+```shell
+npm install --save-dev lint-staged
+```
+
+Create the lint-staged Configuration
+
+Create a `lint-staged.config.js` file in the root of the application project.
+
+<a target="_blank" href="https://github.com/lint-staged/lint-staged/blob/main/lint-staged.config.js">https://github.com/lint-staged/lint-staged/blob/main/lint-staged.config.js</a>
+
+<a target="_blank" href="/app/lint-staged.config.js">/app/lint-staged.config.js</a>
+
+```js
+/** @type {import('./lib/types').Configuration} */
+export default {
+  // Run ESLint with auto-fix on all JavaScript files
+  // This checks for and fixes code quality issues according to ESLint rules
+  "*.js": "eslint --fix",
+
+  // Run Prettier formatter on JavaScript, CSS, and Markdown files
+  // This ensures consistent code formatting across these file types
+  "*.{js,css,md}": "prettier --write",
+
+  // For TypeScript files, run two commands in sequence:
+  // 1. ESLint to check and fix linting issues
+  // 2. TypeScript compiler in strict mode to verify types without generating output files
+  "*.ts": ["eslint --fix", "tsc --noEmit --strict"],
+};
+```
+
+Create the lint-staged Commands
+
+<a target="_blank" href="/app/.husky/pre-commit">/app/.husky/pre-commit</a>
+
+Adjust the `pre-commit` hook so that `npx lint-staged` runs as part of it.
+
+```shell
+# app/.husky/pre-commit
+# always cd into app in this repository because Git is not at the root of the repository
+cd app
+
+# Run lint-staged to check and format staged files
+npx lint-staged
+
+# Uncomment to run tests before commit
+# npm test
+
+# https://github.com/lint-staged/lint-staged/blob/main/.husky/pre-commit
+# node bin/lint-staged.js
+
+# Comment below line to commit the commit if all commands have exited with 0
+exit 1
+```
+
+**Important**
+
+<a target="_blank" href="/app/eslint.config.js">/app/eslint.config.js</a>
+
+For `ng lint` or `npx lint-staged` to be able to run either rename `eslint.config.js` to `eslint.config.cjs` or convert the `require` syntax to `import` syntax.
+
+**Before**
+
+```js
+// @ts-check
+
+// Allows us to bring in the recommended core rules from eslint itself
+const eslint = require("@eslint/js");
+
+// Allows us to use the typed utility for our config, and to bring in the recommended rules for TypeScript projects from typescript-eslint
+const tseslint = require("typescript-eslint");
+
+// Allows us to bring in the recommended rules for Angular projects from angular-eslint
+const angular = require("angular-eslint");
+
+// Export our config array, which is composed together thanks to the typed utility function from typescript-eslint
+module.exports = tseslint.config(
+  {
+    // Everything in this config object targets our TypeScript files (Components, Directives, Pipes etc)
+    files: ["**/*.ts"],
+    extends: [
+      // Apply the recommended core rules
+      eslint.configs.recommended,
+      // Apply the recommended TypeScript rules
+      ...tseslint.configs.recommended,
+      // Optionally apply stylistic rules from typescript-eslint that improve code consistency
+      ...tseslint.configs.stylistic,
+      // Apply the recommended Angular rules
+      ...angular.configs.tsRecommended,
+    ],
+    // Set the custom processor which will allow us to have our inline Component templates extracted
+    // and treated as if they are HTML files (and therefore have the .html config below applied to them)
+    processor: angular.processInlineTemplates,
+    // Override specific rules for TypeScript files (these will take priority over the extended configs above)
+    rules: {
+      "@angular-eslint/directive-selector": [
+        "error",
+        {
+          type: "attribute",
+          prefix: "app",
+          style: "camelCase",
+        },
+      ],
+      "@angular-eslint/component-selector": [
+        "error",
+        {
+          type: "element",
+          prefix: "app",
+          style: "kebab-case",
+        },
+      ],
+    },
+  },
+  {
+    // Everything in this config object targets our HTML files (external templates,
+    // and inline templates as long as we have the `processor` set on our TypeScript config above)
+    files: ["**/*.html"],
+    extends: [
+      // Apply the recommended Angular template rules
+      ...angular.configs.templateRecommended,
+      // Apply the Angular template rules which focus on accessibility of our apps
+      ...angular.configs.templateAccessibility,
+    ],
+    rules: {},
+  }
+);
+```
+
+**After**
+
+```js
+// @ts-check
+
+// Allows us to bring in the recommended core rules from eslint itself
+import eslint from "@eslint/js"; // <=== use import
+
+// Allows us to use the typed utility for our config, and to bring in the recommended rules for TypeScript projects from typescript-eslint
+import * as tseslint from "typescript-eslint"; // <=== use import
+
+// Allows us to bring in the recommended rules for Angular projects from angular-eslint
+import * as angular from "angular-eslint"; // <=== use import
+
+// Export our config array, which is composed together thanks to the typed utility function from typescript-eslint
+export default tseslint.config(
+  {
+    // Everything in this config object targets our TypeScript files (Components, Directives, Pipes etc)
+    files: ["**/*.ts"],
+    extends: [
+      // Apply the recommended core rules
+      eslint.configs.recommended,
+      // Apply the recommended TypeScript rules
+      ...tseslint.configs.recommended,
+      // Optionally apply stylistic rules from typescript-eslint that improve code consistency
+      ...tseslint.configs.stylistic,
+      // Apply the recommended Angular rules
+      ...angular.configs.tsRecommended,
+    ],
+    // Set the custom processor which will allow us to have our inline Component templates extracted
+    // and treated as if they are HTML files (and therefore have the .html config below applied to them)
+    processor: angular.processInlineTemplates,
+    // Override specific rules for TypeScript files (these will take priority over the extended configs above)
+    rules: {
+      "@angular-eslint/directive-selector": [
+        "error",
+        {
+          type: "attribute",
+          prefix: "app",
+          style: "camelCase",
+        },
+      ],
+      "@angular-eslint/component-selector": [
+        "error",
+        {
+          type: "element",
+          prefix: "app",
+          style: "kebab-case",
+        },
+      ],
+    },
+  },
+  {
+    // Everything in this config object targets our HTML files (external templates,
+    // and inline templates as long as we have the `processor` set on our TypeScript config above)
+    files: ["**/*.html"],
+    extends: [
+      // Apply the recommended Angular template rules
+      ...angular.configs.templateRecommended,
+      // Apply the Angular template rules which focus on accessibility of our apps
+      ...angular.configs.templateAccessibility,
+    ],
+    rules: {},
+  }
+);
+```
+
+Now run
+
+```shell
+git add -A
+```
+
+to stage your changed files and then run
+
+```shell
+git commit -m "pre-commit hook test, husky, lint-staged"
+```
+
+Instead of saving your work in the commit this is shown on the terminal.
+
+```shell
+✔ Backed up original state in git stash (31f52fe)
+✔ Hiding unstaged changes to partially staged files...
+✔ Running tasks for staged files...
+✔ Applying modifications from tasks...
+✔ Restoring unstaged changes to partially staged files...
+✔ Cleaning up temporary files...
+```
+
+:tada: Congratulations, your husky - lint-staged pre-commit hook runs fine. :heart:
+
+Now go to your `pre-commit` file and comment out the last line.
+
+```shell
+# app/.husky/pre-commit
+# always cd into app in this repository because Git is not at the root of the repository
+cd app
+
+# Run lint-staged to check and format staged files
+npx lint-staged
+
+# Uncomment to run tests before commit
+# npm test
+
+# https://github.com/lint-staged/lint-staged/blob/main/.husky/pre-commit
+# node bin/lint-staged.js
+
+# Comment below line to commit the commit if all commands have exited with 0
+# exit 1 # <=== comment out this line, if all processes exit with 0 then the commit is saved
+```
+
+Now, if all processes that are configured to run by `npx lint-staged` in the <a target="_blank" href="/app/lint-staged.config.js">/app/lint-staged.config.js</a> file exit with code `0`, then the latest work is saved in the commit and Prettier and ESLint checked and repaired all the staged files.
+
+```shell
+git commit -m "pre-commit hook, husky, lint-staged, prettier, eslint"
+```
+
+First the pre-commit hook processes run..
+
+```shell
+✔ Backed up original state in git stash (6961bf4)
+✔ Running tasks for staged files...
+✔ Applying modifications from tasks...
+✔ Cleaning up temporary files...
+```
+
+..then the normal git hook pre-commit is finished running and the staged files are saved in a new commit.
+
+```shell
+[husky-lint-staged 8a9ad02] pre-commit hook, husky, lint-staged, prettier, eslint
+ 10 files changed, 713 insertions(+), 91 deletions(-)
+ create mode 100644 app/lint-staged.config.js
+```
