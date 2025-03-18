@@ -619,7 +619,23 @@ UPDATE package.json <span class="token punctuation">(</span><span class="token n
 UPDATE angular.json <span class="token punctuation">(</span><span class="token number">2877</span> bytes<span class="token punctuation">)</span>
 ✔ Packages installed successfully.
 </code></pre><p>This installed <a target="_blank" href="https://github.com/angular-eslint/angular-eslint">https://github.com/angular-eslint/angular-eslint</a> for the app.</p>
-<p>Check your <a target="_blank" href="app/package.json">/app/package.json</a> file to see what has been installed.</p>
+<p><a target="_blank" href="https://github.com/angular-eslint/angular-eslint?tab=readme-ov-file#quick-start">https://github.com/angular-eslint/angular-eslint?tab=readme-ov-file#quick-start</a></p>
+<p>If you like to add Angular ESLint to an existing project use this command.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>ng <span class="token function">add</span> angular-eslint
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>✔ Determining Package Manager
+  › Using package manager: <span class="token function">npm</span>
+✔ Searching <span class="token keyword keyword-for">for</span> compatible package version
+  › Found compatible package version: angular-eslint@19.2.1.
+✔ Loading package information from registry
+✔ Confirming installation
+✔ Installing package
+
+    All angular-eslint dependencies have been successfully installed 🎉
+
+    Please see https://github.com/angular-eslint/angular-eslint <span class="token keyword keyword-for">for</span> how to <span class="token function">add</span> ESLint configuration to your project.
+
+UPDATE package.json <span class="token punctuation">(</span><span class="token number">2594</span> bytes<span class="token punctuation">)</span>
+</code></pre><p>Check your <a target="_blank" href="app/package.json">/app/package.json</a> file to see what has been installed.</p>
 <p><strong>Before</strong></p>
 <pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
   <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
@@ -1425,17 +1441,17 @@ npx lint-staged
   <span class="token comment">// Run ESLint with auto-fix on all TypeScript, HTML, and JavaScript files</span>
   <span class="token comment">// This checks for and fixes code quality issues according to ESLint rules</span>
   <span class="token comment">// Matches the 'lint:all' script from package.json</span>
-  <span class="token string-property property">'*.{ts,html,js}'</span><span class="token operator">:</span> <span class="token string">'eslint --fix'</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"*.{ts,html,js}"</span><span class="token operator">:</span> <span class="token string">"eslint --fix"</span><span class="token punctuation">,</span>
 
   <span class="token comment">// Run Prettier formatter on TypeScript, JavaScript, HTML, CSS, JSON, and Markdown files</span>
   <span class="token comment">// This ensures consistent code formatting across all source files</span>
   <span class="token comment">// Matches the 'format' script from package.json</span>
-  <span class="token string-property property">'*.{ts,js,html,css,json,md}'</span><span class="token operator">:</span> <span class="token string">'prettier --write'</span><span class="token punctuation">,</span>
+  <span class="token string-property property">"*.{ts,js,html,css,json,md}"</span><span class="token operator">:</span> <span class="token string">"prettier --write"</span><span class="token punctuation">,</span>
 
   <span class="token comment">// For TypeScript files, run additional type checking:</span>
   <span class="token comment">// TypeScript compiler in strict mode to verify types without generating output files</span>
   <span class="token comment">// This provides an extra layer of type safety for staged TypeScript files</span>
-  <span class="token string-property property">'*.ts'</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'tsc --noEmit --strict'</span><span class="token punctuation">]</span>
+  <span class="token string-property property">"*.ts"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"tsc --noEmit --strict"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
       </div>
