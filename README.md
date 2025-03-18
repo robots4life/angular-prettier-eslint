@@ -966,6 +966,30 @@ UPDATE angular.json (2877 bytes)
 
 This installed <a target="_blank" href="https://github.com/angular-eslint/angular-eslint">https://github.com/angular-eslint/angular-eslint</a> for the app.
 
+<a target="_blank" href="https://github.com/angular-eslint/angular-eslint?tab=readme-ov-file#quick-start">https://github.com/angular-eslint/angular-eslint?tab=readme-ov-file#quick-start</a>
+
+If you like to add Angular ESLint to an existing project use this command.
+
+```shell
+ng add angular-eslint
+```
+
+```shell
+✔ Determining Package Manager
+  › Using package manager: npm
+✔ Searching for compatible package version
+  › Found compatible package version: angular-eslint@19.2.1.
+✔ Loading package information from registry
+✔ Confirming installation
+✔ Installing package
+
+    All angular-eslint dependencies have been successfully installed 🎉
+
+    Please see https://github.com/angular-eslint/angular-eslint for how to add ESLint configuration to your project.
+
+UPDATE package.json (2594 bytes)
+```
+
 Check your <a target="_blank" href="/app/package.json">/app/package.json</a> file to see what has been installed.
 
 **Before**
@@ -1959,29 +1983,33 @@ I'll explain each of these script commands in detail:
 1. `"format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",`
 
 This command runs Prettier, a code formatter, to automatically format code files in your Angular project:
-   - `prettier --write`: Runs Prettier and writes the formatting changes directly to the files
-   - `\"{,src/**/}*.{ts,js,html,css,json,md}\"`: This is a glob pattern that defines which files to format:
-     - `{,src/**/}` means "the root directory and all directories/subdirectories inside src/"
-     - `*.{ts,js,html,css,json,md}` means "any files with these extensions" (TypeScript, JavaScript, HTML, CSS, JSON, and Markdown)
-   - When executed, this command will reformat all matching files according to Prettier's rules
+
+- `prettier --write`: Runs Prettier and writes the formatting changes directly to the files
+- `\"{,src/**/}*.{ts,js,html,css,json,md}\"`: This is a glob pattern that defines which files to format:
+  - `{,src/**/}` means "the root directory and all directories/subdirectories inside src/"
+  - `*.{ts,js,html,css,json,md}` means "any files with these extensions" (TypeScript, JavaScript, HTML, CSS, JSON, and Markdown)
+- When executed, this command will reformat all matching files according to Prettier's rules
 
 2. `"format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",`
 
 Similar to the first command, but instead of modifying files, it only checks if they are properly formatted:
-   - `prettier --check`: Runs Prettier but only checks if files are formatted correctly without making changes
-   - The glob pattern is identical to the one in the `format` command
-   - This is useful in CI/CD pipelines or to verify formatting without changing files
-   - It will exit with an error code if any files aren't properly formatted
+
+- `prettier --check`: Runs Prettier but only checks if files are formatted correctly without making changes
+- The glob pattern is identical to the one in the `format` command
+- This is useful in CI/CD pipelines or to verify formatting without changing files
+- It will exit with an error code if any files aren't properly formatted
 
 3. `"lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",`
 
 This command runs ESLint to check for code quality issues and potential bugs:
-   - `npx eslint`: Runs ESLint from your node_modules
-   - `\"{,src/**/}*.{ts,html,js}\"`: Similar glob pattern to the Prettier commands, but only targeting TypeScript, HTML, and JavaScript files
-   - `--fix`: Tells ESLint to automatically fix problems where possible
-   - ESLint focuses on code quality and potential issues beyond just formatting (bugs, potential errors, coding standards)
+
+- `npx eslint`: Runs ESLint from your node_modules
+- `\"{,src/**/}*.{ts,html,js}\"`: Similar glob pattern to the Prettier commands, but only targeting TypeScript, HTML, and JavaScript files
+- `--fix`: Tells ESLint to automatically fix problems where possible
+- ESLint focuses on code quality and potential issues beyond just formatting (bugs, potential errors, coding standards)
 
 These scripts are complementary and serve different purposes:
+
 - `format` ensures your code looks consistent (spacing, quotes, etc.)
 - `format:check` verifies formatting without making changes
 - `lint:all` checks for code quality issues and can fix many of them automatically
@@ -1996,16 +2024,16 @@ export default {
   // Run ESLint with auto-fix on all TypeScript, HTML, and JavaScript files
   // This checks for and fixes code quality issues according to ESLint rules
   // Matches the 'lint:all' script from package.json
-  '*.{ts,html,js}': 'eslint --fix',
+  "*.{ts,html,js}": "eslint --fix",
 
   // Run Prettier formatter on TypeScript, JavaScript, HTML, CSS, JSON, and Markdown files
   // This ensures consistent code formatting across all source files
   // Matches the 'format' script from package.json
-  '*.{ts,js,html,css,json,md}': 'prettier --write',
+  "*.{ts,js,html,css,json,md}": "prettier --write",
 
   // For TypeScript files, run additional type checking:
   // TypeScript compiler in strict mode to verify types without generating output files
   // This provides an extra layer of type safety for staged TypeScript files
-  '*.ts': ['tsc --noEmit --strict']
+  "*.ts": ["tsc --noEmit --strict"],
 };
 ```
