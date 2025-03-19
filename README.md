@@ -1566,7 +1566,7 @@ npm install --save-dev husky
   "watch": "ng build --watch --configuration development",
   "test": "ng test",
   "lint": "ng lint",
-  "prepare": "husky" <== add husky install as prepare script
+  "prepare": "husky" <=== add husky install as prepare script
 }
 ```
 
@@ -1763,7 +1763,7 @@ exit 1
 
 <a target="_blank" href="/app/eslint.config.js">/app/eslint.config.js</a>
 
-For `ng lint` or `npx lint-staged` to be able to run either rename `eslint.config.js` to `eslint.config.cjs` or convert the `require` syntax to `import` syntax.
+For `ng lint` or `npx lint-staged` to be able to run either rename `eslint.config.js` to `eslint.config.cjs` **OR** convert the `require` syntax to `import` syntax and add `"type":"module"` to <a target="_blank" href="/app/package.json">/app/package.json</a>
 
 **Before**
 
@@ -1899,6 +1899,121 @@ export default tseslint.config(
 );
 ```
 
+<a target="_blank" href="/app/package.json">/app/package.json</a>
+
+**Before**
+
+```json
+{
+  "name": "app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint",
+    "prepare": "cd .. && husky app/.husky",
+    "format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",
+    "format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",
+    "lint:check": "npx eslint \"{,src/**/}*.{ts,html,js}\"",
+    "lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",
+    "fix": "npm run format && npm run lint:all"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.10"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.5",
+    "@angular/cli": "^18.2.5",
+    "@angular/compiler-cli": "^18.2.0",
+    "@types/jasmine": "~5.1.0",
+    "angular-eslint": "19.0.2",
+    "eslint": "^9.16.0",
+    "husky": "^9.1.7",
+    "jasmine-core": "~5.2.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.3.3",
+    "typescript": "~5.5.2",
+    "typescript-eslint": "8.18.0"
+  }
+}
+```
+
+**After**
+
+```json
+{
+  "name": "app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint",
+    "prepare": "cd .. && husky app/.husky",
+    "format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",
+    "format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",
+    "lint:check": "npx eslint \"{,src/**/}*.{ts,html,js}\"",
+    "lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",
+    "fix": "npm run format && npm run lint:all"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.10"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.5",
+    "@angular/cli": "^18.2.5",
+    "@angular/compiler-cli": "^18.2.0",
+    "@types/jasmine": "~5.1.0",
+    "angular-eslint": "19.0.2",
+    "eslint": "^9.16.0",
+    "husky": "^9.1.7",
+    "jasmine-core": "~5.2.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.3.3",
+    "typescript": "~5.5.2",
+    "typescript-eslint": "8.18.0"
+  },
+  "type": "module" <=== this is added here, then eslint.config.js can run with modern imports
+}
+```
+
 You are now ready to try out Husky and lint-staged.
 
 ## 10.2 Run Husky and lint-staged, commit work, see the pre-commit hook in action
@@ -1979,8 +2094,9 @@ Change the on-demand npm script so that they have a more detailed scope for the 
 
 ```json
   "scripts": {
-    "format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",
     "format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",
+    "format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",
+    "lint:check": "npx eslint \"{,src/**/}*.{ts,html,js}\"",
     "lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",
     "fix": "npm run format && npm run lint:all"
   },
@@ -1988,7 +2104,16 @@ Change the on-demand npm script so that they have a more detailed scope for the 
 
 I'll explain each of these script commands in detail:
 
-1. `"format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",`
+1. `"format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",`
+
+Similar to the first command, but instead of modifying files, it only checks if they are properly formatted:
+
+- `prettier --check`: Runs Prettier but only checks if files are formatted correctly without making changes
+- The glob pattern is identical to the one in the `format` command
+- This is useful in CI/CD pipelines or to verify formatting without changing files
+- It will exit with an error code if any files aren't properly formatted
+
+2. `"format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",`
 
 This command runs Prettier, a code formatter, to automatically format code files in your Angular project:
 
@@ -1998,16 +2123,22 @@ This command runs Prettier, a code formatter, to automatically format code files
   - `*.{ts,js,html,css,json,md}` means "any files with these extensions" (TypeScript, JavaScript, HTML, CSS, JSON, and Markdown)
 - When executed, this command will reformat all matching files according to Prettier's rules
 
-2. `"format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",`
+3. `"lint:check": "npx eslint \"{,src/**/}*.{ts,html,js}\"",`
 
-Similar to the first command, but instead of modifying files, it only checks if they are properly formatted:
+This command runs ESLint to check for code quality issues without automatically fixing them:
 
-- `prettier --check`: Runs Prettier but only checks if files are formatted correctly without making changes
-- The glob pattern is identical to the one in the `format` command
-- This is useful in CI/CD pipelines or to verify formatting without changing files
-- It will exit with an error code if any files aren't properly formatted
+- `npx eslint`: Runs ESLint from your node_modules
+- `\"{,src/**/}*.{ts,html,js}\"`: Similar glob pattern to other commands:
+  - `{,src/**/}` means "the root directory and all directories/subdirectories inside src/"
+  - `*.{ts,html,js}` means "any files with these extensions" (TypeScript, HTML, and JavaScript)
+- Unlike `lint:all`, this command omits the `--fix` flag, so it only reports issues without attempting to fix them
 
-3. `"lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",`
+- This is particularly useful for:
+  - Code review processes where you want to see all issues before fixing
+  - CI/CD pipelines where you want to fail the build if there are linting errors
+  - Local development when you want to review issues before applying fixes
+
+4. `"lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",`
 
 This command runs ESLint to check for code quality issues and potential bugs:
 

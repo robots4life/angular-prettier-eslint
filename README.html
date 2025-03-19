@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:////home/user/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
+      <link rel="stylesheet" href="file:////home/user/.cursor/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -1096,7 +1096,7 @@ module<span class="token punctuation">.</span><span class="token property-access
   <span class="token property">"watch"</span><span class="token operator">:</span> <span class="token string">"ng build --watch --configuration development"</span><span class="token punctuation">,</span>
   <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"ng test"</span><span class="token punctuation">,</span>
   <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"ng lint"</span><span class="token punctuation">,</span>
-  <span class="token property">"prepare"</span><span class="token operator">:</span> <span class="token string">"husky"</span> &lt;== add husky install as prepare script
+  <span class="token property">"prepare"</span><span class="token operator">:</span> <span class="token string">"husky"</span> &lt;=== add husky install as prepare script
 <span class="token punctuation">}</span>
 </code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> run prepare
 </code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>npx husky init
@@ -1224,7 +1224,7 @@ npx lint-staged
 <span class="token builtin class-name">exit</span> <span class="token number">1</span>
 </code></pre><p><strong>Important</strong></p>
 <p><a target="_blank" href="app/eslint.config.js">/app/eslint.config.js</a></p>
-<p>For <code>ng lint</code> or <code>npx lint-staged</code> to be able to run either rename <code>eslint.config.js</code> to <code>eslint.config.cjs</code> or convert the <code>require</code> syntax to <code>import</code> syntax.</p>
+<p>For <code>ng lint</code> or <code>npx lint-staged</code> to be able to run either rename <code>eslint.config.js</code> to <code>eslint.config.cjs</code> <strong>OR</strong> convert the <code>require</code> syntax to <code>import</code> syntax and add <code>"type":"module"</code> to <a target="_blank" href="app/package.json">/app/package.json</a></p>
 <p><strong>Before</strong></p>
 <pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token comment">// @ts-check</span>
 
@@ -1351,6 +1351,112 @@ module<span class="token punctuation">.</span><span class="token property-access
     <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p><a target="_blank" href="app/package.json">/app/package.json</a></p>
+<p><strong>Before</strong></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.0.0"</span><span class="token punctuation">,</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"ng"</span><span class="token operator">:</span> <span class="token string">"ng"</span><span class="token punctuation">,</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"ng serve"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"ng build"</span><span class="token punctuation">,</span>
+    <span class="token property">"watch"</span><span class="token operator">:</span> <span class="token string">"ng build --watch --configuration development"</span><span class="token punctuation">,</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"ng test"</span><span class="token punctuation">,</span>
+    <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"ng lint"</span><span class="token punctuation">,</span>
+    <span class="token property">"prepare"</span><span class="token operator">:</span> <span class="token string">"cd .. &amp;&amp; husky app/.husky"</span><span class="token punctuation">,</span>
+    <span class="token property">"format:check"</span><span class="token operator">:</span> <span class="token string">"prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
+    <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
+    <span class="token property">"lint:check"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\""</span><span class="token punctuation">,</span>
+    <span class="token property">"lint:all"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\" --fix"</span><span class="token punctuation">,</span>
+    <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format &amp;&amp; npm run lint:all"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@angular/animations"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/common"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/compiler"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/core"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/forms"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/platform-browser"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/platform-browser-dynamic"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/router"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"rxjs"</span><span class="token operator">:</span> <span class="token string">"~7.8.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"tslib"</span><span class="token operator">:</span> <span class="token string">"^2.3.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"zone.js"</span><span class="token operator">:</span> <span class="token string">"~0.14.10"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@angular-devkit/build-angular"</span><span class="token operator">:</span> <span class="token string">"^18.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/cli"</span><span class="token operator">:</span> <span class="token string">"^18.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/compiler-cli"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@types/jasmine"</span><span class="token operator">:</span> <span class="token string">"~5.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"angular-eslint"</span><span class="token operator">:</span> <span class="token string">"19.0.2"</span><span class="token punctuation">,</span>
+    <span class="token property">"eslint"</span><span class="token operator">:</span> <span class="token string">"^9.16.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"husky"</span><span class="token operator">:</span> <span class="token string">"^9.1.7"</span><span class="token punctuation">,</span>
+    <span class="token property">"jasmine-core"</span><span class="token operator">:</span> <span class="token string">"~5.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma"</span><span class="token operator">:</span> <span class="token string">"~6.4.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-chrome-launcher"</span><span class="token operator">:</span> <span class="token string">"~3.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-coverage"</span><span class="token operator">:</span> <span class="token string">"~2.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-jasmine"</span><span class="token operator">:</span> <span class="token string">"~5.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-jasmine-html-reporter"</span><span class="token operator">:</span> <span class="token string">"~2.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"lint-staged"</span><span class="token operator">:</span> <span class="token string">"^15.5.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"prettier"</span><span class="token operator">:</span> <span class="token string">"^3.3.3"</span><span class="token punctuation">,</span>
+    <span class="token property">"typescript"</span><span class="token operator">:</span> <span class="token string">"~5.5.2"</span><span class="token punctuation">,</span>
+    <span class="token property">"typescript-eslint"</span><span class="token operator">:</span> <span class="token string">"8.18.0"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>After</strong></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.0.0"</span><span class="token punctuation">,</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"ng"</span><span class="token operator">:</span> <span class="token string">"ng"</span><span class="token punctuation">,</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"ng serve"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"ng build"</span><span class="token punctuation">,</span>
+    <span class="token property">"watch"</span><span class="token operator">:</span> <span class="token string">"ng build --watch --configuration development"</span><span class="token punctuation">,</span>
+    <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"ng test"</span><span class="token punctuation">,</span>
+    <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"ng lint"</span><span class="token punctuation">,</span>
+    <span class="token property">"prepare"</span><span class="token operator">:</span> <span class="token string">"cd .. &amp;&amp; husky app/.husky"</span><span class="token punctuation">,</span>
+    <span class="token property">"format:check"</span><span class="token operator">:</span> <span class="token string">"prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
+    <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
+    <span class="token property">"lint:check"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\""</span><span class="token punctuation">,</span>
+    <span class="token property">"lint:all"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\" --fix"</span><span class="token punctuation">,</span>
+    <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format &amp;&amp; npm run lint:all"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@angular/animations"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/common"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/compiler"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/core"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/forms"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/platform-browser"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/platform-browser-dynamic"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/router"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"rxjs"</span><span class="token operator">:</span> <span class="token string">"~7.8.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"tslib"</span><span class="token operator">:</span> <span class="token string">"^2.3.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"zone.js"</span><span class="token operator">:</span> <span class="token string">"~0.14.10"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@angular-devkit/build-angular"</span><span class="token operator">:</span> <span class="token string">"^18.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/cli"</span><span class="token operator">:</span> <span class="token string">"^18.2.5"</span><span class="token punctuation">,</span>
+    <span class="token property">"@angular/compiler-cli"</span><span class="token operator">:</span> <span class="token string">"^18.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"@types/jasmine"</span><span class="token operator">:</span> <span class="token string">"~5.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"angular-eslint"</span><span class="token operator">:</span> <span class="token string">"19.0.2"</span><span class="token punctuation">,</span>
+    <span class="token property">"eslint"</span><span class="token operator">:</span> <span class="token string">"^9.16.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"husky"</span><span class="token operator">:</span> <span class="token string">"^9.1.7"</span><span class="token punctuation">,</span>
+    <span class="token property">"jasmine-core"</span><span class="token operator">:</span> <span class="token string">"~5.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma"</span><span class="token operator">:</span> <span class="token string">"~6.4.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-chrome-launcher"</span><span class="token operator">:</span> <span class="token string">"~3.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-coverage"</span><span class="token operator">:</span> <span class="token string">"~2.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-jasmine"</span><span class="token operator">:</span> <span class="token string">"~5.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"karma-jasmine-html-reporter"</span><span class="token operator">:</span> <span class="token string">"~2.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"lint-staged"</span><span class="token operator">:</span> <span class="token string">"^15.5.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"prettier"</span><span class="token operator">:</span> <span class="token string">"^3.3.3"</span><span class="token punctuation">,</span>
+    <span class="token property">"typescript"</span><span class="token operator">:</span> <span class="token string">"~5.5.2"</span><span class="token punctuation">,</span>
+    <span class="token property">"typescript-eslint"</span><span class="token operator">:</span> <span class="token string">"8.18.0"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"module"</span> &lt;=== this is added here<span class="token punctuation">,</span> then eslint.config.js can run with modern imports
+<span class="token punctuation">}</span>
 </code></pre><p>You are now ready to try out Husky and lint-staged.</p>
 <h2 id="102-run-husky-and-lint-staged-commit-work-see-the-pre-commit-hook-in-action">10.2 Run Husky and lint-staged, commit work, see the pre-commit hook in action </h2>
 <p>Now run</p>
@@ -1396,13 +1502,24 @@ npx lint-staged
 <p>Change the on-demand npm script so that they have a more detailed scope for the project.</p>
 <p><a target="_blank" href="app/package.json">/app/package.json</a></p>
 <pre data-role="codeBlock" data-info="json" class="language-json json"><code>  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
     <span class="token property">"format:check"</span><span class="token operator">:</span> <span class="token string">"prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
+    <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
+    <span class="token property">"lint:check"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\""</span><span class="token punctuation">,</span>
     <span class="token property">"lint:all"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\" --fix"</span><span class="token punctuation">,</span>
     <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format &amp;&amp; npm run lint:all"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </code></pre><p>I'll explain each of these script commands in detail:</p>
 <ol>
+<li><code>"format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",</code></li>
+</ol>
+<p>Similar to the first command, but instead of modifying files, it only checks if they are properly formatted:</p>
+<ul>
+<li><code>prettier --check</code>: Runs Prettier but only checks if files are formatted correctly without making changes</li>
+<li>The glob pattern is identical to the one in the <code>format</code> command</li>
+<li>This is useful in CI/CD pipelines or to verify formatting without changing files</li>
+<li>It will exit with an error code if any files aren't properly formatted</li>
+</ul>
+<ol start="2">
 <li><code>"format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",</code></li>
 </ol>
 <p>This command runs Prettier, a code formatter, to automatically format code files in your Angular project:</p>
@@ -1416,17 +1533,34 @@ npx lint-staged
 </li>
 <li>When executed, this command will reformat all matching files according to Prettier's rules</li>
 </ul>
-<ol start="2">
-<li><code>"format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",</code></li>
-</ol>
-<p>Similar to the first command, but instead of modifying files, it only checks if they are properly formatted:</p>
-<ul>
-<li><code>prettier --check</code>: Runs Prettier but only checks if files are formatted correctly without making changes</li>
-<li>The glob pattern is identical to the one in the <code>format</code> command</li>
-<li>This is useful in CI/CD pipelines or to verify formatting without changing files</li>
-<li>It will exit with an error code if any files aren't properly formatted</li>
-</ul>
 <ol start="3">
+<li><code>"lint:check": "npx eslint \"{,src/**/}*.{ts,html,js}\"",</code></li>
+</ol>
+<p>This command runs ESLint to check for code quality issues without automatically fixing them:</p>
+<ul>
+<li>
+<p><code>npx eslint</code>: Runs ESLint from your node_modules</p>
+</li>
+<li>
+<p><code>\"{,src/**/}*.{ts,html,js}\"</code>: Similar glob pattern to other commands:</p>
+<ul>
+<li><code>{,src/**/}</code> means "the root directory and all directories/subdirectories inside src/"</li>
+<li><code>*.{ts,html,js}</code> means "any files with these extensions" (TypeScript, HTML, and JavaScript)</li>
+</ul>
+</li>
+<li>
+<p>Unlike <code>lint:all</code>, this command omits the <code>--fix</code> flag, so it only reports issues without attempting to fix them</p>
+</li>
+<li>
+<p>This is particularly useful for:</p>
+<ul>
+<li>Code review processes where you want to see all issues before fixing</li>
+<li>CI/CD pipelines where you want to fail the build if there are linting errors</li>
+<li>Local development when you want to review issues before applying fixes</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
 <li><code>"lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",</code></li>
 </ol>
 <p>This command runs ESLint to check for code quality issues and potential bugs:</p>

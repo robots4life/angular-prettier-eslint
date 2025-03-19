@@ -9,8 +9,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "prepare": "cd .. && husky app/.husky",
-    "format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",
     "format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",
+    "format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",
+    "lint:check": "npx eslint \"{,src/**/}*.{ts,html,js}\"",
     "lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",
     "fix": "npm run format && npm run lint:all"
   },
