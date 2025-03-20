@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:////home/user/.cursor/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
+      <link rel="stylesheet" href="file:////home/user/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -454,7 +454,24 @@ coverage
 
 <span class="token comment"># Ignore minified files</span>
 *.min.js
-</code></pre><h2 id="74-run-prettier-on-save">7.4 Run Prettier on Save </h2>
+
+<span class="token comment"># Ignore environment configuration files</span>
+<span class="token comment"># This is HIGHLY recommended because characters in passwords can get mangled by Prettier</span>
+.env
+
+<span class="token comment"># Optional</span>
+
+<span class="token comment"># Ignore all JSON data files</span>
+*.json
+
+<span class="token comment"># Ignore all Markdown files</span>
+*.md
+
+<span class="token comment"># Ignore all YAML configuration files</span>
+*.yaml
+*.yml
+</code></pre><p>Adjust this Prettier ignore file to your needs.</p>
+<h2 id="74-run-prettier-on-save">7.4 Run Prettier on Save </h2>
 <p><a target="_blank" href="https://code.visualstudio.com/api/ux-guidelines/command-palette">https://code.visualstudio.com/api/ux-guidelines/command-palette</a></p>
 <p>Open the VS Code Command Palette</p>
 <p><code>Ctrl + Shift + P</code></p>
@@ -593,7 +610,42 @@ coverage
 </code></pre><p>This line is important in the output.</p>
 <pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>Detected <span class="token builtin class-name">local</span> configuration <span class="token punctuation">(</span>i.e. .prettierrc or .editorconfig<span class="token punctuation">)</span>, VS Code configuration will not be used
 </code></pre><p>This means that the local <code>.prettierrc</code> file you created for the project is being used to format the code according to the rules in that file.</p>
-<h1 id="8-eslint">8. ESLint </h1>
+<h2 id="75-run-pettier-from-the-command-line">7.5 Run Pettier from the Command Line </h2>
+<p><a target="_blank" href="app/package.json">/app/package.json</a></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token string">"scripts"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+  <span class="token string">"format:check"</span><span class="token builtin class-name">:</span> <span class="token string">"prettier --check <span class="token entity" title="\&quot;">\"</span>{,src/**/}*.{ts,js,html,css,json,md}<span class="token entity" title="\&quot;">\"</span>"</span>,
+  <span class="token string">"format"</span><span class="token builtin class-name">:</span> <span class="token string">"prettier --write <span class="token entity" title="\&quot;">\"</span>{,src/**/}*.{ts,js,html,css,json,md}<span class="token entity" title="\&quot;">\"</span>"</span>,
+<span class="token punctuation">}</span>,
+</code></pre><p>I'll explain each of these script commands in detail:</p>
+<ol>
+<li><code>"format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",</code></li>
+</ol>
+<p>Similar to the first command, but instead of modifying files, it only checks if they are properly formatted:</p>
+<ul>
+<li><code>prettier --check</code>: Runs Prettier but only checks if files are formatted correctly without making changes</li>
+<li>The glob pattern is identical to the one in the <code>format</code> command</li>
+<li>This is useful in CI/CD pipelines or to verify formatting without changing files</li>
+<li>It will exit with an error code if any files aren't properly formatted</li>
+</ul>
+<ol start="2">
+<li><code>"format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",</code></li>
+</ol>
+<p>This command runs Prettier, a code formatter, to automatically format code files in your Angular project:</p>
+<ul>
+<li><code>prettier --write</code>: Runs Prettier and writes the formatting changes directly to the files</li>
+<li><code>\"{,src/**/}*.{ts,js,html,css,json,md}\"</code>: This is a glob pattern that defines which files to format:
+<ul>
+<li><code>{,src/**/}</code> means "the root directory and all directories/subdirectories inside src/"</li>
+<li><code>*.{ts,js,html,css,json,md}</code> means "any files with these extensions" (TypeScript, JavaScript, HTML, CSS, JSON, and Markdown)</li>
+</ul>
+</li>
+<li>When executed, this command will reformat all matching files according to Prettier's rules</li>
+</ul>
+<p>Run this command to check if any files need formatting without actually changing them.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> run format:check
+</code></pre><p>Run this command to format all files. This will modify the files in place. The logic in the command ensures that only files that need formatting are modified.</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> run <span class="token function">format</span>
+</code></pre><h1 id="8-eslint">8. ESLint </h1>
 <p><a target="_blank" href="https://eslint.org/">https://eslint.org/</a></p>
 <p>ESLint is used to find and fix problems in your JavaScript code.</p>
 <p>ESLint is one of the most popular and powerful linters for JavaScript and TypeScript!</p>
