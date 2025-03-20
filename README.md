@@ -734,7 +734,25 @@ coverage
 
 # Ignore minified files
 *.min.js
+
+# Ignore environment configuration files
+# This is HIGHLY recommended because characters in passwords can get mangled by Prettier
+.env
+
+# Optional
+
+# Ignore all JSON data files
+*.json
+
+# Ignore all Markdown files
+*.md
+
+# Ignore all YAML configuration files
+*.yaml
+*.yml
 ```
+
+Adjust this Prettier ignore file to your needs.
 
 ## 7.4 Run Prettier on Save
 
@@ -927,6 +945,50 @@ Detected local configuration (i.e. .prettierrc or .editorconfig), VS Code config
 ```
 
 This means that the local `.prettierrc` file you created for the project is being used to format the code according to the rules in that file.
+
+## 7.5 Run Pettier from the Command Line
+
+<a target="_blank" href="/app/package.json">/app/package.json</a>
+
+```shell
+"scripts": {
+  "format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",
+  "format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",
+},
+```
+
+I'll explain each of these script commands in detail:
+
+1. `"format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",`
+
+Similar to the first command, but instead of modifying files, it only checks if they are properly formatted:
+
+- `prettier --check`: Runs Prettier but only checks if files are formatted correctly without making changes
+- The glob pattern is identical to the one in the `format` command
+- This is useful in CI/CD pipelines or to verify formatting without changing files
+- It will exit with an error code if any files aren't properly formatted
+
+2. `"format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",`
+
+This command runs Prettier, a code formatter, to automatically format code files in your Angular project:
+
+- `prettier --write`: Runs Prettier and writes the formatting changes directly to the files
+- `\"{,src/**/}*.{ts,js,html,css,json,md}\"`: This is a glob pattern that defines which files to format:
+  - `{,src/**/}` means "the root directory and all directories/subdirectories inside src/"
+  - `*.{ts,js,html,css,json,md}` means "any files with these extensions" (TypeScript, JavaScript, HTML, CSS, JSON, and Markdown)
+- When executed, this command will reformat all matching files according to Prettier's rules
+
+Run this command to check if any files need formatting without actually changing them.
+
+```shell
+npm run format:check
+```
+
+Run this command to format all files. This will modify the files in place. The logic in the command ensures that only files that need formatting are modified.
+
+```shell
+npm run format
+```
 
 # 8. ESLint
 
