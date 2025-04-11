@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:////home/user/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
+      <link rel="stylesheet" href="file:////home/user/.cursor/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -43,6 +43,417 @@
 <p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://angular.dev/tools/cli">Angular CLI Overview and Command Reference</a> page.</p>
 <hr>
 </details>
+<h1 id="0-tldr">0. TLDR </h1>
+<p><strong>VS Code Settings</strong></p>
+<p><strong>.vscode/settings.json</strong></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"[typescript]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[html]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[javascript]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[json]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[css]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[scss]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"[markdown]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span><span class="token punctuation">,</span>
+    <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"editor.formatOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"prettier.requireConfig"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"prettier.useEditorConfig"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"editor.codeActionsOnSave"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"source.fixAll.eslint"</span><span class="token operator">:</span> <span class="token string">"always"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"cSpell.language"</span><span class="token operator">:</span> <span class="token string">"de-ch, en-gb"</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<p><strong>Cspell</strong></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> cspell@latest @cspell/dict-de-ch @cspell/dict-en-gb
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>cspell <span class="token function">link</span> <span class="token function">add</span> @cspell/dict-de-ch
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>cspell <span class="token function">link</span> <span class="token function">add</span> @cspell/dict-en-gb
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> list <span class="token parameter variable">-g</span> <span class="token parameter variable">--depth</span><span class="token operator">=</span><span class="token number">0</span>
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>├── @cspell/dict-de-ch@1.2.3
+├── @cspell/dict-en-gb@4.1.58
+└── cspell@8.17.5
+</code></pre><hr>
+<details>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> cspell@latest
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @cspell/dict-de-ch
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>cspell <span class="token function">link</span> <span class="token function">add</span> @cspell/dict-de-ch
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @cspell/dict-en-gb
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>cspell <span class="token function">link</span> <span class="token function">add</span> @cspell/dict-en-gb
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> list <span class="token parameter variable">-g</span> <span class="token parameter variable">--depth</span><span class="token operator">=</span><span class="token number">0</span>
+</code></pre></details>
+<hr>
+<p><strong>Prettier</strong></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> --save-dev prettier
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">touch</span> .prettierrc
+</code></pre><p><strong>.prettierrc</strong></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"printWidth"</span><span class="token operator">:</span> <span class="token number">240</span><span class="token punctuation">,</span>
+  <span class="token property">"singleQuote"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"useTabs"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"tabWidth"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  <span class="token property">"semi"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"bracketSpacing"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"indent_style"</span><span class="token operator">:</span> <span class="token string">"space"</span><span class="token punctuation">,</span>
+  <span class="token property">"bracketSameLine"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"arrowParens"</span><span class="token operator">:</span> <span class="token string">"always"</span><span class="token punctuation">,</span>
+  <span class="token property">"trailingComma"</span><span class="token operator">:</span> <span class="token string">"none"</span><span class="token punctuation">,</span>
+  <span class="token property">"singleAttributePerLine"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">touch</span> .prettierignore
+</code></pre><p><strong>.prettierignore</strong></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code># Ignore artifacts<span class="token operator">:</span>
+dist
+build
+coverage
+
+# Ignore all HTML files in the root
+*.html
+
+# Ignore minified files
+*.min.js
+
+# Ignore environment configuration files
+# This is HIGHLY recommended because characters in passwords will get mangled by Prettier
+.env
+
+# Optional
+
+# Ignore all JSON data files
+# *.json
+
+# Ignore all Markdown files
+# *.md
+
+# Ignore all YAML configuration files
+# *.yaml
+# *.yml
+</code></pre><hr>
+<p><strong>ESLint</strong></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code>ng <span class="token function">add</span> angular-eslint
+</code></pre><pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> --save-dev eslint-plugin-unused-imports eslint-plugin-import @stylistic/eslint-plugin
+</code></pre><p><strong>eslint.config.js</strong></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token comment">// https://github.com/robots4life/angular-prettier-eslint</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports">eslint</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"@eslint/js"</span><span class="token punctuation">;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token operator">*</span> <span class="token keyword module keyword-as">as</span> tseslint</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"typescript-eslint"</span><span class="token punctuation">;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token operator">*</span> <span class="token keyword module keyword-as">as</span> angular</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"angular-eslint"</span><span class="token punctuation">;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports">unusedImports</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"eslint-plugin-unused-imports"</span><span class="token punctuation">;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token operator">*</span> <span class="token keyword module keyword-as">as</span> importPlugin</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"eslint-plugin-import"</span><span class="token punctuation">;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports">stylistic</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"@stylistic/eslint-plugin"</span><span class="token punctuation">;</span>
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> tseslint<span class="token punctuation">.</span><span class="token method function property-access">config</span><span class="token punctuation">(</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">ignores</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">"**/node_modules/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/dist/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/coverage/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/e2e/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/.angular/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/.vscode/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/.github/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/documentation/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/tmp/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/*.min.js"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/*.umd.js"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/*.es5.js"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/karma.conf.cjs"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.ts"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      eslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">stylistic</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">tsRecommended</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">processor</span><span class="token operator">:</span> angular<span class="token punctuation">.</span><span class="token property-access">processInlineTemplates</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">"unused-imports"</span><span class="token operator">:</span> unusedImports<span class="token punctuation">,</span>
+      <span class="token keyword module keyword-import">import</span><span class="token operator">:</span> importPlugin<span class="token punctuation">,</span>
+      <span class="token string-property property">"@stylistic"</span><span class="token operator">:</span> stylistic<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">"@angular-eslint/directive-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"attribute"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"camelCase"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"@angular-eslint/component-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"element"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"kebab-case"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"no-unused-vars"</span><span class="token operator">:</span> <span class="token string">"off"</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"unused-imports/no-unused-imports"</span><span class="token operator">:</span> <span class="token string">"error"</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"unused-imports/no-unused-vars"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"warn"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">vars</span><span class="token operator">:</span> <span class="token string">"all"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">varsIgnorePattern</span><span class="token operator">:</span> <span class="token string">"^_"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">args</span><span class="token operator">:</span> <span class="token string">"after-used"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">argsIgnorePattern</span><span class="token operator">:</span> <span class="token string">"^_"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"no-useless-constructor"</span><span class="token operator">:</span> <span class="token string">"error"</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"@typescript-eslint/no-explicit-any"</span><span class="token operator">:</span> <span class="token string">"error"</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"sort-imports"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">ignoreCase</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">ignoreDeclarationSort</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">ignoreMemberSort</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">allowSeparatedGroups</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"import/order"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">groups</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">"builtin"</span><span class="token punctuation">,</span>
+            <span class="token string">"external"</span><span class="token punctuation">,</span>
+            <span class="token string">"internal"</span><span class="token punctuation">,</span>
+            <span class="token string">"parent"</span><span class="token punctuation">,</span>
+            <span class="token string">"sibling"</span><span class="token punctuation">,</span>
+            <span class="token string">"index"</span><span class="token punctuation">,</span>
+            <span class="token string">"object"</span><span class="token punctuation">,</span>
+            <span class="token string">"type"</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">named</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">pathGroups</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token literal-property property">pattern</span><span class="token operator">:</span> <span class="token string">"@angular/**"</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">group</span><span class="token operator">:</span> <span class="token string">"external"</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">position</span><span class="token operator">:</span> <span class="token string">"before"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">pathGroupsExcludedImportTypes</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"@angular/**"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">alphabetize</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">order</span><span class="token operator">:</span> <span class="token string">"asc"</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">caseInsensitive</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"newlines-between"</span><span class="token operator">:</span> <span class="token string">"always"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"@stylistic/lines-between-class-members"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token string">"always"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> <span class="token literal-property property">exceptAfterSingleLine</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.html"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateRecommended</span><span class="token punctuation">,</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateAccessibility</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><hr>
+<p><strong>eslint.config.js with comments</strong></p>
+<details>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token comment">// @ts-check</span>
+
+<span class="token comment">// Allows us to bring in the recommended core rules from eslint itself</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports">eslint</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"@eslint/js"</span><span class="token punctuation">;</span> <span class="token comment">// &lt;=== use import</span>
+
+<span class="token comment">// Allows us to use the typed utility for our config, and to bring in the recommended rules for TypeScript projects from typescript-eslint</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token operator">*</span> <span class="token keyword module keyword-as">as</span> tseslint</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"typescript-eslint"</span><span class="token punctuation">;</span> <span class="token comment">// &lt;=== use import</span>
+
+<span class="token comment">// Allows us to bring in the recommended rules for Angular projects from angular-eslint</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token operator">*</span> <span class="token keyword module keyword-as">as</span> angular</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"angular-eslint"</span><span class="token punctuation">;</span> <span class="token comment">// &lt;=== use import</span>
+
+<span class="token comment">// https://github.com/sweepline/eslint-plugin-unused-imports</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports">unusedImports</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"eslint-plugin-unused-imports"</span><span class="token punctuation">;</span>
+<span class="token comment">// https://github.com/import-js/eslint-plugin-import</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token operator">*</span> <span class="token keyword module keyword-as">as</span> importPlugin</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"eslint-plugin-import"</span><span class="token punctuation">;</span>
+<span class="token comment">// https://eslint.style/packages/default</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports">stylistic</span> <span class="token keyword module keyword-from">from</span> <span class="token string">"@stylistic/eslint-plugin"</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Export our config array, which is composed together thanks to the typed utility function from typescript-eslint</span>
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> tseslint<span class="token punctuation">.</span><span class="token method function property-access">config</span><span class="token punctuation">(</span>
+  <span class="token comment">// Define ignores to replace .eslintignore file</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">ignores</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">"**/node_modules/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/dist/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/coverage/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/e2e/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/.angular/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/.vscode/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/.github/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/documentation/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/tmp/**"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/*.min.js"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/*.umd.js"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/*.es5.js"</span><span class="token punctuation">,</span>
+      <span class="token string">"**/karma.conf.cjs"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// Everything in this config object targets our TypeScript files (Components, Directives, Pipes etc)</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.ts"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// https://typescript-eslint.io/getting-started#step-2-configuration</span>
+      <span class="token comment">// Apply the recommended core rules</span>
+      eslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token comment">// Apply the recommended TypeScript rules</span>
+      tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+      <span class="token comment">// Optionally apply stylistic rules from typescript-eslint that improve code consistency</span>
+      tseslint<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">stylistic</span><span class="token punctuation">,</span>
+      <span class="token comment">// https://github.com/angular-eslint/angular-eslint/blob/main/packages/angular-eslint/src/configs/README.md</span>
+      <span class="token comment">// Apply the recommended Angular rules</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">tsRecommended</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// Set the custom processor which will allow us to have our inline Component templates extracted</span>
+    <span class="token comment">// and treated as if they are HTML files (and therefore have the .html config below applied to them)</span>
+    <span class="token literal-property property">processor</span><span class="token operator">:</span> angular<span class="token punctuation">.</span><span class="token property-access">processInlineTemplates</span><span class="token punctuation">,</span>
+    <span class="token comment">// Override specific rules for TypeScript files (these will take priority over the extended configs above)</span>
+    <span class="token comment">// https://github.com/sweepline/eslint-plugin-unused-imports</span>
+    <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">"unused-imports"</span><span class="token operator">:</span> unusedImports<span class="token punctuation">,</span>
+      <span class="token keyword module keyword-import">import</span><span class="token operator">:</span> importPlugin<span class="token punctuation">,</span>
+      <span class="token string-property property">"@stylistic"</span><span class="token operator">:</span> stylistic<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">"@angular-eslint/directive-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"attribute"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"camelCase"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"@angular-eslint/component-selector"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"element"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">prefix</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">"kebab-case"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"no-unused-vars"</span><span class="token operator">:</span> <span class="token string">"off"</span><span class="token punctuation">,</span> <span class="token comment">// or "@typescript-eslint/no-unused-vars": "off",</span>
+      <span class="token string-property property">"unused-imports/no-unused-imports"</span><span class="token operator">:</span> <span class="token string">"error"</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"unused-imports/no-unused-vars"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"warn"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">vars</span><span class="token operator">:</span> <span class="token string">"all"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">varsIgnorePattern</span><span class="token operator">:</span> <span class="token string">"^_"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">args</span><span class="token operator">:</span> <span class="token string">"after-used"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">argsIgnorePattern</span><span class="token operator">:</span> <span class="token string">"^_"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"no-useless-constructor"</span><span class="token operator">:</span> <span class="token string">"error"</span><span class="token punctuation">,</span>
+      <span class="token comment">// turn off no-explicit-any for prod build, during development we want to flag any as error</span>
+      <span class="token string-property property">"@typescript-eslint/no-explicit-any"</span><span class="token operator">:</span> <span class="token string">"error"</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"sort-imports"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">ignoreCase</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">ignoreDeclarationSort</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">ignoreMemberSort</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">allowSeparatedGroups</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token comment">// https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md</span>
+      <span class="token string-property property">"import/order"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">groups</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token string">"builtin"</span><span class="token punctuation">,</span>
+            <span class="token string">"external"</span><span class="token punctuation">,</span>
+            <span class="token string">"internal"</span><span class="token punctuation">,</span>
+            <span class="token string">"parent"</span><span class="token punctuation">,</span>
+            <span class="token string">"sibling"</span><span class="token punctuation">,</span>
+            <span class="token string">"index"</span><span class="token punctuation">,</span>
+            <span class="token string">"object"</span><span class="token punctuation">,</span>
+            <span class="token string">"type"</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">named</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">pathGroups</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token literal-property property">pattern</span><span class="token operator">:</span> <span class="token string">"@angular/**"</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">group</span><span class="token operator">:</span> <span class="token string">"external"</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">position</span><span class="token operator">:</span> <span class="token string">"before"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">pathGroupsExcludedImportTypes</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"@angular/**"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">alphabetize</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">order</span><span class="token operator">:</span> <span class="token string">"asc"</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">caseInsensitive</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token string-property property">"newlines-between"</span><span class="token operator">:</span> <span class="token string">"always"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token comment">// https://eslint.style/rules/default/lines-between-class-members</span>
+      <span class="token comment">// Enforce newlines between class methods</span>
+      <span class="token string-property property">"@stylistic/lines-between-class-members"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token string">"always"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> <span class="token literal-property property">exceptAfterSingleLine</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// Everything in this config object targets our HTML files (external templates,</span>
+    <span class="token comment">// and inline templates as long as we have the `processor` set on our TypeScript config above)</span>
+    <span class="token literal-property property">files</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"**/*.html"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword keyword-extends">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// Apply the recommended Angular template rules</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateRecommended</span><span class="token punctuation">,</span>
+      <span class="token comment">// Apply the Angular template rules which focus on accessibility of our apps</span>
+      <span class="token spread operator">...</span>angular<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">templateAccessibility</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></details>
+<hr>
+<p><strong>package.json</strong></p>
+<p><strong>Scripts</strong></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+  <span class="token property">"format:check"</span><span class="token operator">:</span> <span class="token string">"prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
+  <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
+  <span class="token property">"lint:check"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\""</span><span class="token punctuation">,</span>
+  <span class="token property">"lint:all"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\" --fix"</span><span class="token punctuation">,</span>
+  <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format &amp;&amp; npm run lint:all"</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre><p><strong>Module</strong></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code>  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"module"</span>
+
+<span class="token punctuation">}</span>
+</code></pre><p>🎉</p>
+<hr>
 <h1 id="1-angular-prettier-eslint">1. Angular Prettier Eslint </h1>
 <p>This project aims to provide sane defaults with regards to using Prettier and Eslint when working with Angular in a team.</p>
 <p><a target="_blank" href="https://prettier.io/">https://prettier.io/</a></p>
@@ -236,7 +647,9 @@ user@userbox  ~  <span class="token function">npm</span> list <span class=
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </code></pre><p>Update this file if you remove globally installed dictionaries as you will otherwise try to import a dictionary that is not installed and that will lead to an error.</p>
-<hr>
+<p>In order for both of the dictionaries to be enabled in the workspace of your app add this to your <a target="_blank" href="app/.vscode/settings.json">/app/.vscode/settings.json</a> file.</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token property">"cSpell.language"</span><span class="token operator">:</span> <span class="token string">"de-ch, en-gb"</span>
+</code></pre><hr>
 <p><a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator">https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator</a></p>
 <p><strong>Name: Indenticator</strong></p>
 <p>Id: SirTori.indenticator</p>
@@ -1134,7 +1547,14 @@ module<span class="token punctuation">.</span><span class="token property-access
 <p><a target="_blank" href="https://github.com/code-pushup/eslint-config">https://github.com/code-pushup/eslint-config</a></p>
 <p>While the AirBnB config is more geared towards <strong>JavaScript and React</strong> the <strong>Code PushUp config is geared particularly for Angular</strong>.</p>
 <p>Of course your team and you can also configure your own linting rules over the course of a project.</p>
-<h1 id="9-husky">9. Husky </h1>
+<h2 id="86-additional-eslint-rules">8.6 Additional ESLint Rules </h2>
+<p><a target="_blank" href="https://github.com/sweepline/eslint-plugin-unused-imports">https://github.com/sweepline/eslint-plugin-unused-imports</a></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> --save-dev eslint-plugin-unused-imports
+</code></pre><p><a target="_blank" href="https://github.com/import-js/eslint-plugin-import">https://github.com/import-js/eslint-plugin-import</a></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> --save-dev eslint-plugin-import
+</code></pre><p><a target="_blank" href="https://eslint.style/packages/default">https://eslint.style/packages/default</a></p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell shell"><code><span class="token function">npm</span> <span class="token function">install</span> --save-dev @stylistic/eslint-plugin
+</code></pre><h1 id="9-husky">9. Husky </h1>
 <p><a href="https://typicode.github.io/husky/">https://typicode.github.io/husky/</a></p>
 <p>Husky enhances your commits and more 🐶 woof!</p>
 <p>Automatically lint your commit messages, code, and run tests upon committing or pushing.</p>
