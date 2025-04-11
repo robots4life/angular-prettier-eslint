@@ -36,6 +36,511 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 </details>
 
+# 0. TLDR
+
+**VS Code Settings**
+
+**.vscode/settings.json**
+
+```json
+{
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnSave": true,
+  "prettier.requireConfig": true,
+  "prettier.useEditorConfig": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "cSpell.language": "de-ch, en-gb"
+}
+```
+
+---
+
+**Cspell**
+
+```shell
+npm install -g cspell@latest @cspell/dict-de-ch @cspell/dict-en-gb
+```
+
+```shell
+cspell link add @cspell/dict-de-ch
+```
+
+```shell
+cspell link add @cspell/dict-en-gb
+```
+
+```shell
+npm list -g --depth=0
+```
+
+```shell
+├── @cspell/dict-de-ch@1.2.3
+├── @cspell/dict-en-gb@4.1.58
+└── cspell@8.17.5
+```
+
+---
+
+<details>
+
+```shell
+npm install -g cspell@latest
+```
+
+```shell
+npm install -g @cspell/dict-de-ch
+```
+
+```shell
+cspell link add @cspell/dict-de-ch
+```
+
+```shell
+npm install -g @cspell/dict-en-gb
+```
+
+```shell
+cspell link add @cspell/dict-en-gb
+```
+
+```shell
+npm list -g --depth=0
+```
+
+</details>
+
+---
+
+**Prettier**
+
+```shell
+npm install --save-dev prettier
+```
+
+```shell
+touch .prettierrc
+```
+
+**.prettierrc**
+
+```json
+{
+  "printWidth": 240,
+  "singleQuote": true,
+  "useTabs": false,
+  "tabWidth": 2,
+  "semi": true,
+  "bracketSpacing": true,
+  "indent_style": "space",
+  "bracketSameLine": true,
+  "arrowParens": "always",
+  "trailingComma": "none",
+  "singleAttributePerLine": true
+}
+```
+
+```shell
+touch .prettierignore
+```
+
+**.prettierignore**
+
+```json
+# Ignore artifacts:
+dist
+build
+coverage
+
+# Ignore all HTML files in the root
+*.html
+
+# Ignore minified files
+*.min.js
+
+# Ignore environment configuration files
+# This is HIGHLY recommended because characters in passwords will get mangled by Prettier
+.env
+
+# Optional
+
+# Ignore all JSON data files
+# *.json
+
+# Ignore all Markdown files
+# *.md
+
+# Ignore all YAML configuration files
+# *.yaml
+# *.yml
+```
+
+---
+
+**ESLint**
+
+```shell
+ng add angular-eslint
+```
+
+```shell
+npm install --save-dev eslint-plugin-unused-imports eslint-plugin-import @stylistic/eslint-plugin
+```
+
+**eslint.config.js**
+
+```js
+// https://github.com/robots4life/angular-prettier-eslint
+import eslint from "@eslint/js";
+import * as tseslint from "typescript-eslint";
+import * as angular from "angular-eslint";
+import unusedImports from "eslint-plugin-unused-imports";
+import * as importPlugin from "eslint-plugin-import";
+import stylistic from "@stylistic/eslint-plugin";
+export default tseslint.config(
+  {
+    ignores: [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/coverage/**",
+      "**/e2e/**",
+      "**/.angular/**",
+      "**/.vscode/**",
+      "**/.github/**",
+      "**/documentation/**",
+      "**/tmp/**",
+      "**/*.min.js",
+      "**/*.umd.js",
+      "**/*.es5.js",
+      "**/karma.conf.cjs",
+    ],
+  },
+  {
+    files: ["**/*.ts"],
+    extends: [
+      eslint.configs.recommended,
+      tseslint.configs.recommended,
+      tseslint.configs.stylistic,
+      ...angular.configs.tsRecommended,
+    ],
+    processor: angular.processInlineTemplates,
+    plugins: {
+      "unused-imports": unusedImports,
+      import: importPlugin,
+      "@stylistic": stylistic,
+    },
+    rules: {
+      "@angular-eslint/directive-selector": [
+        "error",
+        {
+          type: "attribute",
+          prefix: "app",
+          style: "camelCase",
+        },
+      ],
+      "@angular-eslint/component-selector": [
+        "error",
+        {
+          type: "element",
+          prefix: "app",
+          style: "kebab-case",
+        },
+      ],
+      "no-unused-vars": "off",
+      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-vars": [
+        "warn",
+        {
+          vars: "all",
+          varsIgnorePattern: "^_",
+          args: "after-used",
+          argsIgnorePattern: "^_",
+        },
+      ],
+      "no-useless-constructor": "error",
+      "@typescript-eslint/no-explicit-any": "error",
+      "sort-imports": [
+        "error",
+        {
+          ignoreCase: true,
+          ignoreDeclarationSort: true,
+          ignoreMemberSort: true,
+          allowSeparatedGroups: true,
+        },
+      ],
+      "import/order": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+            "object",
+            "type",
+          ],
+          named: true,
+          pathGroups: [
+            {
+              pattern: "@angular/**",
+              group: "external",
+              position: "before",
+            },
+          ],
+          pathGroupsExcludedImportTypes: ["@angular/**"],
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+          "newlines-between": "always",
+        },
+      ],
+      "@stylistic/lines-between-class-members": [
+        "error",
+        "always",
+        { exceptAfterSingleLine: true },
+      ],
+    },
+  },
+  {
+    files: ["**/*.html"],
+    extends: [
+      ...angular.configs.templateRecommended,
+      ...angular.configs.templateAccessibility,
+    ],
+    rules: {},
+  }
+);
+```
+
+---
+
+**eslint.config.js with comments**
+
+<details>
+
+```js
+// @ts-check
+
+// Allows us to bring in the recommended core rules from eslint itself
+import eslint from "@eslint/js"; // <=== use import
+
+// Allows us to use the typed utility for our config, and to bring in the recommended rules for TypeScript projects from typescript-eslint
+import * as tseslint from "typescript-eslint"; // <=== use import
+
+// Allows us to bring in the recommended rules for Angular projects from angular-eslint
+import * as angular from "angular-eslint"; // <=== use import
+
+// https://github.com/sweepline/eslint-plugin-unused-imports
+import unusedImports from "eslint-plugin-unused-imports";
+// https://github.com/import-js/eslint-plugin-import
+import * as importPlugin from "eslint-plugin-import";
+// https://eslint.style/packages/default
+import stylistic from "@stylistic/eslint-plugin";
+
+// Export our config array, which is composed together thanks to the typed utility function from typescript-eslint
+export default tseslint.config(
+  // Define ignores to replace .eslintignore file
+  {
+    ignores: [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/coverage/**",
+      "**/e2e/**",
+      "**/.angular/**",
+      "**/.vscode/**",
+      "**/.github/**",
+      "**/documentation/**",
+      "**/tmp/**",
+      "**/*.min.js",
+      "**/*.umd.js",
+      "**/*.es5.js",
+      "**/karma.conf.cjs",
+    ],
+  },
+  {
+    // Everything in this config object targets our TypeScript files (Components, Directives, Pipes etc)
+    files: ["**/*.ts"],
+    extends: [
+      // https://typescript-eslint.io/getting-started#step-2-configuration
+      // Apply the recommended core rules
+      eslint.configs.recommended,
+      // Apply the recommended TypeScript rules
+      tseslint.configs.recommended,
+      // Optionally apply stylistic rules from typescript-eslint that improve code consistency
+      tseslint.configs.stylistic,
+      // https://github.com/angular-eslint/angular-eslint/blob/main/packages/angular-eslint/src/configs/README.md
+      // Apply the recommended Angular rules
+      ...angular.configs.tsRecommended,
+    ],
+    // Set the custom processor which will allow us to have our inline Component templates extracted
+    // and treated as if they are HTML files (and therefore have the .html config below applied to them)
+    processor: angular.processInlineTemplates,
+    // Override specific rules for TypeScript files (these will take priority over the extended configs above)
+    // https://github.com/sweepline/eslint-plugin-unused-imports
+    plugins: {
+      "unused-imports": unusedImports,
+      import: importPlugin,
+      "@stylistic": stylistic,
+    },
+    rules: {
+      "@angular-eslint/directive-selector": [
+        "error",
+        {
+          type: "attribute",
+          prefix: "app",
+          style: "camelCase",
+        },
+      ],
+      "@angular-eslint/component-selector": [
+        "error",
+        {
+          type: "element",
+          prefix: "app",
+          style: "kebab-case",
+        },
+      ],
+      "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-vars": [
+        "warn",
+        {
+          vars: "all",
+          varsIgnorePattern: "^_",
+          args: "after-used",
+          argsIgnorePattern: "^_",
+        },
+      ],
+      "no-useless-constructor": "error",
+      // turn off no-explicit-any for prod build, during development we want to flag any as error
+      "@typescript-eslint/no-explicit-any": "error",
+      "sort-imports": [
+        "error",
+        {
+          ignoreCase: true,
+          ignoreDeclarationSort: true,
+          ignoreMemberSort: true,
+          allowSeparatedGroups: true,
+        },
+      ],
+      // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md
+      "import/order": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+            "object",
+            "type",
+          ],
+          named: true,
+          pathGroups: [
+            {
+              pattern: "@angular/**",
+              group: "external",
+              position: "before",
+            },
+          ],
+          pathGroupsExcludedImportTypes: ["@angular/**"],
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+          "newlines-between": "always",
+        },
+      ],
+      // https://eslint.style/rules/default/lines-between-class-members
+      // Enforce newlines between class methods
+      "@stylistic/lines-between-class-members": [
+        "error",
+        "always",
+        { exceptAfterSingleLine: true },
+      ],
+    },
+  },
+  {
+    // Everything in this config object targets our HTML files (external templates,
+    // and inline templates as long as we have the `processor` set on our TypeScript config above)
+    files: ["**/*.html"],
+    extends: [
+      // Apply the recommended Angular template rules
+      ...angular.configs.templateRecommended,
+      // Apply the Angular template rules which focus on accessibility of our apps
+      ...angular.configs.templateAccessibility,
+    ],
+    rules: {},
+  }
+);
+```
+
+</details>
+
+---
+
+**package.json**
+
+**Scripts**
+
+```json
+"scripts": {
+
+  "format:check": "prettier --check \"{,src/**/}*.{ts,js,html,css,json,md}\"",
+  "format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",
+  "lint:check": "npx eslint \"{,src/**/}*.{ts,html,js}\"",
+  "lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",
+  "fix": "npm run format && npm run lint:all"
+
+},
+```
+
+**Module**
+
+```json
+  },
+
+  "type": "module"
+
+}
+```
+
+:tada:
+
+---
+
 # 1. Angular Prettier Eslint
 
 This project aims to provide sane defaults with regards to using Prettier and Eslint when working with Angular in a team.
@@ -413,6 +918,12 @@ On Linux you can check the `~/.config/cspell/cspell.json` file for a list of imp
 ```
 
 Update this file if you remove globally installed dictionaries as you will otherwise try to import a dictionary that is not installed and that will lead to an error.
+
+In order for both of the dictionaries to be enabled in the workspace of your app add this to your <a target="_blank" href="/app/.vscode/settings.json">/app/.vscode/settings.json</a> file.
+
+```json
+"cSpell.language": "de-ch, en-gb"
+```
 
 ---
 
@@ -1603,6 +2114,26 @@ There are two contenders in this space.
 While the AirBnB config is more geared towards **JavaScript and React** the **Code PushUp config is geared particularly for Angular**.
 
 Of course your team and you can also configure your own linting rules over the course of a project.
+
+## 8.6 Additional ESLint Rules
+
+<a target="_blank" href="https://github.com/sweepline/eslint-plugin-unused-imports">https://github.com/sweepline/eslint-plugin-unused-imports</a>
+
+```shell
+npm install --save-dev eslint-plugin-unused-imports
+```
+
+<a target="_blank" href="https://github.com/import-js/eslint-plugin-import">https://github.com/import-js/eslint-plugin-import</a>
+
+```shell
+npm install --save-dev eslint-plugin-import
+```
+
+<a target="_blank" href="https://eslint.style/packages/default">https://eslint.style/packages/default</a>
+
+```shell
+npm install --save-dev @stylistic/eslint-plugin
+```
 
 # 9. Husky
 

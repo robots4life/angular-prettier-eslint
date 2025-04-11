@@ -29,5 +29,9 @@
   },
   "editor.formatOnSave": true,
   "prettier.requireConfig": true,
-  "prettier.useEditorConfig": false
+  "prettier.useEditorConfig": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "cSpell.language": "en-gb, de-ch"
 }
