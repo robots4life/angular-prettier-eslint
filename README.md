@@ -181,7 +181,7 @@ build
 coverage
 
 # Ignore all HTML files in the root
-*.html
+src/index.html
 
 # Ignore minified files
 *.min.js
@@ -1241,26 +1241,26 @@ build
 coverage
 
 # Ignore all HTML files in the root
-/*.html
+src/index.html
 
 # Ignore minified files
 *.min.js
 
 # Ignore environment configuration files
-# This is HIGHLY recommended because characters in passwords can get mangled by Prettier
+# This is HIGHLY recommended because characters in passwords will get mangled by Prettier
 .env
 
 # Optional
 
 # Ignore all JSON data files
-*.json
+# *.json
 
 # Ignore all Markdown files
-*.md
+# *.md
 
 # Ignore all YAML configuration files
-*.yaml
-*.yml
+# *.yaml
+# *.yml
 ```
 
 Adjust this Prettier ignore file to your needs.
