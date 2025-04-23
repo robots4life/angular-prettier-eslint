@@ -557,7 +557,7 @@ You need to have Node installed locally and available on your terminal.
 
 :bulb:
 
-To easily install Node and to switch between installed versions of Node **at ease** use just use **nvm**.
+To easily install Node and to switch between installed versions of Node **at ease** just use **nvm**.
 
 <a target="_blank" href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a>
 
