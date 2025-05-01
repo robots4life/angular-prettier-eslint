@@ -276,6 +276,15 @@ export default tseslint.config(
         },
       ],
       "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          vars: "all",
+          varsIgnorePattern: "^_",
+          args: "after-used",
+          argsIgnorePattern: "^_",
+        },
+      ],
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
         "warn",
@@ -432,6 +441,20 @@ export default tseslint.config(
         },
       ],
       "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+
+      // Configure @typescript-eslint/no-unused-vars to match unused-imports/no-unused-vars
+      // This ensures both rules use the same pattern for ignoring variables with underscore prefix
+      // and prevents conflicting linting errors
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          vars: "all",
+          varsIgnorePattern: "^_",
+          args: "after-used",
+          argsIgnorePattern: "^_",
+        },
+      ],
+
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
         "warn",
