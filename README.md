@@ -523,7 +523,7 @@ export default tseslint.config(
   "format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",
   "lint:check": "npx eslint \"{,src/**/}*.{ts,html,js}\"",
   "lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",
-  "fix": "npm run format && npm run lint:all"
+  "fix": "npm run format; npm run lint:all"
 
 },
 ```
@@ -2514,7 +2514,7 @@ export default tseslint.config(
     "format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",
     "lint:check": "npx eslint \"{,src/**/}*.{ts,html,js}\"",
     "lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",
-    "fix": "npm run format && npm run lint:all"
+    "fix": "npm run format; npm run lint:all"
   },
   "private": true,
   "dependencies": {
@@ -2570,7 +2570,7 @@ export default tseslint.config(
     "format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",
     "lint:check": "npx eslint \"{,src/**/}*.{ts,html,js}\"",
     "lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",
-    "fix": "npm run format && npm run lint:all"
+    "fix": "npm run format; npm run lint:all"
   },
   "private": true,
   "dependencies": {
@@ -2693,7 +2693,7 @@ Change the on-demand npm script so that they have a more detailed scope for the 
     "format": "prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\"",
     "lint:check": "npx eslint \"{,src/**/}*.{ts,html,js}\"",
     "lint:all": "npx eslint \"{,src/**/}*.{ts,html,js}\" --fix",
-    "fix": "npm run format && npm run lint:all"
+    "fix": "npm run format; npm run lint:all"
   },
 ```
 

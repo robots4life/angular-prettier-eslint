@@ -444,7 +444,7 @@ src/index.html
   <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
   <span class="token property">"lint:check"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\""</span><span class="token punctuation">,</span>
   <span class="token property">"lint:all"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\" --fix"</span><span class="token punctuation">,</span>
-  <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format &amp;&amp; npm run lint:all"</span>
+  <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format; npm run lint:all"</span>
 
 <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </code></pre><p><strong>Module</strong></p>
@@ -1842,7 +1842,7 @@ module<span class="token punctuation">.</span><span class="token property-access
     <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
     <span class="token property">"lint:check"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\""</span><span class="token punctuation">,</span>
     <span class="token property">"lint:all"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\" --fix"</span><span class="token punctuation">,</span>
-    <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format &amp;&amp; npm run lint:all"</span>
+    <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format; npm run lint:all"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
   <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -1894,7 +1894,7 @@ module<span class="token punctuation">.</span><span class="token property-access
     <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
     <span class="token property">"lint:check"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\""</span><span class="token punctuation">,</span>
     <span class="token property">"lint:all"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\" --fix"</span><span class="token punctuation">,</span>
-    <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format &amp;&amp; npm run lint:all"</span>
+    <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format; npm run lint:all"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
   <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -1980,7 +1980,7 @@ npx lint-staged
     <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"prettier --write \"{,src/**/}*.{ts,js,html,css,json,md}\""</span><span class="token punctuation">,</span>
     <span class="token property">"lint:check"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\""</span><span class="token punctuation">,</span>
     <span class="token property">"lint:all"</span><span class="token operator">:</span> <span class="token string">"npx eslint \"{,src/**/}*.{ts,html,js}\" --fix"</span><span class="token punctuation">,</span>
-    <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format &amp;&amp; npm run lint:all"</span>
+    <span class="token property">"fix"</span><span class="token operator">:</span> <span class="token string">"npm run format; npm run lint:all"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </code></pre><p>I'll explain each of these script commands in detail:</p>
 <ol>
