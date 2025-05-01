@@ -210,6 +210,15 @@ src/index.html
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
       <span class="token punctuation">]</span><span class="token punctuation">,</span>
       <span class="token string-property property">"no-unused-vars"</span><span class="token operator">:</span> <span class="token string">"off"</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"@typescript-eslint/no-unused-vars"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">vars</span><span class="token operator">:</span> <span class="token string">"all"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">varsIgnorePattern</span><span class="token operator">:</span> <span class="token string">"^_"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">args</span><span class="token operator">:</span> <span class="token string">"after-used"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">argsIgnorePattern</span><span class="token operator">:</span> <span class="token string">"^_"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
       <span class="token string-property property">"unused-imports/no-unused-imports"</span><span class="token operator">:</span> <span class="token string">"error"</span><span class="token punctuation">,</span>
       <span class="token string-property property">"unused-imports/no-unused-vars"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
         <span class="token string">"warn"</span><span class="token punctuation">,</span>
@@ -360,6 +369,20 @@ src/index.html
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
       <span class="token punctuation">]</span><span class="token punctuation">,</span>
       <span class="token string-property property">"no-unused-vars"</span><span class="token operator">:</span> <span class="token string">"off"</span><span class="token punctuation">,</span> <span class="token comment">// or "@typescript-eslint/no-unused-vars": "off",</span>
+
+      <span class="token comment">// Configure @typescript-eslint/no-unused-vars to match unused-imports/no-unused-vars</span>
+      <span class="token comment">// This ensures both rules use the same pattern for ignoring variables with underscore prefix</span>
+      <span class="token comment">// and prevents conflicting linting errors</span>
+      <span class="token string-property property">"@typescript-eslint/no-unused-vars"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"error"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">vars</span><span class="token operator">:</span> <span class="token string">"all"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">varsIgnorePattern</span><span class="token operator">:</span> <span class="token string">"^_"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">args</span><span class="token operator">:</span> <span class="token string">"after-used"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">argsIgnorePattern</span><span class="token operator">:</span> <span class="token string">"^_"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
       <span class="token string-property property">"unused-imports/no-unused-imports"</span><span class="token operator">:</span> <span class="token string">"error"</span><span class="token punctuation">,</span>
       <span class="token string-property property">"unused-imports/no-unused-vars"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
         <span class="token string">"warn"</span><span class="token punctuation">,</span>
