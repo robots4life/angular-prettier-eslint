@@ -164,7 +164,8 @@ touch .prettierrc
   "bracketSameLine": true,
   "arrowParens": "always",
   "trailingComma": "none",
-  "singleAttributePerLine": true
+  "singleAttributePerLine": true,
+  "html.format.wrapAttributes": "force-aligned"
 }
 ```
 
@@ -1214,7 +1215,8 @@ Add this configuration to the `.prettierrc` file.
   "bracketSameLine": true,
   "arrowParens": "always",
   "trailingComma": "none",
-  "singleAttributePerLine": true
+  "singleAttributePerLine": true,
+  "html.format.wrapAttributes": "force-aligned"
 }
 ```
 
